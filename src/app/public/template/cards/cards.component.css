@@ -1,0 +1,18 @@
+.card {
+    box-shadow:  6px  6px 20px #ccdaec,
+                -6px -6px 20px #f3ffff;
+  @apply w-80 m-5 px-10 py-8 flex flex-wrap justify-center rounded-3xl;  
+}
+.card:hover {
+    box-shadow:inset -6px -6px 20px #c3d0e2,
+               inset  6px  6px 20px #eafaff;
+}
+h2 { 
+    @apply tracking-wider font-black mt-5 text-blue-600;
+}
+.no-seleccionable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}

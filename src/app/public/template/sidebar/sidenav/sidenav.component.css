@@ -1,0 +1,116 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.example-accordion {
+  display: block;
+  max-width: 500px;
+}
+
+.example-accordion-item {
+  display: block;
+  border: solid 1px #ccc;
+}
+
+.example-accordion-item + .example-accordion-item {
+  border-top: none;
+}
+
+.example-accordion-item-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.example-accordion-item-description {
+  font-size: 0.85em;
+  color: #999;
+}
+
+.example-accordion-item-header,
+.example-accordion-item-body {
+  padding: 16px;
+}
+
+.example-accordion-item-header:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.example-accordion-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.example-accordion-item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.card {
+    box-shadow: -6px -6px -20px rgba(255,255,255,1),
+                6px 6px 20px rgba(0,0,0,0.1);
+}
+
+mat-expansion-panel, mat-menu-content {
+  @apply bg-blue-900;
+}
+mat-panel-title {
+  @apply text-blue-100 font-medium tracking-wide;
+}
+.mat-menu-item {
+  color: blue !important;
+}
+
+button.mat-button{
+  @apply text-blue-100  font-medium;
+}
+
+button.mat-menu-item, a.mat-menu-item {
+    @apply bg-blue-100 font-medium cursor-pointer;
+    -webkit-box-shadow: inset 0px 0px 7px 6px #FFFFFF; 
+box-shadow: inset 0px 0px 7px 6px #FFFFFF;
+}
+
+button.mat-menu-item:hover, a.mat-menu-item:hover  {
+    @apply bg-blue-300 ;
+    color: #fff !important;
+}
+
+div.mat-menu-content {
+ background-color:red !important;
+}
+div.max-list-text {
+  @apply text-red-500;
+}
+
+::ng-deep .mat-list-item-content {
+  @apply text-blue-100 text-sm font-medium;
+}
