@@ -8,7 +8,7 @@
                inset  6px  6px 20px #eafaff;
 }
 h2 { 
-    @apply tracking-wider font-black mt-5 text-blue-600;
+    @apply tracking-wider font-black mt-5 text-blue-600 text-center;
 }
 .no-seleccionable {
     -webkit-user-select: none;

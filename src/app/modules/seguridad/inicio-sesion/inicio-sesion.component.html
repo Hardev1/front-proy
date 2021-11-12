@@ -1,16 +1,33 @@
-<div class="body">
+<img src="./../../../../assets//img/login-background.png" class="background" alt="" srcset="">
+<div class="container">
+  <form class="login" [formGroup]="form">
+    <h1 class="inicio-s">Iniciar sesión</h1>
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="usuario" type="text" class="label">Usuario</mat-label>
+      <input matInput formControlName="username" name="usuario" autocomplete="off">
+    </mat-form-field>
 
-    <div class="login">
-        <h1 class="h3 mb-3 fw-normal">Login</h1>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Usuario</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Contraseña</mat-label>
-            <input matInput>
-          </mat-form-field>
-          <br>
-          <button class="ancho" mat-raised-button mat-button color="primary">Primary</button>
-    </div>
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="contraseña" class="label">Contraseña</mat-label>
+      <input matInput formControlName="password" name="contraseña" type="password">
+    </mat-form-field>
+
+    <mat-form-field class="ancho mb-3" appearance="fill">
+      <mat-label>Selecciona tu Rol</mat-label>
+      <mat-select formControlName="rol" name="rol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let r of recordList" value="{{r._id}}">
+          {{r.nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="GetForm['rol'].errors">Por favor, selecciona un rol</mat-error>
+      <mat-hint>ñiiiiihihihihahahahaha</mat-hint>
+    </mat-form-field>
+
+    <br>
+    <a routerLink="../../seguridad/recuperar-contra" class="forgot">¿Olvidaste la contraseña?</a>
+    <br>
+    <button type="submit" class="ancho sign-in" (click)="Login()" (click)="openDialog()"
+      [disabled]="GetForm['username'].errors || GetForm['password'].errors">Ingresar</button>
+  </form>
 </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import {ModalEliminarComponent} from '../../shared/components/modals/alert/modal-eliminar.component';
 
 @Component({
   selector: 'app-eliminar-invitacion-ev',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EliminarInvitacionEvComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  openDialog() {
+    this.dialog.open(ModalEliminarComponent);
+  }
 
   ngOnInit(): void {
   }

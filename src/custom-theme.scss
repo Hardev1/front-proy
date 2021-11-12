@@ -12,7 +12,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$proy-ev-front-primary: mat.define-palette(mat.$light-blue-palette);
+$proy-ev-front-primary: mat.define-palette(mat.$blue-palette);
 $proy-ev-front-accent: mat.define-palette(mat.$indigo-palette, A700, A100, A400);
 // The warn palette is optional (defaults to red).
 $proy-ev-front-warn: mat.define-palette(mat.$red-palette);

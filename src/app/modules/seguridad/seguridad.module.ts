@@ -7,6 +7,7 @@ import { RecuperarContraComponent } from './recuperar-contra/recuperar-contra.co
 import { CambiarContraComponent } from './cambiar-contra/cambiar-contra.component';
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { SharedModule } from '../../modules/shared/shared.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { SharedModule } from '../../modules/shared/shared.module'
   imports: [
     CommonModule,
     SeguridadRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SeguridadModule { }

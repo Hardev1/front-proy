@@ -1,16 +1,17 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar bg-blue-900">
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon class="text-white">menu</mat-icon>
+    <button *ngIf="sesion" mat-icon-button (click)="snav.toggle()">
+      <mat-icon class="text-white hover:text-blue-400 hover:scale-125 duration-200">menu</mat-icon>
     </button>
     <h1 class="example-app-name text-white">Validaciones <span class="text-indigo-500">U</span>caldas</h1>
+    <button *ngIf="!sesion" routerLink="seguridad/inicio-sesion" class="login" mat-menu-item>Iniciar sesion</button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="bg-blue-900" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <button mat-button [matMenuTriggerFor]="animals">Parametrizar</button>
-      <mat-menu style="color:brown;" #animals="matMenu">
+      <button mat-button [matMenuTriggerFor]="parametrizar">Parametrizar</button>
+      <mat-menu style="color:brown;" #parametrizar="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="comite" disabled>Comite</button>
         <button mat-menu-item [matMenuTriggerFor]="departamento">Departamento</button>
         <button mat-menu-item [matMenuTriggerFor]="estadoSolicitud">Estado de solicitud</button>
@@ -32,7 +33,7 @@
         <a routerLink="parametros/eliminar" mat-menu-item>Eliminar comite</a>
       </mat-menu>
       <mat-menu #departamento="matMenu">
-        <button class="z-50" (click)="prueba()" mat-menu-item>Listar departamentos</button>
+        <button (click)="prueba()" mat-menu-item>Listar departamentos</button>
         <a routerLink="parametros/crear-departamento" mat-menu-item>Crear departamento</a>
         <a routerLink="parametros/actualizar-departamento" mat-menu-item>Actualizar departamento</a>
         <a routerLink="parametros/eliminar-departamento" mat-menu-item>Eliminar departamento</a>
@@ -170,8 +171,6 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="flex justify-center items-center bg-white w-full h-full">
-      <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
-      <!-- <app-cards class="text-center items-center w-full"></app-cards> -->
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

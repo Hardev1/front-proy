@@ -14,6 +14,7 @@ import { InvitacionEvaluarModule } from './modules/invitacion-evaluar/invitacion
 import { ListarComiteComponent } from './modules/parametros/comite/listar-comite/listar-comite.component';
 import { SidenavComponent } from './public/template/sidebar/sidenav/sidenav.component';
 import { CardsComponent } from './public/template/cards/cards.component';
+import { HttpClientModule } from '@angular/common/http';
 //import { InicioSesionComponent } from './modules/seguridad/inicio-sesion/inicio-sesion.component'
 
 
@@ -36,6 +37,7 @@ import { CardsComponent } from './public/template/cards/cards.component';
     BrowserAnimationsModule,
     SharedModule,
     InvitacionEvaluarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
