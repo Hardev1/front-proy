@@ -9,6 +9,7 @@ import { MD5 } from 'crypto-js';
 import { SecurityService } from 'src/app/services/shared/security.service';
 import { RolModel } from '../../shared/modelos/rol.model';
 import { RolService } from 'src/app/services/shared/rol.service';
+import { LocalStorageService } from 'src/app/services/shared/local-storage.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -22,7 +23,8 @@ export class InicioSesionComponent implements OnInit {
     public dialog: MatDialog,
     private securityService: SecurityService,
     private router: Router,
-    private service: RolService
+    private service: RolService,
+    private localStorage: LocalStorageService
   ) //
   //private localStorageService: localStorageService,
   //private router: Router
@@ -33,6 +35,7 @@ export class InicioSesionComponent implements OnInit {
 
   ngOnInit(): void {
     this.CreateForm();
+    this.GetRecordList();
   }
 
   CreateForm() {
@@ -78,8 +81,9 @@ export class InicioSesionComponent implements OnInit {
       modelo.rol = this.GetForm.rol.value;
       this.securityService.Login(modelo).subscribe({
         next: (data: any) => {
-          console.log(data);
-
+          this.localStorage.SaveSessionData(data);
+          data.isLoggedIn = true;
+          this.securityService.RefreshSessionData(data);
           this.router.navigate(['/inicio'])
         },
         error: (error: any) => {

@@ -2,9 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './public/error/not-found/not-found.component';
 import { InicioComponent } from './public/general/inicio/inicio.component';
-import { ListarComiteComponent } from './modules/parametros/comite/listar-comite/listar-comite.component';
+import { InicioSesionComponent } from './modules/seguridad/inicio-sesion/inicio-sesion.component';
 
 const routes: Routes = [
+  {
+    path: "inicio-sesion",
+    component: InicioSesionComponent
+  },
   {
     path: "inicio",
     component: InicioComponent

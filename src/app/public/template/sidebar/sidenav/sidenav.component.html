@@ -5,11 +5,14 @@
     </button>
     <h1 class="example-app-name text-white">Validaciones <span class="text-indigo-500">U</span>caldas</h1>
     <button *ngIf="!sesion" routerLink="seguridad/inicio-sesion" class="login" mat-menu-item>Iniciar sesion</button>
+    <button *ngIf="sesion" routerLink="seguridad/cerrar-sesion" class="login" mat-menu-item>Cerrar sesion</button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav class="bg-blue-900" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <p class="text-white ml-6 mt-16 font-bold tracking-wider mb-16">Hola, <span
+          class="text-blue-400">{{nombre}}</span> <br> ¿Qué deseas hacer?</p>
       <button mat-button [matMenuTriggerFor]="parametrizar">Parametrizar</button>
       <mat-menu style="color:brown;" #parametrizar="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="comite" disabled>Comite</button>
@@ -168,6 +171,9 @@
           </mat-expansion-panel>
         </mat-expansion-panel>
       </mat-accordion>
+      <p class="w-56 mt-40 mx-auto text-center text-white font-medium">Ingresaste con el rol <span class="text-blue-400">{{ rol }}</span>, en
+        caso de tener más roles y quieras cambiar de rol en la sesión, por favor, cierra sesión e inicia sesión con el
+        rol deseado.</p>
     </mat-sidenav>
 
     <mat-sidenav-content class="flex justify-center items-center bg-white w-full h-full">

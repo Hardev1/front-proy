@@ -8,11 +8,12 @@ import { RolModel } from 'src/app/modules/shared/modelos/rol.model';
   providedIn: 'root'
 })
 export class RolService {
-  url: string = GeneralData.ADMIN_USERS_URL;
+  
   constructor(
     private http: HttpClient
   ) { }
 
+  url: string = GeneralData.ADMIN_USERS_URL;
   
   GetRecordList():Observable<RolModel[]>{
    return this.http.get<RolModel[]>(`${this.url}/rols`)

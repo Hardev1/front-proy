@@ -39,7 +39,7 @@
   outline: none;
   overflow: hidden;
   position: relative;
-  @apply px-14 py-3 mt-8 mb-3 hover:border-blue-100 hover:text-blue-400;
+  @apply px-14 py-3 mt-8 mb-3 hover:border-blue-100 text-blue-600 hover:text-blue-800 font-black tracking-wider shadow-xl;
 }
 
 span {
