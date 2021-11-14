@@ -15,6 +15,12 @@ import { ListarComiteComponent } from './modules/parametros/comite/listar-comite
 import { SidenavComponent } from './public/template/sidebar/sidenav/sidenav.component';
 import { CardsComponent } from './public/template/cards/cards.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListarFacultadComponent } from './modules/parametros/facultad/listar-facultad/listar-facultad.component';
+import { CrearFacultadComponent } from './modules/parametros/facultad/crear-facultad/crear-facultad.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActualizarFacultadComponent } from './modules/parametros/facultad/actualizar-facultad/actualizar-facultad.component';
+import { EliminarFacultadComponent } from './modules/parametros/facultad/eliminar-facultad/eliminar-facultad.component';
+import { CrearDepartamentoComponent } from './modules/parametros/departamento/crear-departamento/crear-departamento.component';
 //import { InicioSesionComponent } from './modules/seguridad/inicio-sesion/inicio-sesion.component'
 
 
@@ -27,8 +33,13 @@ import { HttpClientModule } from '@angular/common/http';
     InternalServerErrorComponent,
     InicioComponent,
     ListarComiteComponent,
+    ListarFacultadComponent,
+    CrearFacultadComponent,
+    ActualizarFacultadComponent,
+    EliminarFacultadComponent,
+    CrearDepartamentoComponent,
     SidenavComponent,
-    CardsComponent
+    CardsComponent,
     //InicioSesionComponent
   ],
   imports: [
@@ -37,7 +48,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     SharedModule,
     InvitacionEvaluarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,48 @@
-<p>listar-facultad works!</p>
+<div>
+    <div>
+        <td>
+           <button class="bg-green-600" routerLink="/parametros/crear-facultad">Crear registros</button>
+        </td>
+    </div>
+    <table>
+        <thead>
+            <th>
+                ID
+            </th>
+            <th>
+                CODIGO
+            </th>
+            <th>
+                NOMBRE
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let g of listaFacultad">
+                <td >
+                    {{g.id}}
+                </td>
+                <td >
+                    {{g.codigo}}
+                </td>
+                <td>
+                    {{g.nombre}}
+                </td>
+                <td>
+                    <button class="bg-blue-600" routerLink="/parametros/actualizar-facultad/{{g.id}}">Editar</button>
+                 </td>
+                 <td>
+                    <button class="bg-red-600" routerLink="/parametros/eliminar-facultad/{{g.id}}">Eliminar</button>
+                 </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>

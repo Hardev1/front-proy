@@ -1,1 +1,26 @@
-<p>crear-departamento works!</p>
+
+
+<div >
+    <form [formGroup]="form">
+        <div >
+            <label>
+                <span>Facultad</span>
+                <select  formControlName="facultadId" id="seleccionar">
+                  <option *ngFor="let r of recordList" value="{{r.id}}">{{r.nombre}} </option>
+                </select>
+              </label>
+          </div>
+        <div >
+        <label >
+          Nombre
+        </label>
+        <input formControlName="nombre"  type="text">
+      </div>
+      <div>
+        <button id="btn-login" type='button' (click)="SaveRecord()">
+          Crear
+        </button>
+      </div>
+    </form>
+  
+  </div>

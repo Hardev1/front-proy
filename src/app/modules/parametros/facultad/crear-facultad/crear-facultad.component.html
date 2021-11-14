@@ -1,1 +1,24 @@
-<p>crear-facultad works!</p>
+<div>
+  <form [formGroup]="form">
+
+      <div>
+      <label for="code" >
+        Código
+      </label>
+      <input formControlName="codigo" type="text">
+    </div>
+    <div >
+      <label for="nombre">
+        Nombre
+      </label>
+      <input formControlName="nombre" type="text">
+    </div>
+    <div>
+      <button style="background-color: seagreen;" type='button'
+                      (click)="SaveRecord()">
+        Crear
+      </button>
+    </div>
+  </form>
+
+</div>
