@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GeneralData } from 'src/app/config/general-data';
 import { InfoComponent } from '../../shared/components/modals/info/info.component';
-import { UserCredentialsModel } from '../../../models/user-credentials.models';
+import { UserCredentialsModel } from '../../../models/sesion/user-credentials.models';
 import { MD5 } from 'crypto-js';
 import { SecurityService } from 'src/app/services/shared/security.service';
 import { RolModel } from '../../shared/modelos/rol.model';

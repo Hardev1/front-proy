@@ -6,7 +6,7 @@ import { CrearSolicitudComponent } from './crear-solicitud/crear-solicitud.compo
 import { ListarSolicitudComponent } from './listar-solicitud/listar-solicitud.component';
 import { ActualizarSolicitudComponent } from './actualizar-solicitud/actualizar-solicitud.component';
 import { EliminarSolicitudComponent } from './eliminar-solicitud/eliminar-solicitud.component';
-
+import { SharedModule } from '../../modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { EliminarSolicitudComponent } from './eliminar-solicitud/eliminar-solici
   ],
   imports: [
     CommonModule,
-    SolicitudRoutingModule
+    SolicitudRoutingModule,
+    SharedModule
   ]
 })
 export class SolicitudModule { }

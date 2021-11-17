@@ -2,7 +2,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { Subscription } from 'rxjs';
-import { SessionData } from 'src/app/models/session-data.model';
+import { SessionData } from 'src/app/models/sesion/session-data.model';
 import { SecurityService } from 'src/app/services/shared/security.service';
 @Component({
   selector: 'app-sidenav',

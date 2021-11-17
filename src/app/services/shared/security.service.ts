@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
-import { SessionData } from 'src/app/models/session-data.model';
-import { UserCredentialsModel } from 'src/app/models/user-credentials.models';
+import { SessionData } from 'src/app/models/sesion/session-data.model';
+import { UserCredentialsModel } from 'src/app/models/sesion/user-credentials.models';
 
 @Injectable({
   providedIn: 'root'

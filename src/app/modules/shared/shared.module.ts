@@ -37,6 +37,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 
+
 @NgModule({
   //Así como se importan, se exportan
   declarations: [],
@@ -78,7 +79,6 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     MatTooltipModule,
     MatTreeModule,
     CdkAccordionModule,
-    
   ],
   exports: [
     MatAutocompleteModule,

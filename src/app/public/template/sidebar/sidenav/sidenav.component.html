@@ -15,17 +15,18 @@
           class="text-blue-400">{{nombre}}</span> <br> ¿Qué deseas hacer?</p>
       <button mat-button [matMenuTriggerFor]="parametrizar">Parametrizar</button>
       <mat-menu style="color:brown;" #parametrizar="matMenu">
-        <button mat-menu-item [matMenuTriggerFor]="comite" disabled>Comite</button>
-        <button mat-menu-item [matMenuTriggerFor]="departamento">Departamento</button>
-        <button mat-menu-item [matMenuTriggerFor]="estadoSolicitud">Estado de solicitud</button>
-        <button mat-menu-item [matMenuTriggerFor]="facultad">Facultad</button>
         <button mat-menu-item [matMenuTriggerFor]="jurado">Jurado</button>
-        <button mat-menu-item [matMenuTriggerFor]="lineaInv">Linea de investigación</button>
-        <button mat-menu-item [matMenuTriggerFor]="modalidad">Modalidad</button>
         <button mat-menu-item [matMenuTriggerFor]="proponente">Proponente</button>
+        <button mat-menu-item [matMenuTriggerFor]="solicitud">Solicitud</button>
+        <button mat-menu-item [matMenuTriggerFor]="tipoSol">Tipo de solicitud</button>
+        <button mat-menu-item [matMenuTriggerFor]="invitacionEv">Invitación a evaluar</button>
         <button mat-menu-item [matMenuTriggerFor]="recordatorios">Recordatorios</button>
         <button mat-menu-item [matMenuTriggerFor]="resultadoEv">Resultados de evaluación</button>
-        <button mat-menu-item [matMenuTriggerFor]="tipoSol">Tipo de solicitud</button>
+        <button mat-menu-item [matMenuTriggerFor]="comite" disabled>Comite</button>
+        <button mat-menu-item [matMenuTriggerFor]="departamento">Departamento</button>
+        <button mat-menu-item [matMenuTriggerFor]="facultad">Facultad</button>
+        <button mat-menu-item [matMenuTriggerFor]="lineaInv">Linea de investigación</button>
+        <button mat-menu-item [matMenuTriggerFor]="modalidad">Modalidad</button>
         <button mat-menu-item [matMenuTriggerFor]="tipoVin">Tipo de vinculación</button>
       </mat-menu>
 
@@ -100,6 +101,18 @@
         <a routerLink="parametros/crear-tipo-vinculacion" mat-menu-item>Crear tipo de vinculación</a>
         <a routerLink="parametros/actualizar-tipo-vinculacion" mat-menu-item>Actualizar tipo de vinculación</a>
         <a routerLink="parametros/eliminar-tipo-vinculacion" mat-menu-item>Eliminar tipo de vinculación</a>
+      </mat-menu>
+      <mat-menu #solicitud="matMenu">
+        <a routerLink="solicitud/listar-solicitud" mat-menu-item>Listar solicitudes</a>
+        <a routerLink="solicitud/crear-solicitud" mat-menu-item>Crear solicitud</a>
+        <a routerLink="solicitud/actualizar-solicitud" mat-menu-item>Actualizar solicitud</a>
+        <a routerLink="solicitud/eliminar-solicitud" mat-menu-item>Eliminar solicitud</a>
+      </mat-menu>
+      <mat-menu #invitacionEv="matMenu">
+        <a routerLink="invitacion-evaluar/listar-invitacion-evaluar" mat-menu-item>Listar invitaciones a evaluar</a>
+        <a routerLink="invitacion-evaluar/crear-invitacion-evaluar" mat-menu-item>Crear invitacion a evaluar</a>
+        <a routerLink="invitacion-evaluar/actualizar-invitacion-evaluar" mat-menu-item>Actualizar invitacion a evaluar</a>
+        <a routerLink="invitacion-evaluar/eliminar-invitacion-evaluar" mat-menu-item>Eliminar invitacion a evaluar</a>
       </mat-menu>
       <mat-accordion>
         <mat-expansion-panel>
