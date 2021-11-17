@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ParametrosRoutingModule } from './parametros-routing.module';
-import { CrearFacultadComponent } from './facultad/crear-facultad/crear-facultad.component';
-import { ListarFacultadComponent } from './facultad/listar-facultad/listar-facultad.component';
-import { ActualizarFacultadComponent } from './facultad/actualizar-facultad/actualizar-facultad.component';
-import { EliminarFacultadComponent } from './facultad/eliminar-facultad/eliminar-facultad.component';
-import { CrearDepartamentoComponent } from './departamento/crear-departamento/crear-departamento.component';
+//import { CrearFacultadComponent } from './facultad/crear-facultad/crear-facultad.component';
+//import { ListarFacultadComponent } from './facultad/listar-facultad/listar-facultad.component';
+//import { ActualizarFacultadComponent } from './facultad/actualizar-facultad/actualizar-facultad.component';
+//import { EliminarFacultadComponent } from './facultad/eliminar-facultad/eliminar-facultad.component';
+//import { CrearDepartamentoComponent } from './departamento/crear-departamento/crear-departamento.component';
 import { ListarDepartamentoComponent } from './departamento/listar-departamento/listar-departamento.component';
 import { ActualizarDepartamentoComponent } from './departamento/actualizar-departamento/actualizar-departamento.component';
 import { EliminarDepartamentoComponent } from './departamento/eliminar-departamento/eliminar-departamento.component';
@@ -59,11 +59,11 @@ import { DescargarArchivoComponent } from './archivos/descargar-archivo/descarga
 @NgModule({
   declarations: [
   
-    CrearFacultadComponent,
-       ListarFacultadComponent,
-       ActualizarFacultadComponent,
-       EliminarFacultadComponent,
-       CrearDepartamentoComponent,
+    //CrearFacultadComponent,
+      // ListarFacultadComponent,
+       //ActualizarFacultadComponent,
+       //EliminarFacultadComponent,
+       //CrearDepartamentoComponent,
        ListarDepartamentoComponent,
        ActualizarDepartamentoComponent,
        EliminarDepartamentoComponent,

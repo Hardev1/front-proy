@@ -1,1 +1,27 @@
-<p>actualizar-facultad works!</p>
+<div>
+    <form [formGroup]="form">
+        <input type="hidden" formControlName="id" />
+        <div>
+            <div>
+                <label>Nombre </label>
+                <input formControlName="nombre" id="name" type="text">
+            </div>
+            <div>
+                <label>Codigo </label>
+                <input formControlName="codigo" id="name" type="text">
+            </div>
+        </div>
+        <div>
+            <div>
+                <a routerLink="/parametros/listar-facultad">
+                    Cancelar
+                </a>
+            </div>
+            <div>
+                <button (click)="SaveRecord()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

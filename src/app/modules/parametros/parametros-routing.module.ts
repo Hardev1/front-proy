@@ -119,11 +119,11 @@ const routes: Routes = [
     component: CrearFacultadComponent
   },
   {
-    path: "actualizar-facultad",
+    path: "actualizar-facultad/:id",
     component: ActualizarFacultadComponent
   },
   {
-    path: "eliminar-facultad",
+    path: "eliminar-facultad/:id",
     component: EliminarFacultadComponent
   },
   {

@@ -1,1 +1,32 @@
-<p>eliminar-facultad works!</p>
+<div>
+    <form>
+        <div>
+            <div>
+              <label >Estas seguro de eliminar</label>
+                <ul>
+                    <li>
+                       Id: {{id}}
+                    </li>
+                    <li>
+                        Nombre: {{nombre}}
+                    </li>
+                    <li>
+                        Código: {{codigo}}                       
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div>
+                <a routerLink="/parametrizacion/listar-facultad">
+                    Cancelar
+                </a>
+            </div>
+            <div>
+                <button (click)="RemoveRecord()">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
