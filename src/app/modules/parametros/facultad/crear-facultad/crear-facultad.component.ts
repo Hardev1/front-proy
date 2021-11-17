@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FacultadModel } from 'src/app/models/facultad.model';
 import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
-import { FacultadService } from 'src/app/services/shared/facultad.service';
+import { FacultadService } from 'src/app/services/parametros/facultad.service';
 
 @Component({
   selector: 'app-crear-facultad',

@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DepartamentoModel } from 'src/app/models/departamento.model';
 import { FacultadModel } from 'src/app/models/facultad.model';
-import { DepartamentoService } from 'src/app/services/shared/departamento.service';
-import { FacultadService } from 'src/app/services/shared/facultad.service';
+import { DepartamentoService } from 'src/app/services/parametros/departamento.service';
+import { FacultadService } from 'src/app/services/parametros/facultad.service';
 
 @Component({
   selector: 'app-crear-departamento',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FacultadModel } from 'src/app/models/facultad.model';
-import { FacultadService } from 'src/app/services/shared/facultad.service';
+import { FacultadService } from 'src/app/services/parametros/facultad.service';
 
 @Component({
   selector: 'app-eliminar-facultad',
