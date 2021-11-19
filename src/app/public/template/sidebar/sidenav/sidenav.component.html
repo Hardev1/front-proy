@@ -1,6 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar bg-blue-900">
-    <button *ngIf="!sesion" mat-icon-button (click)="snav.toggle()">
+    <button *ngIf="sesion" mat-icon-button (click)="snav.toggle()">
       <mat-icon class="text-white hover:text-blue-400 hover:scale-125 duration-200">menu</mat-icon>
     </button>
     <h1 class="example-app-name text-white">Validaciones <span class="text-indigo-500">U</span>caldas</h1>
@@ -31,88 +31,88 @@
       </mat-menu>
 
       <mat-menu #comite="matMenu">
-        <a routerLink="parametros/listar-comite" mat-menu-item>Listar comites</a>
-        <a routerLink="parametros/crear-comite" mat-menu-item>Crear comite</a>
-        <a routerLink="parametros/actualizar-comite" mat-menu-item>Actualizar comite</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-comite" mat-menu-item>Listar comites</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-comite" mat-menu-item>Crear comite</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-comite" mat-menu-item>Actualizar comite</a>
         <a routerLink="parametros/eliminar" mat-menu-item>Eliminar comite</a>
       </mat-menu>
       <mat-menu #departamento="matMenu">
         <button (click)="prueba()" mat-menu-item>Listar departamentos</button>
-        <a routerLink="parametros/crear-departamento" mat-menu-item>Crear departamento</a>
-        <a routerLink="parametros/actualizar-departamento" mat-menu-item>Actualizar departamento</a>
-        <a routerLink="parametros/eliminar-departamento" mat-menu-item>Eliminar departamento</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-departamento" mat-menu-item>Crear departamento</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-departamento" mat-menu-item>Actualizar departamento</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-departamento" mat-menu-item>Eliminar departamento</a>
       </mat-menu>
       <mat-menu #estadoSolicitud="matMenu">
-        <a routerLink="parametros/listar-estado-solicitud" mat-menu-item>Listar estados de Solicitud</a>
-        <a routerLink="parametros/crear-estado-solicitud" mat-menu-item>Crear estado de Solicitud</a>
-        <a routerLink="parametros/actualizar-estado-solicitud" mat-menu-item>Actualizar estado de Solicitud</a>
-        <a routerLink="parametros/eliminar-estado-solicitud" mat-menu-item>Eliminar estado de Solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-estado-solicitud" mat-menu-item>Listar estados de Solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-estado-solicitud" mat-menu-item>Crear estado de Solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-estado-solicitud" mat-menu-item>Actualizar estado de Solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-estado-solicitud" mat-menu-item>Eliminar estado de Solicitud</a>
       </mat-menu>
       <mat-menu #facultad="matMenu">
-        <a routerLink="parametros/listar-facultad" mat-menu-item>Listar facultades</a>
-        <a routerLink="parametros/crear-facultad" mat-menu-item>Crear facultad</a>
-        <a routerLink="parametros/actualizar-facultad" mat-menu-item>Actualizar facultad</a>
-        <a routerLink="parametros/eliminar-facultad" mat-menu-item>Eliminar facultad</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-facultad" mat-menu-item>Listar facultades</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-facultad" mat-menu-item>Crear facultad</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-facultad" mat-menu-item>Actualizar facultad</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-facultad" mat-menu-item>Eliminar facultad</a>
       </mat-menu>
       <mat-menu #jurado="matMenu">
-        <a routerLink="parametros/listar-jurado" mat-menu-item>Listar jurados</a>
-        <a routerLink="parametros/crear-jurado" mat-menu-item>Crear jurado</a>
-        <a routerLink="parametros/actualizar-jurado" mat-menu-item>Actualizar jurado</a>
-        <a routerLink="parametros/eliminar-jurado" mat-menu-item>Eliminar jurado</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-jurado" mat-menu-item>Listar jurados</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-jurado" mat-menu-item>Crear jurado</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-jurado" mat-menu-item>Actualizar jurado</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-jurado" mat-menu-item>Eliminar jurado</a>
       </mat-menu>
       <mat-menu #lineaInv="matMenu">
-        <a routerLink="parametros/listar-linea-investigacion" mat-menu-item>Listar lineas de investigación</a>
-        <a routerLink="parametros/crear-linea-investigacion" mat-menu-item>Crear linea de investigación</a>
-        <a routerLink="parametros/actualizar-linea-investigacion" mat-menu-item>Actualizar linea de investigación</a>
-        <a routerLink="parametros/eliminar-linea-investigacion" mat-menu-item>Eliminar linea de investigación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-linea-investigacion" mat-menu-item>Listar lineas de investigación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-linea-investigacion" mat-menu-item>Crear linea de investigación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-linea-investigacion" mat-menu-item>Actualizar linea de investigación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-linea-investigacion" mat-menu-item>Eliminar linea de investigación</a>
       </mat-menu>
       <mat-menu #modalidad="matMenu">
-        <a routerLink="parametros/listar-modalidad" mat-menu-item>Listar modalidades</a>
-        <a routerLink="parametros/crear-modalidad" mat-menu-item>Crear modalidad</a>
-        <a routerLink="parametros/actualizar-modalidad" mat-menu-item>Actualizar modalidad</a>
-        <a routerLink="parametros/eliminar-modalidad" mat-menu-item>Eliminar modalidad</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-modalidad" mat-menu-item>Listar modalidades</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-modalidad" mat-menu-item>Crear modalidad</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-modalidad" mat-menu-item>Actualizar modalidad</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-modalidad" mat-menu-item>Eliminar modalidad</a>
       </mat-menu>
       <mat-menu #proponente="matMenu">
-        <a routerLink="parametros/listar-propopnente" mat-menu-item>Listar proponentes</a>
-        <a routerLink="parametros/crear-propopnente" mat-menu-item>Crear proponente</a>
-        <a routerLink="parametros/actualizar-propopnente" mat-menu-item>Actualizar proponente</a>
-        <a routerLink="parametros/eliminar-propopnente" mat-menu-item>Eliminar proponente</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-propopnente" mat-menu-item>Listar proponentes</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-propopnente" mat-menu-item>Crear proponente</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-propopnente" mat-menu-item>Actualizar proponente</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-propopnente" mat-menu-item>Eliminar proponente</a>
       </mat-menu>
       <mat-menu #recordatorios="matMenu">
-        <a routerLink="parametros/listar-recordatorio-evaluacion" mat-menu-item>Listar recordatorios</a>
-        <a routerLink="parametros/crear-recordatorio-evaluacion" mat-menu-item>Crear recordatorio</a>
-        <a routerLink="parametros/actualizar-recordatorio-evaluacion" mat-menu-item>Actualizar recordatorio</a>
-        <a routerLink="parametros/eliminar-recordatorio-evaluacion" mat-menu-item>Eliminar recordatorio</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-recordatorio-evaluacion" mat-menu-item>Listar recordatorios</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-recordatorio-evaluacion" mat-menu-item>Crear recordatorio</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-recordatorio-evaluacion" mat-menu-item>Actualizar recordatorio</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-recordatorio-evaluacion" mat-menu-item>Eliminar recordatorio</a>
       </mat-menu>
       <mat-menu #resultadoEv="matMenu">
-        <a routerLink="parametros/listar-resultado-evaluacion" mat-menu-item>Listar resultados de evaluación</a>
-        <a routerLink="parametros/crear-resultado-evaluacion" mat-menu-item>Crear resultado de evaluación</a>
-        <a routerLink="parametros/actualizar-resultado-evaluacion" mat-menu-item>Actualizar resultado de evaluación</a>
-        <a routerLink="parametros/eliminar-resultado-evaluacion" mat-menu-item>Eliminar resultado de evaluación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-resultado-evaluacion" mat-menu-item>Listar resultados de evaluación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-resultado-evaluacion" mat-menu-item>Crear resultado de evaluación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-resultado-evaluacion" mat-menu-item>Actualizar resultado de evaluación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-resultado-evaluacion" mat-menu-item>Eliminar resultado de evaluación</a>
       </mat-menu>
       <mat-menu #tipoSol="matMenu">
-        <a routerLink="parametros/listar-tipo-solicitud" mat-menu-item>Listar tipos de solicitud</a>
-        <a routerLink="parametros/crear-tipo-solicitud" mat-menu-item>Crear tipo de solicitud</a>
-        <a routerLink="parametros/actualizar-tipo-solicitud" mat-menu-item>Actualizar tipo de solicitud</a>
-        <a routerLink="parametros/eliminar-tipo-solicitud" mat-menu-item>Eliminar tipo de solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-tipo-solicitud" mat-menu-item>Listar tipos de solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-tipo-solicitud" mat-menu-item>Crear tipo de solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-tipo-solicitud" mat-menu-item>Actualizar tipo de solicitud</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-tipo-solicitud" mat-menu-item>Eliminar tipo de solicitud</a>
       </mat-menu>
       <mat-menu #tipoVin="matMenu">
-        <a routerLink="parametros/listar-tipo-vinculacion" mat-menu-item>Listar tipos de vinculación</a>
-        <a routerLink="parametros/crear-tipo-vinculacion" mat-menu-item>Crear tipo de vinculación</a>
-        <a routerLink="parametros/actualizar-tipo-vinculacion" mat-menu-item>Actualizar tipo de vinculación</a>
-        <a routerLink="parametros/eliminar-tipo-vinculacion" mat-menu-item>Eliminar tipo de vinculación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/listar-tipo-vinculacion" mat-menu-item>Listar tipos de vinculación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-tipo-vinculacion" mat-menu-item>Crear tipo de vinculación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-tipo-vinculacion" mat-menu-item>Actualizar tipo de vinculación</a>
+        <a (click)="snav.toggle()" routerLink="parametros/eliminar-tipo-vinculacion" mat-menu-item>Eliminar tipo de vinculación</a>
       </mat-menu>
       <mat-menu #solicitud="matMenu">
-        <a routerLink="solicitud/listar-solicitud" mat-menu-item>Listar solicitudes</a>
-        <a routerLink="solicitud/crear-solicitud" mat-menu-item>Crear solicitud</a>
-        <a routerLink="solicitud/actualizar-solicitud" mat-menu-item>Actualizar solicitud</a>
-        <a routerLink="solicitud/eliminar-solicitud" mat-menu-item>Eliminar solicitud</a>
+        <a (click)="snav.toggle()" routerLink="solicitud/listar-solicitud" mat-menu-item>Listar solicitudes</a>
+        <a (click)="snav.toggle()" routerLink="solicitud/crear-solicitud" mat-menu-item>Crear solicitud</a>
+        <a (click)="snav.toggle()" routerLink="solicitud/actualizar-solicitud" mat-menu-item>Actualizar solicitud</a>
+        <a (click)="snav.toggle()" routerLink="solicitud/eliminar-solicitud" mat-menu-item>Eliminar solicitud</a>
       </mat-menu>
       <mat-menu #invitacionEv="matMenu">
-        <a routerLink="invitacion-evaluar/listar-invitacion-evaluar" mat-menu-item>Listar invitaciones a evaluar</a>
-        <a routerLink="invitacion-evaluar/crear-invitacion-evaluar" mat-menu-item>Crear invitacion a evaluar</a>
-        <a routerLink="invitacion-evaluar/actualizar-invitacion-evaluar" mat-menu-item>Actualizar invitacion a evaluar</a>
-        <a routerLink="invitacion-evaluar/eliminar-invitacion-evaluar" mat-menu-item>Eliminar invitacion a evaluar</a>
+        <a (click)="snav.toggle()" routerLink="invitacion-evaluar/listar-invitacion-evaluar" mat-menu-item>Listar invitaciones a evaluar</a>
+        <a (click)="snav.toggle()" routerLink="invitacion-evaluar/crear-invitacion-evaluar" mat-menu-item>Crear invitacion a evaluar</a>
+        <a (click)="snav.toggle()" routerLink="invitacion-evaluar/actualizar-invitacion-evaluar" mat-menu-item>Actualizar invitacion a evaluar</a>
+        <a (click)="snav.toggle()" routerLink="invitacion-evaluar/eliminar-invitacion-evaluar" mat-menu-item>Eliminar invitacion a evaluar</a>
       </mat-menu>
       <mat-accordion>
         <mat-expansion-panel>
@@ -189,7 +189,7 @@
         rol deseado.</p>
     </mat-sidenav>
 
-    <mat-sidenav-content class="flex justify-center items-center bg-white w-full h-full">
+    <mat-sidenav-content class="flex justify-center items-center bg-gray-200 w-full h-full">
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

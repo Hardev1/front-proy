@@ -1,21 +1,44 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
 import { SolicitudModel } from 'src/app/models/parametros/solicitud.model';
+import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SolicitudService {
 
+  token: string = "";
+  url:string = GeneralData.BUSSINESS_URL;
+
   constructor(
     private http: HttpClient,
-  ) { }
-
-  url:string = GeneralData.BUSSINESS_URL;
+    private localStorage: LocalStorageService
+  ) { 
+    this.token = this.localStorage.GetToken();
+  }
 
   GetRecordList(): Observable<SolicitudModel[]>{
     return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`);
+  }
+
+  SaveRecord(data: SolicitudModel): Observable<SolicitudModel> {
+    return this.http.post<SolicitudModel>(`${this.url}/crear-solicitud`, {
+      fecha: data.fecha,
+      nombre_solicitud: data.nombre_solicitud,
+      archivo: data.archivo,
+      descripcion: data.descripcion,
+      id_tipo_solicitud: data.id_tipo_solicitud,
+      id_modalidad: data.id_modalidad,
+      id_linea_investigacion: data.id_linea_investigacion,
+    },
+     {headers:
+      new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    } 
+     )
   }
 }

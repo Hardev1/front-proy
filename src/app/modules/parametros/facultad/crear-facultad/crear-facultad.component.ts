@@ -42,6 +42,7 @@ export class CrearFacultadComponent implements OnInit {
     model.codigo = this.form.controls.codigo.value;
     this.service.SaveRecord(model).subscribe({
       next: (data: FacultadModel) => {
+        this.openDialog()
         this.router.navigate(["/parametros/listar-facultad"]);
       },
       error: (err: any) => {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolicitudRoutingModule } from './solicitud-routing.module';
 import { CrearSolicitudComponent } from './crear-solicitud/crear-solicitud.component';
 import { ListarSolicitudComponent } from './listar-solicitud/listar-solicitud.component';
@@ -13,12 +13,14 @@ import { SharedModule } from '../../modules/shared/shared.module';
     CrearSolicitudComponent,
     ListarSolicitudComponent,
     ActualizarSolicitudComponent,
-    EliminarSolicitudComponent
+    EliminarSolicitudComponent,
   ],
   imports: [
     CommonModule,
     SolicitudRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SolicitudModule { }

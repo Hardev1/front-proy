@@ -2,13 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
-import { FacultadModel } from 'src/app/models/facultad.model';
+import { LineaInvestigacionModel } from 'src/app/models/parametros/linea-investigacion.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FacultadService {
+export class LineaInvestigacionService {
 
   url: string = GeneralData.BUSSINESS_URL;
   token: string = "";
@@ -24,16 +24,15 @@ export class FacultadService {
   //CAMBIAR DESPUES DE THIS.URL POR LAS DEL BACKEND Y LOS NOMBRES DE VARIABLES A COMO SE RECIBAN EN LOS 
   //MODELOS DEL BACKEND
 
-  GetRecordList(): Observable<FacultadModel[]> {
-    return this.http.get<FacultadModel[]>(`${this.url}/facultad`)
+  GetRecordList(): Observable<LineaInvestigacionModel[]> {
+    return this.http.get<LineaInvestigacionModel[]>(`${this.url}/linea-investigacion`)
   }
 
-  SaveRecord(data: FacultadModel): Observable<FacultadModel> {
+  SaveRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<FacultadModel>(`${this.url}/facultads`, {
+    return this.http.post<LineaInvestigacionModel>(`${this.url}/linea-investigacion`, {
       nombre: data.nombre,
-      codigo: data.codigo
     },
      {headers:
       new HttpHeaders({
@@ -43,17 +42,16 @@ export class FacultadService {
      )
   }
 
-  SearchRecord(id: number): Observable<FacultadModel> {
-    return this.http.get<FacultadModel>(`${this.url}/facultads/${id}`);
+  SearchRecord(id: number): Observable<LineaInvestigacionModel> {
+    return this.http.get<LineaInvestigacionModel>(`${this.url}/linea-investigacion/${id}`);
   }
 
-  EditRecord(data: FacultadModel): Observable<FacultadModel> {
-    return this.http.put<FacultadModel>(
-      `${this.url}/facultads/${data.id}`,
+  EditRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
+    return this.http.put<LineaInvestigacionModel>(
+      `${this.url}/linea-investigacion/${data.id}`,
       {
         id: data.id,
         nombre: data.nombre,
-        codigo: data.codigo
       },
       {
         headers: new HttpHeaders({
@@ -64,7 +62,7 @@ export class FacultadService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/facultads/${id}`,
+      `${this.url}/linea-investigacion/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
