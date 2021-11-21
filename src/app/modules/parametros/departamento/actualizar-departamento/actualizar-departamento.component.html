@@ -1,1 +1,34 @@
-<p>actualizar-departamento works!</p>
+<div>
+    
+    <h3>Actualización de departamento</h3>
+    <form [formGroup]="form">
+        <input type="hidden" formControlName="id" />
+        <div>
+            <div>
+                <label>Nombre </label>
+                <input formControlName="nombre" id="name" type="text">
+                    
+            </div>
+            <div >
+                  <label>
+                      <span>Facultad</span>
+                      <select  formControlName="facultadId" id="seleccionar">
+                        <option *ngFor="let r of recordList" value="{{r.id}}">{{r.nombre}} </option>
+                      </select>
+                    </label>
+                </div>
+        </div>
+        <div>
+            <div>
+                <button style="background-color: red;" routerLink="/parametros/listar-departamento">
+                    Cancelar
+                </button>
+            </div>
+            <div>
+                <button style="background-color:seagreen;" (click)="SaveRecord()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

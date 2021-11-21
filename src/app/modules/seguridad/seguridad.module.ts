@@ -8,6 +8,9 @@ import { CambiarContraComponent } from './cambiar-contra/cambiar-contra.componen
 import { CerrarSesionComponent } from './cerrar-sesion/cerrar-sesion.component';
 import { SharedModule } from '../../modules/shared/shared.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InicioSesionComponent,
     RecuperarContraComponent,
     CambiarContraComponent,
-    CerrarSesionComponent
+    CerrarSesionComponent,
+    ListarUsuarioComponent,
+    CrearUsuarioComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     CommonModule,

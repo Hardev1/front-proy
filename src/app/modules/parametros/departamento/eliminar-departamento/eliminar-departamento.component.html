@@ -1,1 +1,34 @@
-<p>eliminar-departamento works!</p>
+<div>
+    
+    <h3>Remover facultad</h3>
+    <form>
+        <div>
+            <div>
+              <label >Estas seguro de eliminar</label>
+                <ul>
+                    <li>
+                       Id: {{id}}
+                    </li>
+                    <li>
+                        Nombre: {{nombre}}
+                    </li>
+                    <li>
+                        Facultad: {{facultad}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button style="background-color: blue;" routerLink="/parametros/listar-departamento">
+                    Cancelar
+                </button>
+            </div>
+            <div>
+                <button style="background-color: seagreen;" (click)="RemoveRecord()">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

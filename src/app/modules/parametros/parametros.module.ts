@@ -8,8 +8,8 @@ import { ParametrosRoutingModule } from './parametros-routing.module';
 //import { EliminarFacultadComponent } from './facultad/eliminar-facultad/eliminar-facultad.component';
 //import { CrearDepartamentoComponent } from './departamento/crear-departamento/crear-departamento.component';
 import { ListarDepartamentoComponent } from './departamento/listar-departamento/listar-departamento.component';
-import { ActualizarDepartamentoComponent } from './departamento/actualizar-departamento/actualizar-departamento.component';
-import { EliminarDepartamentoComponent } from './departamento/eliminar-departamento/eliminar-departamento.component';
+//import { ActualizarDepartamentoComponent } from './departamento/actualizar-departamento/actualizar-departamento.component';
+//import { EliminarDepartamentoComponent } from './departamento/eliminar-departamento/eliminar-departamento.component';
 import { CrearProponenteComponent } from './proponente/crear-proponente/crear-proponente.component';
 import { ListarProponenteComponent } from './proponente/listar-proponente/listar-proponente.component';
 import { ActualizarProponenteComponent } from './proponente/actualizar-proponente/actualizar-proponente.component';
@@ -65,8 +65,8 @@ import { DescargarArchivoComponent } from './archivos/descargar-archivo/descarga
        //EliminarFacultadComponent,
        //CrearDepartamentoComponent,
        ListarDepartamentoComponent,
-       ActualizarDepartamentoComponent,
-       EliminarDepartamentoComponent,
+       //ActualizarDepartamentoComponent,
+     //  EliminarDepartamentoComponent,
        CrearProponenteComponent,
        ListarProponenteComponent,
        ActualizarProponenteComponent,

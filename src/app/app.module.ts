@@ -21,6 +21,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActualizarFacultadComponent } from './modules/parametros/facultad/actualizar-facultad/actualizar-facultad.component';
 import { EliminarFacultadComponent } from './modules/parametros/facultad/eliminar-facultad/eliminar-facultad.component';
 import { CrearDepartamentoComponent } from './modules/parametros/departamento/crear-departamento/crear-departamento.component';
+import { CrearUsuarioComponent } from './modules/seguridad/crear-usuario/crear-usuario.component';
+import { ActualizarDepartamentoComponent } from './modules/parametros/departamento/actualizar-departamento/actualizar-departamento.component';
+import { EliminarDepartamentoComponent } from './modules/parametros/departamento/eliminar-departamento/eliminar-departamento.component';
+import { EditarUsuarioComponent } from './modules/seguridad/editar-usuario/editar-usuario.component';
 //import { InicioSesionComponent } from './modules/seguridad/inicio-sesion/inicio-sesion.component'
 
 
@@ -38,6 +42,8 @@ import { CrearDepartamentoComponent } from './modules/parametros/departamento/cr
     ActualizarFacultadComponent,
     EliminarFacultadComponent,
     CrearDepartamentoComponent,
+    ActualizarDepartamentoComponent,
+    EliminarDepartamentoComponent,
     SidenavComponent,
     CardsComponent,
     //InicioSesionComponent

@@ -4,8 +4,23 @@ import { CambiarContraComponent } from '../seguridad/cambiar-contra/cambiar-cont
 import { CerrarSesionComponent } from '../seguridad/cerrar-sesion/cerrar-sesion.component';
 import { InicioSesionComponent } from '../seguridad/inicio-sesion/inicio-sesion.component';
 import { RecuperarContraComponent } from '../seguridad/recuperar-contra/recuperar-contra.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
 
 const routes: Routes = [
+  {
+    path: "listar-usuario",
+    component: ListarUsuarioComponent
+  },
+  {
+    path: "crear-usuario",
+    component: CrearUsuarioComponent
+  },
+  {
+    path: "actualizar-usuario/:id",
+    component: EditarUsuarioComponent
+  },
   {
     path: "inicio-sesion",
     component: InicioSesionComponent

@@ -1,0 +1,70 @@
+<div>
+    <div>
+        <td>
+           <button class="bg-green-600" routerLink="/seguridad/crear-usuario">Crear registros</button>
+        </td>
+    </div>
+    <table>
+        <thead>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellido
+            </th>
+            <th>
+                Correo
+            </th>
+            <th>
+               Celular
+            </th>
+            <th>
+            Fecha de Nacimiento
+            </th>
+            <th>
+                Documento
+            </th>
+            <th>
+                Estado
+            </th>
+            <th>
+              
+          Acciones
+
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let g of listaUsuario">
+                <td >
+                    {{g.nombre}}
+                </td>
+                <td >
+                    {{g.apellido}}
+                </td>
+                <td>
+                    {{g.correo}}
+                </td>
+                <td >
+                    {{g.celular}}
+                </td>
+                <td >
+                    {{g.fechaNacimiento}}
+                </td>
+                <td>
+                    {{g.documento}}
+                </td>
+                <td>
+                    {{g.estado}}
+                </td>
+                <td>
+                    <button class="bg-blue-600" routerLink="/seguridad/actualizar-usuario/{{g._id}}">Editar </button> 
+                
+                    <button class="bg-red-600" routerLink=""> Eliminar</button>
+                 </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
