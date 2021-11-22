@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: {
     enabled: true,
@@ -13,6 +15,14 @@ module.exports = {
   plugins: [],
   important: true,
   theme: {
+    extend: {
+      colors: {
+          primary: colors.blue,
+          secondary: colors.gray,
+          warn: colors.yellow,
+          danger: colors.red
+      },
+  },
   }
   
 }

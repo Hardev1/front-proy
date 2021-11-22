@@ -6,7 +6,11 @@ table {
     font-size: 14px;
     width: 100%;
   }
-  
-  td, th {
-    @apply text-center;
+
+  ::ng-deep.mat-sort-header-content {
+    @apply pl-0;
+  }
+
+  td.mat-cell {
+    @apply pr-4;
   }

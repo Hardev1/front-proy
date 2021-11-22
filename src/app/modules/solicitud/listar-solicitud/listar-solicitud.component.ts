@@ -17,7 +17,7 @@ export class ListarSolicitudComponent implements OnInit, AfterViewInit {
 
   recordList: SolicitudModel[] = [];
   dataSource = new MatTableDataSource<SolicitudModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['id', 'fecha', 'nombre_solicitud', 'archivo', 'descripcion', 'tiene_un', 'posee_un', 'pertenece_a', 'tiene_una'];
+  displayedColumns: string[] = ['id', 'fecha', 'nombre_solicitud', 'archivo', 'descripcion', 'tiene_un', 'posee_un', 'pertenece_a', 'tiene_una', 'acciones'];
   columnas = [
     { titulo: "ID", name: "id" },
     { titulo: "Nombre de la solicitud", name: "nombre_solicitud" },

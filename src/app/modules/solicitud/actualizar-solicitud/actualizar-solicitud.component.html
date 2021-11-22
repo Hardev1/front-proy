@@ -1,1 +1,74 @@
-<p>actualizar-solicitud works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar solicitud</h1>
+        <input type="hidden" formControlName="id">
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="fecha" class="label">Fecha de solicitud</mat-label>
+            <input matInput formControlName="fecha" name="fecha" [matDatepicker]="picker" placeholder="Ej: 12/31/2012">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre_solicitud" class="label">Nombre de la solicitud</mat-label>
+            <input matInput formControlName="nombre_solicitud" name="nombre_solicitud" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="archivo" type="text" class="label">Archivo</mat-label>
+            <input matInput formControlName="archivo" name="archivo" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="descripcion" class="label">Descripción</mat-label>
+            <input matInput formControlName="descripcion" name="descripcion" type="textarea" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona el tipo de solicitud</mat-label>
+            <mat-select formControlName="id_tipo_solicitud" name="tipoSolicitud" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of tipoSolList" value="{{r.id}}">
+                    {{r.nombre}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_tipo_solicitud'].errors">Por favor, selecciona un tipo de solicitud</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona el estado de la solicitud</mat-label>
+            <mat-select formControlName="id_estado_solicitud" name="estadoSolicitud" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of estadoSolList" value="{{r.id}}">
+                    {{r.nombre}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_estado_solicitud'].errors">Por favor, selecciona un tipo de solicitud</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona la modalidad</mat-label>
+            <mat-select formControlName="id_modalidad" name="modalidad" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of modalidadList" value="{{r.id}}">
+                    {{r.nombre}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_modalidad'].errors">Por favor, selecciona un modalidad</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona la linea de invesigación</mat-label>
+            <mat-select formControlName="id_linea_investigacion" name="lineaInvestigacion" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of lineaInvList" value="{{r.id}}">
+                    {{r.nombre}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_linea_investigacion'].errors">Por favor, selecciona el área</mat-error>
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Editar</button>
+    </form>
+</div>
