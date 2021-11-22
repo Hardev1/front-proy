@@ -25,9 +25,8 @@ export class InicioSesionComponent implements OnInit {
     private router: Router,
     private service: RolService,
     private localStorage: LocalStorageService
-  ) //
-  //private localStorageService: localStorageService,
-  //private router: Router
+  )
+  
   { }
   recordList: RolModel[] = []
 
@@ -36,6 +35,7 @@ export class InicioSesionComponent implements OnInit {
   ngOnInit(): void {
     this.CreateForm();
     this.GetRecordList();
+    console.log(this.recordList)
   }
 
   CreateForm() {
@@ -66,6 +66,7 @@ export class InicioSesionComponent implements OnInit {
   get GetForm() {
     return this.form.controls;
   }
+  
   openDialog() {
     this.dialog.open(InfoComponent);
   }
@@ -93,7 +94,6 @@ export class InicioSesionComponent implements OnInit {
     }
   }
 
-
   GetRecordList() {
     this.service.GetRecordList().subscribe({
       next: (data: RolModel[]) => {
@@ -101,8 +101,4 @@ export class InicioSesionComponent implements OnInit {
       }
     });
   }
-}
-interface Animal {
-  name: string;
-  sound: string;
 }

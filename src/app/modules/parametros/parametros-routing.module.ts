@@ -167,11 +167,11 @@ const routes: Routes = [
     component: CrearModalidadComponent
   },
   {
-    path: "actualizar-modalidad",
+    path: "actualizar-modalidad/:id",
     component: ActualizarModalidadComponent
   },
   {
-    path: "eliminar-modalidad",
+    path: "eliminar-modalidad/:id",
     component: EliminarModalidadComponent
   },
   {

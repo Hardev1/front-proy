@@ -1,7 +1,3 @@
-.background {
-  @apply w-screen h-screen relative filter brightness-50;
-}
-
 .container {
   @apply w-screen transform flex justify-center items-center;
 }
@@ -33,7 +29,7 @@
   outline: none;
   overflow: hidden;
   position: relative;
-  @apply px-14 py-3 transform -translate-y-1 mb-3 hover:border-blue-100 text-blue-600 hover:text-blue-800 font-black tracking-wider shadow-xl;
+  @apply px-14 py-3 transform -translate-y-1 mb-3 hover:border-primary-100 text-primary-600 hover:text-primary-800 font-black tracking-wider shadow-xl;
 }
 
 span {

@@ -3,8 +3,8 @@ export namespace GeneralData{
     export const EMAIL_MIN_LENGHT = 10;
     export const INVALID_FORM_MESSAGE = "Formulario Inválido";
     export const VALID_FORM_MESSAGE = "Formulario Ok";
-    export const ADMIN_USERS_URL = "http://localhost:3000";
-    export const BUSSINESS_URL = "http://localhost:3300";
+    export const ADMIN_USERS_URL = "http://localhost:3001";
+    export const BUSSINESS_URL = "http://localhost:3000";
     export const SAVED_MESSAGE = "Registro almacenado";
     export const ERROR_MESSAGE = "Error en el backend";
     export const GENERAL_ERROR_MESSAGE = "Error al conectarse con el backend";

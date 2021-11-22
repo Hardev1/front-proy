@@ -31,7 +31,7 @@ export class ModalidadService {
   SaveRecord(data: ModalidadModel): Observable<ModalidadModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<ModalidadModel>(`${this.url}/modalidad`, {
+    return this.http.post<ModalidadModel>(`${this.url}/modalidads`, {
       nombre: data.nombre,
     },
      {headers:
@@ -43,12 +43,12 @@ export class ModalidadService {
   }
 
   SearchRecord(id: number): Observable<ModalidadModel> {
-    return this.http.get<ModalidadModel>(`${this.url}/modalidad/${id}`);
+    return this.http.get<ModalidadModel>(`${this.url}/modalidads/${id}`);
   }
 
   EditRecord(data: ModalidadModel): Observable<ModalidadModel> {
     return this.http.put<ModalidadModel>(
-      `${this.url}/modalidad/${data.id}`,
+      `${this.url}/modalidads/${data.id}`,
       {
         id: data.id,
         nombre: data.nombre,
@@ -62,7 +62,7 @@ export class ModalidadService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/modalidad/${id}`,
+      `${this.url}/modalidads/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

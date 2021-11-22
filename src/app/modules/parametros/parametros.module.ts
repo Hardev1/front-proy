@@ -54,7 +54,8 @@ import { ActualizarEstadoSolComponent } from './estadoSolicitud/actualizar-estad
 import { EliminarEstadoSolComponent } from './estadoSolicitud/eliminar-estado-sol/eliminar-estado-sol.component';
 import { CargarArchivoComponent } from './archivos/cargar-archivo/cargar-archivo.component';
 import { DescargarArchivoComponent } from './archivos/descargar-archivo/descargar-archivo.component';
-
+import { SharedModule } from '../../modules/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,10 @@ import { DescargarArchivoComponent } from './archivos/descargar-archivo/descarga
   ],
   imports: [
     CommonModule,
-    ParametrosRoutingModule
+    ParametrosRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametrosModule { }
