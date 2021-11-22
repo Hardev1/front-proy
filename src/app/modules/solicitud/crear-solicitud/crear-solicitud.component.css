@@ -3,31 +3,25 @@
 }
 
 .container {
-  @apply absolute top-1/2 -translate-y-2/4 transform flex justify-center items-center;
+  @apply w-screen transform flex justify-center items-center;
 }
 
 .inicio-s {
-  @apply mb-8 text-white font-medium;
+  @apply mb-8 text-primary-600 font-medium;
 }
 
 .login {
-  max-width: 330px;
-  background: rgba(255, 255, 255, 0.6);
-  border-top: 2px solid rgba(255, 255, 255, 0.5);
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow:  6px  6px 20px #ccdaec,
+                -6px -6px 20px #f3ffff;
   backdrop-filter: blur(5px);
-  @apply backdrop-blur-3xl rounded-lg m-auto w-full p-4 text-center;
+  @apply backdrop-blur-3xl rounded-lg m-auto md:max-w-screen-lg p-4 text-center;
 }
 
 .ancho {
-  width: 80%;
+  @apply w-72 mx-9;
 }
 .label {
-  @apply text-white;
-}
-
-.forgot {
-  @apply text-blue-600 hover:text-white duration-200 font-medium tracking-wider;
+  @apply text-primary-500;
 }
 
 .sign-in {
@@ -39,7 +33,7 @@
   outline: none;
   overflow: hidden;
   position: relative;
-  @apply px-14 py-3 mt-8 mb-3 hover:border-blue-100 text-blue-600 hover:text-blue-800 font-black tracking-wider shadow-xl;
+  @apply px-14 py-3 transform -translate-y-1 mb-3 hover:border-blue-100 text-blue-600 hover:text-blue-800 font-black tracking-wider shadow-xl;
 }
 
 span {

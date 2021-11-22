@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {ModalEliminarComponent} from '../../shared/components/modals/alert/modal-eliminar.component';
+import { ModalEliminarComponent } from '../../shared/components/modals/alert/modal-eliminar.component';
 
 @Component({
   selector: 'app-eliminar-invitacion-ev',

@@ -7,7 +7,7 @@ import { ListarSolicitudComponent } from './listar-solicitud/listar-solicitud.co
 
 const routes: Routes = [
   {
-    path: "actualizar-solicitud",
+    path: "actualizar-solicitud/:id",
     component: ActualizarSolicitudComponent
   },
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CrearSolicitudComponent
   },
   {
-    path: "eliminar-solicitud",
+    path: "eliminar-solicitud/:id",
     component: EliminarSolicitudComponent
   },
   {

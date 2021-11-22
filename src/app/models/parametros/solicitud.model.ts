@@ -1,6 +1,7 @@
 import { TipoSolicitudModel } from './tipo-solicitud.model';
 import { ModalidadModel } from './modalidad.model';
 import { LineaInvestigacionModel } from './linea-investigacion.model';
+import { EstadoSolicitudModel } from './estado-solicitud.model';
 
 export class SolicitudModel {
     id?: string;
@@ -9,6 +10,7 @@ export class SolicitudModel {
     archivo?: string;
     descripcion?: string;
     tiene_un?: TipoSolicitudModel;
+    posee_un?: EstadoSolicitudModel;
     pertenece_a?: ModalidadModel;
     tiene_una?: LineaInvestigacionModel;
 

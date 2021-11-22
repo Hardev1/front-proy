@@ -1,7 +1,7 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar class="example-toolbar bg-blue-900">
+  <mat-toolbar class="example-toolbar bg-primary-900">
     <button *ngIf="sesion" mat-icon-button (click)="snav.toggle()">
-      <mat-icon class="text-white hover:text-blue-400 hover:scale-125 duration-200">menu</mat-icon>
+      <mat-icon class="text-white hover:text-primary-400 hover:scale-125 duration-200">menu</mat-icon>
     </button>
     <h1 class="example-app-name text-white">Validaciones <span class="text-indigo-500">U</span>caldas</h1>
     <button *ngIf="!sesion" routerLink="seguridad/inicio-sesion" class="login" mat-menu-item>Iniciar sesion</button>
@@ -9,10 +9,10 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav class="bg-blue-900" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+    <mat-sidenav class="bg-primary-900" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <p class="text-white ml-6 mt-16 font-bold tracking-wider mb-16">Hola, <span
-          class="text-blue-400">{{nombre}}</span> <br> ¿Qué deseas hacer?</p>
+          class="text-primary-400">{{nombre}}</span> <br> ¿Qué deseas hacer?</p>
       <button mat-button [matMenuTriggerFor]="parametrizar">Parametrizar</button>
       <mat-menu style="color:brown;" #parametrizar="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="jurado">Jurado</button>
@@ -184,7 +184,7 @@
           </mat-expansion-panel>
         </mat-expansion-panel>
       </mat-accordion>
-      <p class="w-56 mt-40 mx-auto text-center text-white font-medium">Ingresaste con el rol <span class="text-blue-400">{{ rol }}</span>, en
+      <p class="w-56 mt-40 mx-auto text-center text-white font-medium">Ingresaste con el rol <span class="text-primary-400">{{ rol }}</span>, en
         caso de tener más roles y quieras cambiar de rol en la sesión, por favor, cierra sesión e inicia sesión con el
         rol deseado.</p>
     </mat-sidenav>

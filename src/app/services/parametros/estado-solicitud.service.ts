@@ -25,13 +25,13 @@ export class EstadoSolicitudService {
   //MODELOS DEL BACKEND
 
   GetRecordList(): Observable<EstadoSolicitudModel[]> {
-    return this.http.get<EstadoSolicitudModel[]>(`${this.url}/estado-solicitud`)
+    return this.http.get<EstadoSolicitudModel[]>(`${this.url}/estado-solicituds`)
   }
 
   SaveRecord(data: EstadoSolicitudModel): Observable<EstadoSolicitudModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<EstadoSolicitudModel>(`${this.url}/estado-solicitud`, {
+    return this.http.post<EstadoSolicitudModel>(`${this.url}/estado-solicituds`, {
       nombre: data.nombre,
     },
      {headers:
@@ -43,12 +43,12 @@ export class EstadoSolicitudService {
   }
 
   SearchRecord(id: number): Observable<EstadoSolicitudModel> {
-    return this.http.get<EstadoSolicitudModel>(`${this.url}/estado-solicitud/${id}`);
+    return this.http.get<EstadoSolicitudModel>(`${this.url}/estado-solicituds/${id}`);
   }
 
   EditRecord(data: EstadoSolicitudModel): Observable<EstadoSolicitudModel> {
     return this.http.put<EstadoSolicitudModel>(
-      `${this.url}/estado-solicitud/${data.id}`,
+      `${this.url}/estado-solicituds/${data.id}`,
       {
         id: data.id,
         nombre: data.nombre,
@@ -62,7 +62,7 @@ export class EstadoSolicitudService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/estado-solicitud/${id}`,
+      `${this.url}/estado-solicituds/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
