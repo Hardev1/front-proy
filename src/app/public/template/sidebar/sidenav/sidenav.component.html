@@ -1,6 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar bg-blue-900">
-    <button *ngIf="sesion" mat-icon-button (click)="snav.toggle()">
+    <button *ngIf="!sesion" mat-icon-button (click)="snav.toggle()">
       <mat-icon class="text-white hover:text-blue-400 hover:scale-125 duration-200">menu</mat-icon>
     </button>
     <h1 class="example-app-name text-white">Validaciones <span class="text-indigo-500">U</span>caldas</h1>

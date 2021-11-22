@@ -64,14 +64,14 @@ export class EditarUsuarioComponent implements OnInit {
   SaveRecord() {
     let model = new UsuarioModel();
     model.nombre = this.form.controls.nombre.value;
-    model._id = this.form.controls.id.value;
+    model._id = this.form.controls._id.value;
     model.apellido = this.form.controls.apellido.value;
     model.celular = this.form.controls.celular.value;
     model.fechaNacimiento = this.form.controls.fechaNacimiento.value;
     model.correo = this.form.controls.correo.value;
-    model.rol = this.form.controls.rol.value;
     model.apellido = this.form.controls.apellido.value;
     model.documento = this.form.controls.documento.value;
+    model.estado = parseInt(this.form.controls.estado.value);
     this.service.EditRecord(model).subscribe({
       next: (data: UsuarioModel) => {
         this.router.navigate(["/seguridad/listar-usuario"]);

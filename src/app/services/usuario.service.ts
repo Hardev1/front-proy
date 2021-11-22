@@ -52,21 +52,22 @@ export class UsuarioService {
     
   }
 
-  SearchRecord(_id: number): Observable<UsuarioModel> {
+  SearchRecord(_id: string): Observable<UsuarioModel> {
     return this.http.get<UsuarioModel>(`${this.url}/usuarios/${_id}`);
   }
 
   EditRecord(data: UsuarioModel): Observable<UsuarioModel> {
     return this.http.put<UsuarioModel>(
-      `${this.url}/usuario/${data._id}`,
+      `${this.url}/usuarios/${data._id}`,
       {
-        id: data._id,
+        _id: data._id,
         nombre: data.nombre,
         apellido: data.apellido,
         documento: data.documento,
         correo: data.correo,
         fechaNacimiento: data.fechaNacimiento,
-        celular: data.celular
+        celular: data.celular,
+        estado: data.estado
       },
       {
         headers: new HttpHeaders({
@@ -75,9 +76,9 @@ export class UsuarioService {
       });
   }
 
-  RemoveRecord(id: number): Observable<any> {
+  RemoveRecord(id: string): Observable<any> {
     return this.http.delete(
-      `${this.url}/usuario/${id}`,
+      `${this.url}/usuarios/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

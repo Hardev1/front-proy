@@ -1,0 +1,34 @@
+<div>
+    
+    <h3>Remover usuario</h3>
+    <form>
+        <div>
+            <div>
+              <label >Estas seguro de eliminar</label>
+                <ul>
+                    <li>
+                        Nombre: {{nombre}}
+                    </li>
+                    <li>
+                        Apellido: {{apellido}}
+                    </li>
+                    <li>
+                        Documento: {{documento}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div>
+                <button style="background-color: blue;" routerLink="/seguridad/listar-usuario">
+                    Cancelar
+                </button>
+            </div>
+            <div>
+                <button style="background-color: seagreen;" (click)="RemoveRecord()">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

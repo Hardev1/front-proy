@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
     CerrarSesionComponent,
     ListarUsuarioComponent,
     CrearUsuarioComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    EliminarUsuarioComponent
   ],
   imports: [
     CommonModule,

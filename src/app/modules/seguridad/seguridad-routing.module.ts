@@ -6,6 +6,7 @@ import { InicioSesionComponent } from '../seguridad/inicio-sesion/inicio-sesion.
 import { RecuperarContraComponent } from '../seguridad/recuperar-contra/recuperar-contra.component';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: "actualizar-usuario/:id",
     component: EditarUsuarioComponent
+  },
+  {
+    path: "eliminar-usuario/:id",
+    component: EliminarUsuarioComponent
   },
   {
     path: "inicio-sesion",
