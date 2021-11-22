@@ -87,11 +87,11 @@ const routes: Routes = [
     component: CrearDepartamentoComponent
   },
   {
-    path: "actualizar-departamento",
+    path: "actualizar-departamento/:id",
     component: ActualizarDepartamentoComponent
   },
   {
-    path: "eliminar-departamento",
+    path: "eliminar-departamento/:id",
     component: EliminarDepartamentoComponent
   },
   {

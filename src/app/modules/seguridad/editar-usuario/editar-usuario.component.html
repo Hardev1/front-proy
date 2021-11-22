@@ -1,0 +1,49 @@
+<div>
+    
+    <h3>Actualización de usuario</h3>
+    <form [formGroup]="form">
+        <input type="hidden" formControlName="_id" />
+        <div>
+            <div>
+                <label>Nombre </label>
+                <input formControlName="nombre" id="name" type="text">
+            </div>
+            <div>
+                <label>Apellido </label>
+                <input formControlName="apellido" id="name" type="text">
+            </div>
+            <div>
+                <label>Documento </label>
+                <input formControlName="documento" id="name" type="text">
+            </div>
+            <div>
+                <label>Correo </label>
+                <input formControlName="correo" id="name" type="text">
+            </div>
+            <div>
+                <label>Fecha de nacimiento </label>
+                <input formControlName="fechaNacimiento" id="name" type="date">
+            </div>
+            <div>
+                <label>Estado </label>
+                <input formControlName="estado" id="name" type="text">
+            </div>
+            <div>
+                <label>Celular </label>
+                <input formControlName="celular" id="name" type="tel">
+            </div>
+        </div>
+        <div>
+            <div>
+                <a routerLink="/seguridad/listar-usuario">
+                    Cancelar
+                </a>
+            </div>
+            <div>
+                <button (click)="SaveRecord()">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

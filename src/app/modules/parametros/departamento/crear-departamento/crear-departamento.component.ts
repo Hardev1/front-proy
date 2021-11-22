@@ -44,6 +44,7 @@ export class CrearDepartamentoComponent implements OnInit {
     this.service.SaveRecord(model).subscribe({
       next: (data: DepartamentoModel) => {
         console.log(data)
+        this.router.navigate(["/parametros/listar-departamento"])   
       },
       error: (err: any) => {
       }
