@@ -12,7 +12,9 @@ export class SecurityService {
 
   constructor(
     public http: HttpClient
-  ) { }
+  ) {
+    this.IsThereActiveSession();
+   }
 
   sessionDataSubject: BehaviorSubject<SessionData> = new BehaviorSubject<SessionData>(new SessionData());
 

@@ -255,11 +255,11 @@ const routes: Routes = [
     component: CrearTipoVincComponent
   },
   {
-    path: "actualizar-tipo-vinculacion",
+    path: "actualizar-tipo-vinculacion/:id",
     component: ActualizarTipoVincComponent
   },
   {
-    path: "eliminar-tipo-vinculacion",
+    path: "eliminar-tipo-vinculacion/:id",
     component: EliminarTipoVincComponent
   },
 ];

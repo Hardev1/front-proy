@@ -2,13 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
-import { LineaInvestigacionModel } from 'src/app/models/parametros/linea-investigacion.model';
+import { TipoVinculacionModel } from 'src/app/models/parametros/tipo-vinculacion.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LineaInvestigacionService {
+export class TipoVinculacionService {
 
   url: string = GeneralData.BUSSINESS_URL;
   token: string = "";
@@ -19,14 +19,14 @@ export class LineaInvestigacionService {
     this.token = this.localStorage.GetToken();
   }
 
-  GetRecordList(): Observable<LineaInvestigacionModel[]> {
-    return this.http.get<LineaInvestigacionModel[]>(`${this.url}/linea-investigacion`)
+  GetRecordList(): Observable<TipoVinculacionModel[]> {
+    return this.http.get<TipoVinculacionModel[]>(`${this.url}/tipo-vinculacions`)
   }
 
-  SaveRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
+  SaveRecord(data: TipoVinculacionModel): Observable<TipoVinculacionModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<LineaInvestigacionModel>(`${this.url}/linea-investigacion`, {
+    return this.http.post<TipoVinculacionModel>(`${this.url}/tipo-vinculacions`, {
       nombre: data.nombre,
     },
      {headers:
@@ -37,13 +37,13 @@ export class LineaInvestigacionService {
      )
   }
 
-  SearchRecord(id: number): Observable<LineaInvestigacionModel> {
-    return this.http.get<LineaInvestigacionModel>(`${this.url}/linea-investigacion/${id}`);
+  SearchRecord(id: number): Observable<TipoVinculacionModel> {
+    return this.http.get<TipoVinculacionModel>(`${this.url}/tipo-vinculacions/${id}`);
   }
 
-  EditRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
-    return this.http.put<LineaInvestigacionModel>(
-      `${this.url}/linea-investigacion/${data.id}`,
+  EditRecord(data: TipoVinculacionModel): Observable<TipoVinculacionModel> {
+    return this.http.put<TipoVinculacionModel>(
+      `${this.url}/tipo-vinculacions/${data.id}`,
       {
         id: data.id,
         nombre: data.nombre,
@@ -57,7 +57,7 @@ export class LineaInvestigacionService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/linea-investigacion/${id}`,
+      `${this.url}/tipo-vinculacions/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

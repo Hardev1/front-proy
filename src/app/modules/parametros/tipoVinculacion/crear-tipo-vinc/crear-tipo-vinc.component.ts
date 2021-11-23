@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { TipoVinculacionModel } from 'src/app/models/parametros/tipo-vinculacion.model';
+import { TipoVinculacionService } from 'src/app/services/parametros/tipo-vinculacion.service';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
 
 @Component({
   selector: 'app-crear-tipo-vinc',
@@ -7,9 +13,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearTipoVincComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup = new FormGroup({});
 
-  ngOnInit(): void {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private TipoVinculacionService: TipoVinculacionService,
+    public dialog: MatDialog
+  ) { }
+
+  CreateForm() {
+    this.form = this.fb.group({
+      nombre: ["", [Validators.required]]
+    });
   }
 
+  get GetForm() {
+    return this.form.controls;
+  }
+
+  SaveRecord() {
+    let model = new TipoVinculacionModel();
+    model.nombre = this.form.controls.nombre.value;
+    
+    this.TipoVinculacionService.SaveRecord(model).subscribe({
+      next: (data: TipoVinculacionModel) => {
+        this.router.navigate(["parametros/listar-tipo-vinculacion"]);
+      },
+      error: (err: any) => {
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    this.CreateForm();
+  }
+
+  openDialog() {
+    this.dialog.open(InfoComponent);
+  }
 }
