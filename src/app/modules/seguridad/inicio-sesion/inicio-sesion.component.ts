@@ -25,9 +25,7 @@ export class InicioSesionComponent implements OnInit {
     private router: Router,
     private service: RolService,
     private localStorage: LocalStorageService
-  )
-  
-  { }
+  ) { }
   recordList: RolModel[] = []
 
   form: FormGroup = new FormGroup({});
@@ -35,7 +33,6 @@ export class InicioSesionComponent implements OnInit {
   ngOnInit(): void {
     this.CreateForm();
     this.GetRecordList();
-    console.log(this.recordList)
   }
 
   CreateForm() {
@@ -49,7 +46,7 @@ export class InicioSesionComponent implements OnInit {
         ],
       ],
       password: [
-        'hidMcBqo',
+        'AAMRTdNg',
         [
           Validators.required,
           Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT),
@@ -66,16 +63,14 @@ export class InicioSesionComponent implements OnInit {
   get GetForm() {
     return this.form.controls;
   }
-  
+
   openDialog() {
     this.dialog.open(InfoComponent);
   }
 
   Login() {
     if (this.form.invalid) {
-      console.log();
     } else {
-      console.log();
       let modelo = new UserCredentialsModel();
       modelo.username = this.GetForm.username.value;
       modelo.password = MD5(this.GetForm.password.value).toString();

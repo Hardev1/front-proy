@@ -45,4 +45,10 @@ export class SecurityService {
     return this.sessionDataSubject.asObservable();
   }
 
+  RecoverPassword(usuario: string): Observable<SessionData> {
+    return this.http.post<SessionData>(`${this.url}/recuperar-clave`, {
+      email: usuario
+    });
+  }
+
 }

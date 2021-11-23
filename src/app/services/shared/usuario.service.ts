@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GeneralData } from '../config/general-data';
-import { UsuarioModel } from '../models/usuario.model';
-import { LocalStorageService } from './shared/local-storage.service';
+import { GeneralData } from '../../config/general-data';
+import { UsuarioModel } from '../../models/usuario.model';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'

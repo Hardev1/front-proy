@@ -1,1 +1,12 @@
-<p>recuperar-contra works!</p>
+<img src="./../../../../assets//img/login-background.png" class="background" alt="" srcset="">
+<div class="container">
+  <form class="login" [formGroup]="form">
+    <h1 class="inicio-s">Recuperar contraseña</h1>
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="usuario" type="text" class="label">Ingresa tu usuario</mat-label>
+      <input matInput formControlName="username" name="usuario" autocomplete="off">
+    </mat-form-field>
+    <button type="submit" class="ancho sign-in" (click)="RecoverPassword()" (click)="openDialog()"
+      [disabled]="GetForm['username'].errors">Ingresar</button>
+  </form>
+</div>

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RolData } from 'src/app/models/sesion/rol-data.model';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { RolService } from 'src/app/services/shared/rol.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { UsuarioService } from 'src/app/services/shared/usuario.service';
 import { RolModel } from '../../shared/modelos/rol.model';
 
 @Component({
