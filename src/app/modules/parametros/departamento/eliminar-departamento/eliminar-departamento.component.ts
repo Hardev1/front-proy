@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DepartamentoModel } from 'src/app/models/departamento.model';
 import { FacultadModel } from 'src/app/models/facultad.model';
@@ -12,7 +13,7 @@ import { FacultadService } from 'src/app/services/parametros/facultad.service';
 })
 export class EliminarDepartamentoComponent implements OnInit {
 
-  
+
   id: number = 0
   nombre: string = ""
   id_facultad: number = 0
@@ -22,7 +23,8 @@ export class EliminarDepartamentoComponent implements OnInit {
     private router: Router,
     private service: DepartamentoService,
     private facultadService: FacultadService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -30,31 +32,31 @@ export class EliminarDepartamentoComponent implements OnInit {
   }
 
 
-  SearchRecord(){
+  SearchRecord() {
     let id = parseInt(this.route.snapshot.params["id"]);
     this.service.SearchRecord(id).subscribe({
       next: (data: DepartamentoModel) => {
-        if(data.id && data.nombre && data.id_facultad){
-        this.id = data.id
-        this.nombre = data.nombre
-        this.id_facultad = data.id_facultad
-        //BUSCO LA FACULTAD POR EL ID QUE TIENE EL REGISTRO DE DEPARTAMENTO Y BUSCO LA FACULTAD PARA ASI
-        // MOSTRAR EN EL ELIMINAR.HTML  
-        let register = this.facultadService.SearchRecord(this.id_facultad).subscribe({
-          next: (f: FacultadModel)  => {
-            console.log(f);
-            if(f.nombre){
-            this.facultad = f.nombre
+        if (data.id && data.nombre && data.id_facultad) {
+          this.id = data.id
+          this.nombre = data.nombre
+          this.id_facultad = data.id_facultad
+
+          //BUSCO LA FACULTAD POR EL ID QUE TIENE EL REGISTRO DE DEPARTAMENTO Y BUSCO LA FACULTAD PARA ASI
+          // MOSTRAR EN EL ELIMINAR.HTML  
+          let register = this.facultadService.SearchRecord(this.id_facultad).subscribe({
+            next: (f: FacultadModel) => {
+              if (f.nombre) {
+                this.facultad = f.nombre
+              }
             }
-          }
-        })             
-            }
-    }
+          })
+        }
+      }
     });
   }
 
   RemoveRecord() {
-  
+
     this.service.RemoveRecord(this.id).subscribe({
       next: (data: DepartamentoModel) => {
         this.router.navigate(["/parametros/listar-departamento"]);
@@ -62,6 +64,9 @@ export class EliminarDepartamentoComponent implements OnInit {
       error: (err: any) => {
       }
     });
+  }
+  close() {
+    this.dialog.closeAll();
   }
 
 

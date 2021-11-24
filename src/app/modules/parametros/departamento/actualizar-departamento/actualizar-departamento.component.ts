@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DepartamentoModel } from 'src/app/models/departamento.model';
 import { FacultadModel } from 'src/app/models/facultad.model';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
 import { DepartamentoService } from 'src/app/services/parametros/departamento.service';
 import { FacultadService } from 'src/app/services/parametros/facultad.service';
 
@@ -21,7 +23,8 @@ export class ActualizarDepartamentoComponent implements OnInit {
     private router: Router,
     private service: DepartamentoService,
     private facultadService: FacultadService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +47,7 @@ export class ActualizarDepartamentoComponent implements OnInit {
       next: (data: DepartamentoModel) => {
         this.form.controls.id.setValue(data.id);
         this.form.controls.nombre.setValue(data.nombre);
-        this.form.controls.facultadId.setValue(data.id_facultad);
+        this.form.controls.facultadId.setValue(`${data.id_facultad}`);
       }
     });
   }
@@ -70,4 +73,13 @@ export class ActualizarDepartamentoComponent implements OnInit {
       }
     });
   }
+
+  get GetForm() {
+    return this.form.controls;
+  }
+
+  openDialog() {
+    this.dialog.open(InfoComponent);
+  }
+
 }

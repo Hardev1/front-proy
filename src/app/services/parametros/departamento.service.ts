@@ -64,12 +64,12 @@ export class DepartamentoService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/departamentos/${id}` /**,
+      `${this.url}/departamentos/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
         })
       }
-       */);
+       );
   }
 }

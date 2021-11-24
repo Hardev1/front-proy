@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DepartamentoModel } from 'src/app/models/departamento.model';
 import { FacultadModel } from 'src/app/models/facultad.model';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
 import { DepartamentoService } from 'src/app/services/parametros/departamento.service';
 import { FacultadService } from 'src/app/services/parametros/facultad.service';
 
@@ -22,7 +24,8 @@ export class CrearDepartamentoComponent implements OnInit {
     private service: DepartamentoService,
     private fb: FormBuilder,
     private facultadService: FacultadService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -64,4 +67,7 @@ export class CrearDepartamentoComponent implements OnInit {
     });
   }
 
+  openDialog() {
+    this.dialog.open(InfoComponent);
+  }
 }
