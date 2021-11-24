@@ -31,8 +31,8 @@ export class CrearUsuarioComponent implements OnInit {
       nombre: ["", [Validators.required]],
       apellido: ["", [Validators.required]],
       documento: ["", [Validators.required]],
-      correo: ["", [Validators.required, Validators.email]],
-      celular: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      telefono: ["", [Validators.required]],
       fechaNacimiento: ["", [Validators.required]]
   
     });
@@ -42,8 +42,8 @@ export class CrearUsuarioComponent implements OnInit {
     let model = new UsuarioModel();
     model.nombre = this.form.controls.nombre.value;
     model.apellido = this.form.controls.apellido.value;
-    model.celular = this.form.controls.celular.value;
-    model.correo = this.form.controls.correo.value;
+    model.telefono = this.form.controls.telefono.value;
+    model.email = this.form.controls.email.value;
     model.documento = this.form.controls.documento.value;
     model.fechaNacimiento = this.form.controls.fechaNacimiento.value;
     this.service.SaveRecord(model).subscribe({

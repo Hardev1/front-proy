@@ -35,11 +35,11 @@ const routes: Routes = [
     component: CerrarSesionComponent
   },
   {
-    path: "cambiar-contra",
+    path: "cambiar-contraseña",
     component: CambiarContraComponent
   },
   {
-    path: "recuperar-contra",
+    path: "recuperar-contraseña",
     component: RecuperarContraComponent
   },
 ];

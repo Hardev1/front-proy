@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
 import { SessionData } from 'src/app/models/sesion/session-data.model';
 import { UserCredentialsModel } from 'src/app/models/sesion/user-credentials.models';
+import { CambioClaveModel } from 'src/app/models/cambio-clave.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class SecurityService {
       clave: modelo.password,
       rol: modelo.rol
     });
-  }
+  };
 
   IsThereActiveSession() {
     let data = localStorage.getItem("session-data");
@@ -34,7 +35,7 @@ export class SecurityService {
       let objectData: SessionData = JSON.parse(data);
       objectData.isLoggedIn = true;
       this.RefreshSessionData(objectData);
-    }
+    };
   }
 
   RefreshSessionData(data: SessionData){
@@ -50,5 +51,13 @@ export class SecurityService {
       email: usuario
     });
   }
+
+  ChangePassword(modelo: CambioClaveModel): Observable<SessionData> {
+    return this.http.post<SessionData>(`${this.url}/cambiar-clave`, {
+      id_user: modelo.id_user,
+      clave_actual: modelo.clave_actual,
+      nueva_clave: modelo.nueva_clave
+    });
+  };
 
 }

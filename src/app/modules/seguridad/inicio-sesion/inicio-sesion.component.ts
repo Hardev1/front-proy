@@ -18,6 +18,11 @@ import { LocalStorageService } from 'src/app/services/shared/local-storage.servi
 })
 
 export class InicioSesionComponent implements OnInit {
+ 
+  recordList: RolModel[] = []
+  form: FormGroup = new FormGroup({});
+  captcha:string = "";
+
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
@@ -26,9 +31,6 @@ export class InicioSesionComponent implements OnInit {
     private service: RolService,
     private localStorage: LocalStorageService
   ) { }
-  recordList: RolModel[] = []
-
-  form: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
     this.CreateForm();
@@ -95,5 +97,9 @@ export class InicioSesionComponent implements OnInit {
         this.recordList = data;
       }
     });
+  }
+
+  resolved(captchaResponse: string) {
+    this.captcha = captchaResponse;
   }
 }

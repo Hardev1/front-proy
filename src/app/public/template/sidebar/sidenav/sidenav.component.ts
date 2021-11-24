@@ -24,8 +24,6 @@ export class SidenavComponent implements OnDestroy, OnInit {
   panelOpenState = false;
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({ length: 2 }, (_, i) => `Crear jurado ${i + 1}`);
-
   private _mobileQueryListener: () => void;
 
   prueba() {
@@ -50,7 +48,4 @@ export class SidenavComponent implements OnDestroy, OnInit {
       }
     );
   }
-
-  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
-  expandedIndex = 0;
 }

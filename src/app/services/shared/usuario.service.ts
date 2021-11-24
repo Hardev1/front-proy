@@ -27,19 +27,19 @@ export class UsuarioService {
   //MODELOS DEL BACKEND
 
   GetRecordList(): Observable<UsuarioModel[]> {
-    return this.http.get<UsuarioModel[]>(`${this.url}/usuarios?filter={"include":[{"relation":"rols"}]}`)
+    return this.http.get<UsuarioModel[]>(`${this.url}/users?filter={"include":[{"relation":"rols"}]}`)
   }
 
   SaveRecord(data: UsuarioModel): Observable<UsuarioModel> {
     console.log(this.token, "aqui esta el token");
 
-    return this.http.post<UsuarioModel>(`${this.url}/usuarios`, {
+    return this.http.post<UsuarioModel>(`${this.url}/users`, {
       nombre: data.nombre,
       apellido: data.apellido,
       documento: data.documento,
-      correo: data.correo,
+      email: data.email,
       fechaNacimiento: data.fechaNacimiento,
-      celular: data.celular
+      telefono: data.telefono
     }
       /** {
         headers:
@@ -53,20 +53,20 @@ export class UsuarioService {
   }
 
   SearchRecord(_id: string): Observable<UsuarioModel> {
-    return this.http.get<UsuarioModel>(`${this.url}/usuarios/${_id}`);
+    return this.http.get<UsuarioModel>(`${this.url}/users/${_id}`);
   }
 
   EditRecord(data: UsuarioModel): Observable<UsuarioModel> {
     return this.http.put<UsuarioModel>(
-      `${this.url}/usuarios/${data._id}`,
+      `${this.url}/users/${data._id}`,
       {
         _id: data._id,
         nombre: data.nombre,
         apellido: data.apellido,
         documento: data.documento,
-        correo: data.correo,
+        email: data.email,
         fechaNacimiento: data.fechaNacimiento,
-        celular: data.celular,
+        telefono: data.telefono,
         estado: data.estado
       },
       {
@@ -78,7 +78,7 @@ export class UsuarioService {
 
   RemoveRecord(id: string): Observable<any> {
     return this.http.delete(
-      `${this.url}/usuarios/${id}`,
+      `${this.url}/users/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

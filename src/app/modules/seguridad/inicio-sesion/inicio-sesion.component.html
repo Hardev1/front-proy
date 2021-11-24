@@ -25,9 +25,10 @@
     </mat-form-field>
 
     <br>
-    <a routerLink="../../seguridad/recuperar-contra" class="forgot">¿Olvidaste la contraseña?</a>
+    <a routerLink="../../seguridad/recuperar-contraseña" class="forgot">¿Olvidaste la contraseña?</a>
     <br>
+    <re-captcha (resolved)="resolved($event)" class="recaptcha-wrap" siteKey="6LfaolUdAAAAAE6o19b-vxVZN7VUoc_AFYd1s3pA"></re-captcha>
     <button type="submit" class="ancho sign-in" (click)="Login()" (click)="openDialog()"
-      [disabled]="GetForm['username'].errors || GetForm['password'].errors">Ingresar</button>
+      [disabled]="GetForm['username'].errors || GetForm['password'].errors || GetForm['rol'].errors || !captcha">Ingresar</button>
   </form>
 </div>

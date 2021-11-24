@@ -5,10 +5,10 @@ export class UsuarioModel{
     nombre?: string;
     apellido?: string;
     documento?: string;
-    correo?: string;
+    email?: string;
     fechaNacimiento?: string;
-    celular?: string;
+    telefono?: string;
     clave?: string;
     estado?: number;
-    rol?: RolModel;
+    rols?: RolModel;
 }

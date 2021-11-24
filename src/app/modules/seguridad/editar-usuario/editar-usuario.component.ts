@@ -36,9 +36,9 @@ export class EditarUsuarioComponent implements OnInit {
       _id: ["", [Validators.required]],
       nombre: ["", [Validators.required]],
       apellido: ["", [Validators.required]],
-      correo: ["", [Validators.required, Validators.email]],
+      email: ["", [Validators.required, Validators.email]],
       documento: ["", [Validators.required]],
-      celular: ["", [Validators.required]],
+      telefono: ["", [Validators.required]],
       fechaNacimiento: ["", [Validators.required]],
       estado: ["", [Validators.required]]
     });
@@ -52,8 +52,8 @@ export class EditarUsuarioComponent implements OnInit {
         this.form.controls._id.setValue(data._id);
         this.form.controls.nombre.setValue(data.nombre);
         this.form.controls.apellido.setValue(data.apellido);
-        this.form.controls.correo.setValue(data.correo);
-        this.form.controls.celular.setValue(data.celular);
+        this.form.controls.email.setValue(data.email);
+        this.form.controls.telefono.setValue(data.telefono);
         this.form.controls.documento.setValue(data.documento);
         this.form.controls.fechaNacimiento.setValue(data.fechaNacimiento);
         this.form.controls.estado.setValue(data.estado)
@@ -66,9 +66,9 @@ export class EditarUsuarioComponent implements OnInit {
     model.nombre = this.form.controls.nombre.value;
     model._id = this.form.controls._id.value;
     model.apellido = this.form.controls.apellido.value;
-    model.celular = this.form.controls.celular.value;
+    model.telefono = this.form.controls.telefono.value;
     model.fechaNacimiento = this.form.controls.fechaNacimiento.value;
-    model.correo = this.form.controls.correo.value;
+    model.email = this.form.controls.email.value;
     model.apellido = this.form.controls.apellido.value;
     model.documento = this.form.controls.documento.value;
     model.estado = parseInt(this.form.controls.estado.value);
