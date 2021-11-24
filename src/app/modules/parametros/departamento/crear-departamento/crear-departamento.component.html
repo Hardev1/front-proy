@@ -1,25 +1,26 @@
-<div >
-    <form [formGroup]="form">
-      <h3>Creación de departamentos</h3>
-        <div >
-            <label>
-                <span>Facultad</span>
-                <select  formControlName="facultadId" id="seleccionar">
-                  <option *ngFor="let r of recordList" value="{{r.id}}">{{r.nombre}} </option>
-                </select>
-              </label>
-          </div>
-        <div >
-        <label >
-          Nombre
-        </label>
-        <input formControlName="nombre"  type="text">
-      </div>
-      <div>
-        <button style="background-color: seagreen;" id="btn-login" type='button' (click)="SaveRecord()">
-          Crear
-        </button>
-      </div>
-    </form>
-  
-  </div>
+<div class="container">
+  <form class="login" [formGroup]="form">
+
+    <h1 class="inicio-s">Crear Departamento</h1>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="nombre" class="label">Nombre</mat-label>
+      <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+    </mat-form-field>
+
+
+    <mat-form-field class="ancho mb-3" appearance="fill">
+      <mat-label>Facultad</mat-label>
+      <mat-select formControlName="facultadId" name="facultad" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let r of recordList" value="{{r.id}}">
+          {{r.nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="GetForm['facultadId'].errors">Por favor, selecciona un tipo de solicitud</mat-error>
+    </mat-form-field>
+
+    <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+      [disabled]="GetForm['nombre'].errors || GetForm['facultadId'].errors">Crear</button>
+  </form>
+</div>

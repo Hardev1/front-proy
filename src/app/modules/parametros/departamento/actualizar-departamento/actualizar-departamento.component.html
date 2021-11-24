@@ -1,34 +1,23 @@
-<div>
-    
-    <h3>Actualización de departamento</h3>
-    <form [formGroup]="form">
-        <input type="hidden" formControlName="id" />
-        <div>
-            <div>
-                <label>Nombre </label>
-                <input formControlName="nombre" id="name" type="text">
-                    
-            </div>
-            <div >
-                  <label>
-                      <span>Facultad</span>
-                      <select  formControlName="facultadId" id="seleccionar">
-                        <option *ngFor="let r of recordList" value="{{r.id}}">{{r.nombre}} </option>
-                      </select>
-                    </label>
-                </div>
-        </div>
-        <div>
-            <div>
-                <button style="background-color: red;" routerLink="/parametros/listar-departamento">
-                    Cancelar
-                </button>
-            </div>
-            <div>
-                <button style="background-color:seagreen;" (click)="SaveRecord()">
-                    Guardar
-                </button>
-            </div>
-        </div>
+  <div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar departamento</h1>
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre" class="label">Nombre</mat-label>
+            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona la facultad</mat-label>
+            <mat-select formControlName="facultadId" name="facultad">
+                <mat-option *ngFor="let r of recordList" value="{{r.id}}">{{r.nombre}} </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['facultadId'].errors">Por favor, seleccione facultad</mat-error>
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" routerLink="/parametros/listar-departamento">Cancelar</button>
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Editar</button>
     </form>
 </div>
