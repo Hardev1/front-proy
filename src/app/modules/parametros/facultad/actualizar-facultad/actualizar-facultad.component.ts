@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FacultadModel } from 'src/app/models/facultad.model';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
 import { FacultadService } from 'src/app/services/parametros/facultad.service';
 
 
@@ -20,7 +22,8 @@ export class ActualizarFacultadComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private service: FacultadService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -61,4 +64,14 @@ export class ActualizarFacultadComponent implements OnInit {
     });
   }
 
+  
+get GetForm() {
+  return this.form.controls;
 }
+
+openDialog() {
+  this.dialog.open(InfoComponent);
+}
+
+}
+

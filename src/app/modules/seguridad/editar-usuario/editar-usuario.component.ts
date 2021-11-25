@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RolData } from 'src/app/models/sesion/rol-data.model';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { RolService } from 'src/app/services/shared/rol.service';
 import { UsuarioService } from 'src/app/services/shared/usuario.service';
+import { InfoComponent } from '../../shared/components/modals/info/info.component';
 import { RolModel } from '../../shared/modelos/rol.model';
 
 @Component({
@@ -22,7 +24,8 @@ export class EditarUsuarioComponent implements OnInit {
     private router: Router,
     private service: UsuarioService,
     private rolService: RolService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -88,5 +91,10 @@ export class EditarUsuarioComponent implements OnInit {
       }
     });
   }
+
+  openDialog() {
+    this.dialog.open(InfoComponent);
+  }
+
 
 }

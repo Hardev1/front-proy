@@ -1,29 +1,21 @@
-<div>
-    
-    <h3>Actualización de facultad</h3>
-    <form [formGroup]="form">
-        <input type="hidden" formControlName="id" />
-        <div>
-            <div>
-                <label>Nombre </label>
-                <input formControlName="nombre" id="name" type="text">
-            </div>
-            <div>
-                <label>Codigo </label>
-                <input formControlName="codigo" id="name" type="text">
-            </div>
-        </div>
-        <div>
-            <div>
-                <a routerLink="/parametros/listar-facultad">
-                    Cancelar
-                </a>
-            </div>
-            <div>
-                <button (click)="SaveRecord()">
-                    Guardar
-                </button>
-            </div>
-        </div>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar facultad</h1>
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre" class="label">Nombre</mat-label>
+            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="codigo" class="label">Código</mat-label>
+            <input matInput formControlName="codigo" name="codigo" type="text" autocomplete="off">
+        </mat-form-field>
+
+
+        <button type="submit" class="ancho sign-in" routerLink="/parametros/listar-departamento">Cancelar</button>
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Editar</button>
     </form>
 </div>

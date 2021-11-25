@@ -1,49 +1,35 @@
-<div>
-    
-    <h3>Actualización de usuario</h3>
-    <form [formGroup]="form">
-        <input type="hidden" formControlName="_id" />
-        <div>
-            <div>
-                <label>Nombre </label>
-                <input formControlName="nombre" id="name" type="text">
-            </div>
-            <div>
-                <label>Apellido </label>
-                <input formControlName="apellido" id="name" type="text">
-            </div>
-            <div>
-                <label>Documento </label>
-                <input formControlName="documento" id="name" type="text">
-            </div>
-            <div>
-                <label>Correo </label>
-                <input formControlName="email" id="name" type="text">
-            </div>
-            <div>
-                <label>Fecha de nacimiento </label>
-                <input formControlName="fechaNacimiento" id="name" type="date">
-            </div>
-            <div>
-                <label>Estado </label>
-                <input formControlName="estado" id="name" type="text">
-            </div>
-            <div>
-                <label>Telefono </label>
-                <input formControlName="telefono" id="name" type="tel">
-            </div>
-        </div>
-        <div>
-            <div>
-                <a routerLink="/seguridad/listar-usuario">
-                    Cancelar
-                </a>
-            </div>
-            <div>
-                <button (click)="SaveRecord()">
-                    Guardar
-                </button>
-            </div>
-        </div>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar usuario</h1>
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre" class="label">Nombre</mat-label>
+            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="apellido" class="label">Apellido</mat-label>
+            <input matInput formControlName="apellido" name="apellido" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="correo" class="label">Correo</mat-label>
+            <input matInput formControlName="correo" name="correo" type="email" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="documento" class="label">Documento</mat-label>
+            <input matInput formControlName="documento" name="documento" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre" class="label">Nombre</mat-label>
+            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" routerLink="/parametros/listar-facultad">Cancelar</button>
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()" >Editar</button>
     </form>
 </div>

@@ -54,4 +54,12 @@ export class CrearFacultadComponent implements OnInit {
     this.dialog.open(InfoComponent);
   }
 
+  get GetForm() {
+    return this.form.controls;
+  }
+
 }
+
+
+
+

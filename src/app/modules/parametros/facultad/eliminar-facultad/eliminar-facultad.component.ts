@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FacultadModel } from 'src/app/models/facultad.model';
 import { FacultadService } from 'src/app/services/parametros/facultad.service';
@@ -19,7 +20,8 @@ export class EliminarFacultadComponent implements OnInit {
   constructor(
     private router: Router,
     private service: FacultadService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -51,5 +53,7 @@ export class EliminarFacultadComponent implements OnInit {
     });
   }
 
-
+  close() {
+    this.dialog.closeAll();
+  }
 }

@@ -1,26 +1,19 @@
-<div>
-  
-  <h3>Creación de facultades</h3>
-  <form [formGroup]="form">
+<div class="container">
+  <form class="login" [formGroup]="form">
 
-      <div>
-      <label for="code" >
-        Código
-      </label>
-      <input formControlName="codigo" type="text">
-    </div>
-    <div >
-      <label for="nombre">
-        Nombre
-      </label>
-      <input formControlName="nombre" type="text">
-    </div>
-    <div>
-      <button style="background-color: seagreen;" type='button'
-                      (click)="SaveRecord()">
-        Crear
-      </button>
-    </div>
+      <h1 class="inicio-s">Crear facultad</h1>
+
+      <mat-form-field class="ancho" appearance="fill">
+          <mat-label for="nombre" class="label">Nombre</mat-label>
+          <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field class="ancho" appearance="fill">
+          <mat-label for="codigo" type="text" class="label">Codigo</mat-label>
+          <input matInput formControlName="codigo" name="codigo" autocomplete="off">
+      </mat-form-field>
+
+      <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+          [disabled]="GetForm['nombre'].errors || GetForm['codigo'].errors">Crear</button>
   </form>
-
 </div>

@@ -1,34 +1,7 @@
-<div>
-    
-    <h3>Remover facultad</h3>
-    <form>
-        <div>
-            <div>
-              <label >Estas seguro de eliminar</label>
-                <ul>
-                    <li>
-                       Id: {{id}}
-                    </li>
-                    <li>
-                        Nombre: {{nombre}}
-                    </li>
-                    <li>
-                        Código: {{codigo}}                       
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div>
-            <div>
-                <a routerLink="/parametrizacion/listar-facultad">
-                    Cancelar
-                </a>
-            </div>
-            <div>
-                <button (click)="RemoveRecord()">
-                    Confirmar
-                </button>
-            </div>
-        </div>
-    </form>
-</div>
+<div mat-dialog-content>
+    <p>¿Seguro que desea eliminar este Elemento?</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-button color="primary" (click)="close()">Cancelar</button>
+    <button mat-button mat-button color="warn" (click) ="RemoveRecord()" cdkFocusInitial>Eliminar</button>
+  </div>
