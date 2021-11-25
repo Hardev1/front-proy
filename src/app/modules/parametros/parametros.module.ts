@@ -60,7 +60,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
   
-    CrearFacultadComponent,
+       CrearFacultadComponent,
        ListarFacultadComponent,
        ActualizarFacultadComponent,
        EliminarFacultadComponent,
