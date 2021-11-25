@@ -2,35 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComiteModel } from 'src/app/models/parametros/comite.model';
-import { ComiteService } from 'src/app/services/parametros/comite.service';
 import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { RolModel } from 'src/app/modules/shared/modelos/rol.model';
+import { RolService } from 'src/app/services/shared/rol.service';
 
 @Component({
-  selector: 'app-actualizar-comite',
-  templateUrl: './actualizar-comite.component.html',
-  styleUrls: ['./actualizar-comite.component.css']
+  selector: 'app-actualizar-rol',
+  templateUrl: './actualizar-rol.component.html',
+  styleUrls: ['./actualizar-rol.component.css']
 })
-export class ActualizarComiteComponent implements OnInit {
+export class ActualizarRolComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private service: ComiteService,
+    private service: RolService,
     private route: ActivatedRoute,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.CreateForm();
     this.SearchRecord();
+    this.CreateForm();
   }
 
   CreateForm() {
     this.form = this.fb.group({
-      id: ["", [Validators.required]],
+      _id: ["", [Validators.required]],
       nombre: ["", [Validators.required]],
     });
   }
@@ -40,22 +40,24 @@ export class ActualizarComiteComponent implements OnInit {
   }
 
   SearchRecord(){
-    let id = parseInt(this.route.snapshot.params["id"]);
-    this.service.SearchRecord(id).subscribe({
-      next: (data: ComiteModel) => {
-        this.form.controls.id.setValue(data.id);
+    let _id = this.route.snapshot.params["_id"];
+    this.service.SearchRecord(_id).subscribe({
+      next: (data: RolModel) => {
+        this.form.controls._id.setValue(data._id);
         this.form.controls.nombre.setValue(data.nombre);
       }
     });
   }
 
   SaveRecord() {
-    let model = new ComiteModel();
-    model.id = this.form.controls.id.value;
+    let model = new RolModel();
+    model._id = this.form.controls._id.value;
     model.nombre = this.form.controls.nombre.value;
+    console.log(model);
+    
     this.service.EditRecord(model).subscribe({
-      next: (data: ComiteModel) => {
-        this.router.navigate(["/parametros/listar-comite"]);
+      next: (data: RolModel) => {
+        this.router.navigate(["/seguridad/listar-rol"]);
       },
       error: (err: any) => {
       }
@@ -67,4 +69,3 @@ export class ActualizarComiteComponent implements OnInit {
   }
 
 }
-

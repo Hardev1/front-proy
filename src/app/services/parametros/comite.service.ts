@@ -2,13 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
-import { ModalidadModel } from 'src/app/models/parametros/modalidad.model';
+import { ComiteModel } from 'src/app/models/parametros/comite.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ModalidadService {
+export class ComiteService {
 
   url: string = GeneralData.BUSSINESS_URL;
   token: string = "";
@@ -19,14 +19,19 @@ export class ModalidadService {
     this.token = this.localStorage.GetToken();
   }
 
-  GetRecordList(): Observable<ModalidadModel[]> {
-    return this.http.get<ModalidadModel[]>(`${this.url}/modalidads`)
+
+
+  //CAMBIAR DESPUES DE THIS.URL POR LAS DEL BACKEND Y LOS NOMBRES DE VARIABLES A COMO SE RECIBAN EN LOS 
+  //MODELOS DEL BACKEND
+
+  GetRecordList(): Observable<ComiteModel[]> {
+    return this.http.get<ComiteModel[]>(`${this.url}/comites`)
   }
 
-  SaveRecord(data: ModalidadModel): Observable<ModalidadModel> {
+  SaveRecord(data: ComiteModel): Observable<ComiteModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<ModalidadModel>(`${this.url}/modalidads`, {
+    return this.http.post<ComiteModel>(`${this.url}/comites`, {
       nombre: data.nombre,
     },
      {headers:
@@ -37,13 +42,13 @@ export class ModalidadService {
      )
   }
 
-  SearchRecord(id: number): Observable<ModalidadModel> {
-    return this.http.get<ModalidadModel>(`${this.url}/modalidads/${id}`);
+  SearchRecord(id: number): Observable<ComiteModel> {
+    return this.http.get<ComiteModel>(`${this.url}/comites/${id}`);
   }
 
-  EditRecord(data: ModalidadModel): Observable<ModalidadModel> {
-    return this.http.put<ModalidadModel>(
-      `${this.url}/modalidads/${data.id}`,
+  EditRecord(data: ComiteModel): Observable<ComiteModel> {
+    return this.http.put<ComiteModel>(
+      `${this.url}/comites/${data.id}`,
       {
         id: data.id,
         nombre: data.nombre,
@@ -57,7 +62,7 @@ export class ModalidadService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/modalidads/${id}`,
+      `${this.url}/comites/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

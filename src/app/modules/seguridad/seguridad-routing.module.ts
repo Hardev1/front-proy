@@ -8,7 +8,10 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
-import { ListarRolComponent } from './rol/listar-usuario/listar-rol.component';
+import { ActualizarRolComponent } from './rol/actualizar-rol/actualizar-rol.component';
+import { CrearRolComponent } from './rol/crear-rol/crear-rol.component';
+import { EliminarRolComponent } from './rol/eliminar-rol/eliminar-rol.component';
+import { ListarRolComponent } from './rol/listar-rol/listar-rol.component';
 
 const routes: Routes = [
   {
@@ -33,15 +36,15 @@ const routes: Routes = [
   },
   {
     path: "crear-rol",
-    component: CrearUsuarioComponent
+    component: CrearRolComponent
   },
   {
-    path: "actualizar-rol/:id",
-    component: EditarUsuarioComponent
+    path: "actualizar-rol/:_id",
+    component: ActualizarRolComponent
   },
   {
-    path: "eliminar-rol/:id",
-    component: EliminarUsuarioComponent
+    path: "eliminar-rol/:_id",
+    component: EliminarRolComponent
   },
   {
     path: "inicio-sesion",

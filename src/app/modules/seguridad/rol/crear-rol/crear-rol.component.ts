@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ComiteModel } from 'src/app/models/parametros/comite.model';
-import { ComiteService } from 'src/app/services/parametros/comite.service';
 import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { RolModel } from 'src/app/modules/shared/modelos/rol.model';
+import { RolService } from 'src/app/services/shared/rol.service';
 
 @Component({
-  selector: 'app-crear-comite',
-  templateUrl: './crear-comite.component.html',
-  styleUrls: ['./crear-comite.component.css']
+  selector: 'app-crear-rol',
+  templateUrl: './crear-rol.component.html',
+  styleUrls: ['./crear-rol.component.css']
 })
-export class CrearComiteComponent implements OnInit {
+export class CrearRolComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private ComiteService: ComiteService,
+    private RolService: RolService,
     public dialog: MatDialog
   ) { }
 
@@ -33,12 +33,12 @@ export class CrearComiteComponent implements OnInit {
   }
 
   SaveRecord() {
-    let model = new ComiteModel();
+    let model = new RolModel();
     model.nombre = this.form.controls.nombre.value;
     
-    this.ComiteService.SaveRecord(model).subscribe({
-      next: (data: ComiteModel) => {
-        this.router.navigate(["parametros/listar-comite"]);
+    this.RolService.SaveRecord(model).subscribe({
+      next: (data: RolModel) => {
+        this.router.navigate(["seguridad/listar-rol"]);
       },
       error: (err: any) => {
       }
