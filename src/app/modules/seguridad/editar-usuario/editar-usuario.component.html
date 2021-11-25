@@ -2,7 +2,7 @@
     <form class="login" [formGroup]="form">
 
         <h1 class="inicio-s">Editar usuario</h1>
-        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="_id">
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="nombre" class="label">Nombre</mat-label>
@@ -15,8 +15,13 @@
         </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
-            <mat-label for="correo" class="label">Correo</mat-label>
-            <input matInput formControlName="correo" name="correo" type="email" autocomplete="off">
+            <mat-label for="email" class="label">Correo</mat-label>
+            <input matInput formControlName="email" name="email" type="email" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="telefono" class="label">Celular</mat-label>
+            <input matInput formControlName="telefono" name="telefono" type="text" autocomplete="off">
         </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
@@ -25,11 +30,13 @@
         </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
-            <mat-label for="nombre" class="label">Nombre</mat-label>
-            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
-        </mat-form-field>
+            <mat-label class="label">Fecha de solicitud</mat-label>
+            <input matInput formControlName="fechaNacimiento" name="fechaNacimiento" [matDatepicker]="picker" placeholder="Ej: 12/31/2012">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
 
-        <button type="submit" class="ancho sign-in" routerLink="/parametros/listar-facultad">Cancelar</button>
+        <button type="submit" class="ancho sign-in" routerLink="/seguridad/listar-usuario">Cancelar</button>
         <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()" >Editar</button>
     </form>
 </div>

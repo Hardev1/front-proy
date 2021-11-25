@@ -40,14 +40,14 @@ export class UsuarioService {
       email: data.email,
       fechaNacimiento: data.fechaNacimiento,
       telefono: data.telefono
-    }
-      /** {
+    },
+       {
         headers:
           new HttpHeaders({
             Authorization: `Bearer ${this.token}`
           })
       }
-    */
+    
       )
     
   }

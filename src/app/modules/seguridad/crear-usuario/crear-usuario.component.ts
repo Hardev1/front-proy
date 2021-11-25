@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { GeneralData } from 'src/app/config/general-data';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/shared/usuario.service';
 import { InfoComponent } from '../../shared/components/modals/info/info.component';
@@ -30,9 +31,9 @@ export class CrearUsuarioComponent implements OnInit {
     this.form = this.fb.group({
       nombre: ["", [Validators.required]],
       apellido: ["", [Validators.required]],
-      documento: ["", [Validators.required]],
+      documento: ["", [Validators.required, Validators.minLength(GeneralData.DOCUMENT_MIN_LENGHT)]],
       email: ["", [Validators.required, Validators.email]],
-      telefono: ["", [Validators.required]],
+      telefono: ["", [Validators.required, Validators.minLength(GeneralData.CELLPHONE_MIN_LENGHT)]],
       fechaNacimiento: ["", [Validators.required]]
   
     });

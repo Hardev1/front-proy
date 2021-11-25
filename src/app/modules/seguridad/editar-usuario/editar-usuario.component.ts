@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GeneralData } from 'src/app/config/general-data';
 import { RolData } from 'src/app/models/sesion/rol-data.model';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { RolService } from 'src/app/services/shared/rol.service';
@@ -40,8 +41,8 @@ export class EditarUsuarioComponent implements OnInit {
       nombre: ["", [Validators.required]],
       apellido: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-      documento: ["", [Validators.required]],
-      telefono: ["", [Validators.required]],
+      documento: ["", [Validators.required, Validators.minLength(GeneralData.DOCUMENT_MIN_LENGHT)]],
+      telefono: ["", [Validators.required, Validators.min(GeneralData.CELLPHONE_MIN_LENGHT)]],
       fechaNacimiento: ["", [Validators.required]],
       estado: ["", [Validators.required]]
     });
@@ -51,14 +52,13 @@ export class EditarUsuarioComponent implements OnInit {
     let id = this.route.snapshot.params["id"];
     this.service.SearchRecord(id).subscribe({
       next: (data: UsuarioModel) => {
-        console.log(data);
         this.form.controls._id.setValue(data._id);
         this.form.controls.nombre.setValue(data.nombre);
         this.form.controls.apellido.setValue(data.apellido);
         this.form.controls.email.setValue(data.email);
         this.form.controls.telefono.setValue(data.telefono);
         this.form.controls.documento.setValue(data.documento);
-        this.form.controls.fechaNacimiento.setValue(data.fechaNacimiento);
+        this.form.controls.fechaNacimiento.setValue(`${data.fechaNacimiento}`);
         this.form.controls.estado.setValue(data.estado)
       }
     });
@@ -96,5 +96,13 @@ export class EditarUsuarioComponent implements OnInit {
     this.dialog.open(InfoComponent);
   }
 
+  get GetForm() {
+    return this.form.controls;
+  }
 
 }
+
+
+
+
+

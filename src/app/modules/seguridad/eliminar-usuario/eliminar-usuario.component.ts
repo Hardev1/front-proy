@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/shared/usuario.service';
@@ -19,8 +20,9 @@ export class EliminarUsuarioComponent implements OnInit {
   constructor(
     private router: Router,
     private service: UsuarioService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.SearchRecord();
@@ -53,5 +55,10 @@ export class EliminarUsuarioComponent implements OnInit {
       }
     });
   }
+
+  close() {
+    this.dialog.closeAll();
+  }
+  
 
 }

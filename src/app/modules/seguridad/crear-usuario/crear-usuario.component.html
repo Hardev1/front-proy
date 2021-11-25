@@ -1,48 +1,44 @@
-<div>
-    <form [formGroup]="form">
-  
-        <div>
-        <label for="code" >
-          Nombre
-        </label>
-        <input formControlName="nombre" type="text">
-      </div>
-      <div >
-        <label for="nombre">
-          Apellido
-        </label>
-        <input formControlName="apellido" type="text">
-      </div>
-      <div >
-        <label for="nombre">
-          Documento
-        </label>
-        <input formControlName="documento" type="text">
-      </div>
-      <div >
-        <label for="nombre">
-          Correo
-        </label>
-        <input formControlName="correo" type="email">
-      </div>
-      <div >
-        <label for="nombre">
-        Celular
-        </label>
-        <input formControlName="celular" type="tel">
-      </div>
-      <div >
-        <label for="nombre">
-          Fecha
-        </label>
-        <input formControlName="fechaNacimiento" type="date">
-      </div>
-      <div>
-        <button style="background-color: seagreen;" type='button'
-        [disabled]="GetForm['correo'].errors" (click)="SaveRecord()" (click)="openDialog">
-          Crear
-        </button>
-      </div>
-    </form>
-  
-  </div>
+<div class="container">
+  <form class="login" [formGroup]="form">
+
+    <h1 class="inicio-s">Crear usuario</h1>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="nombre" class="label">Nombre</mat-label>
+      <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="apellido" class="label">Apellido</mat-label>
+      <input matInput formControlName="apellido" name="apellido" type="text" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="documento" class="label">Documento</mat-label>
+      <input matInput formControlName="documento" name="documento" type="tel" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="telefono" class="label">Celular</mat-label>
+      <input matInput formControlName="telefono" name="telefono" type="tel" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label for="email" class="label">Correo</mat-label>
+      <input matInput formControlName="email" name="email" type="email" autocomplete="off">
+    </mat-form-field>
+
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label class="label">Fecha de nacimiento</mat-label>
+      <input matInput formControlName="fechaNacimiento" name="fechaNacimiento" [matDatepicker]="picker"
+        placeholder="Ej: 12/31/2012">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+      [disabled]="GetForm['nombre'].errors || GetForm['apellido'].errors || GetForm['telefono'].errors 
+          || GetForm['documento'].errors || GetForm['email'].errors || GetForm['fechaNacimiento'].errors">Crear</button>
+  </form>
+</div>
