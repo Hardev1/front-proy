@@ -41,6 +41,7 @@ export class SidenavComponent implements OnDestroy, OnInit {
           this.sesion = data.isLoggedIn;
           this.nombre = data.usuario?.nombre;
           this.rol = data.rol?.nombre;
+          console.log(data)
         },
         error: (err) => {
 

@@ -22,6 +22,7 @@ export class InicioSesionComponent implements OnInit {
   recordList: RolModel[] = []
   form: FormGroup = new FormGroup({});
   captcha:string = "";
+  clave_incorrecta:string = "";
 
   constructor(
     private fb: FormBuilder,
@@ -48,7 +49,7 @@ export class InicioSesionComponent implements OnInit {
         ],
       ],
       password: [
-        'AAMRTdNg',
+        'programacion',
         [
           Validators.required,
           Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT),
@@ -77,12 +78,20 @@ export class InicioSesionComponent implements OnInit {
       modelo.username = this.GetForm.username.value;
       modelo.password = MD5(this.GetForm.password.value).toString();
       modelo.rol = this.GetForm.rol.value;
+      console.log(modelo)
       this.securityService.Login(modelo).subscribe({
         next: (data: any) => {
-          this.localStorage.SaveSessionData(data);
-          data.isLoggedIn = true;
-          this.securityService.RefreshSessionData(data);
-          this.router.navigate(['/inicio'])
+          if (data.usuario == null) {
+            this.clave_incorrecta = "usuario o contra incorrecta";
+            this.GetForm.password.errors;
+            this.GetForm.username.errors;
+          } else {
+            this.localStorage.SaveSessionData(data);
+            data.isLoggedIn = true;
+            this.securityService.RefreshSessionData(data);
+            this.openDialog()
+            this.router.navigate(['/inicio'])
+          }
         },
         error: (error: any) => {
           console.log('Error al conectar con el backend');

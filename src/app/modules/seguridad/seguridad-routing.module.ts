@@ -8,6 +8,7 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
+import { ListarRolComponent } from './rol/listar-usuario/listar-rol.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,22 @@ const routes: Routes = [
   },
   {
     path: "eliminar-usuario/:id",
+    component: EliminarUsuarioComponent
+  },
+  {
+    path: "listar-rol",
+    component: ListarRolComponent
+  },
+  {
+    path: "crear-rol",
+    component: CrearUsuarioComponent
+  },
+  {
+    path: "actualizar-rol/:id",
+    component: EditarUsuarioComponent
+  },
+  {
+    path: "eliminar-rol/:id",
     component: EliminarUsuarioComponent
   },
   {

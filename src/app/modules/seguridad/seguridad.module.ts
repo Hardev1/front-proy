@@ -12,7 +12,7 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 import { RecaptchaModule } from 'ng-recaptcha';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    RecaptchaModule
+    RecaptchaModule,
+    MatPaginatorModule
   ]
 })
 export class SeguridadModule { }

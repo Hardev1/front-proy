@@ -39,7 +39,7 @@ export class DepartamentoService {
   }
 
   GetRecordList(): Observable<DepartamentoModel[]> {
-    return this.http.get<DepartamentoModel[]>(`${this.url}/departamentos?filter={"include":[{"relation":"facultad"}]}`)
+    return this.http.get<DepartamentoModel[]>(`${this.url}/departamentos?filter={"include":[{"relation":"pertenece_a"}]}`)
   }
 
   SearchRecord(id: number): Observable<DepartamentoModel> {

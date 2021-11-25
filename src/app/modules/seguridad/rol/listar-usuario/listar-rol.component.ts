@@ -1,34 +1,29 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UsuarioModel } from 'src/app/models/usuario.model';
-import { UsuarioService } from 'src/app/services/shared/usuario.service';
+import { RolData } from 'src/app/models/sesion/rol-data.model';
+import { RolService } from 'src/app/services/shared/rol.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 @Component({
-  selector: 'app-listar-usuario',
-  templateUrl: './listar-usuario.component.html',
-  styleUrls: ['./listar-usuario.component.css']
+  selector: 'app-listar-rol',
+  templateUrl: './listar-rol.component.html',
+  styleUrls: ['./listar-rol.component.css']
 })
-export class ListarUsuarioComponent implements OnInit {
+export class ListarRolComponent implements OnInit {
 
   //FALTARIA CREAR UN MODELO PARA LOS ESTADOS Y ASI PODER TRAER EL NOMBRE DEL ESTADO
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  recordList: UsuarioModel[] = [];
-  dataSource = new MatTableDataSource<UsuarioModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['nombre', 'apellido', 'documento', 'email', 'fechaNacimiento', 'telefono', 'estado', 'rols',  'acciones'];
+  recordList: RolData[] = [];
+  dataSource = new MatTableDataSource<RolData>(this.recordList); //Para llenar tabla de Angular Material
+  displayedColumns: string[] = ['nombre', 'acciones'];
   columnas = [
-    { titulo: "Nombre", name: "nombre" },
-    { titulo: "Apellido", name: "apellido" },
-    { titulo: "Documento", name: "documento" },
-    { titulo: "Correo electrónico", name: "email" },
-    { titulo: "Teléfono", name: "telefono" },
-    { titulo: "Estado del usuario", name: "estado" }
+    { titulo: "Nombre del rol", name: "nombre" }
   ];
 
   constructor(
-    private usuarioService: UsuarioService
+    private RolService: RolService
   ) { }
 
   ngOnInit(): void {
@@ -36,8 +31,8 @@ export class ListarUsuarioComponent implements OnInit {
   }
 
   GetRecordList() {
-    this.usuarioService.GetRecordList().subscribe({
-      next: (data: UsuarioModel[]) => {
+    this.RolService.GetRecordList().subscribe({
+      next: (data: RolData[]) => {
         this.dataSource.data = data; // Se llena la tabla con los elementos
       }
     });
