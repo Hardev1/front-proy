@@ -12,7 +12,11 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
 import { RecaptchaModule } from 'ng-recaptcha';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ListarRolComponent } from './rol/listar-rol/listar-rol.component';
+import { CrearRolComponent } from './rol/crear-rol/crear-rol.component';
+import { ActualizarRolComponent } from './rol/actualizar-rol/actualizar-rol.component';
+import { EliminarRolComponent } from './rol/eliminar-rol/eliminar-rol.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ListarUsuarioComponent,
     CrearUsuarioComponent,
     EditarUsuarioComponent,
-    EliminarUsuarioComponent
+    EliminarUsuarioComponent,
+    ListarRolComponent,
+    CrearRolComponent,
+    ActualizarRolComponent,
+    EliminarRolComponent
   ],
   imports: [
     CommonModule,

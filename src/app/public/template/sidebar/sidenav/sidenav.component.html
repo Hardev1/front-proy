@@ -16,7 +16,6 @@
       <button mat-button [matMenuTriggerFor]="parametrizar">Parametrizar</button>
       <mat-menu style="color:brown;" #parametrizar="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="jurado">Jurado</button>
-        <button mat-menu-item [matMenuTriggerFor]="roles">roles</button>
         <button mat-menu-item [matMenuTriggerFor]="solicitud">Solicitud</button>
         <button mat-menu-item [matMenuTriggerFor]="tipoSol">Tipo de solicitud</button>
         <button mat-menu-item [matMenuTriggerFor]="invitacionEv">Invitación a evaluar</button>
@@ -71,12 +70,6 @@
         <a (click)="snav.toggle()" routerLink="parametros/crear-modalidad" mat-menu-item>Crear modalidad</a>
         <a (click)="snav.toggle()" routerLink="parametros/actualizar-modalidad" mat-menu-item>Actualizar modalidad</a>
         <a (click)="snav.toggle()" routerLink="parametros/eliminar-modalidad" mat-menu-item>Eliminar modalidad</a>
-      </mat-menu>
-      <mat-menu #roles="matMenu">
-        <a (click)="snav.toggle()" routerLink="parametros/listar-propopnente" mat-menu-item>Listar roless</a>
-        <a (click)="snav.toggle()" routerLink="parametros/crear-propopnente" mat-menu-item>Crear roles</a>
-        <a (click)="snav.toggle()" routerLink="parametros/actualizar-propopnente" mat-menu-item>Actualizar roles</a>
-        <a (click)="snav.toggle()" routerLink="parametros/eliminar-propopnente" mat-menu-item>Eliminar roles</a>
       </mat-menu>
       <mat-menu #recordatorios="matMenu">
         <a (click)="snav.toggle()" routerLink="parametros/listar-recordatorio-evaluacion" mat-menu-item>Listar recordatorios</a>

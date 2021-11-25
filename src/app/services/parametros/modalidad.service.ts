@@ -19,11 +19,6 @@ export class ModalidadService {
     this.token = this.localStorage.GetToken();
   }
 
-
-
-  //CAMBIAR DESPUES DE THIS.URL POR LAS DEL BACKEND Y LOS NOMBRES DE VARIABLES A COMO SE RECIBAN EN LOS 
-  //MODELOS DEL BACKEND
-
   GetRecordList(): Observable<ModalidadModel[]> {
     return this.http.get<ModalidadModel[]>(`${this.url}/modalidads`)
   }
