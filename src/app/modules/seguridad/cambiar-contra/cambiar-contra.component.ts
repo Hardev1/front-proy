@@ -21,11 +21,11 @@ export class CambiarContraComponent implements OnInit {
   form: FormGroup = new FormGroup({});
 
   constructor(
-    private securityService: SecurityService, 
+    private securityService: SecurityService,
     private fb: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
-    ) { }
+  ) { }
 
   CreateForm() {
     this.form = this.fb.group({
@@ -64,7 +64,7 @@ export class CambiarContraComponent implements OnInit {
           this.sesion = data.isLoggedIn;
           this.form.controls.id_user.setValue(`${data.usuario?._id}`);
           console.log(this.form.controls.id_user.value);
-          
+
         },
         error: (err) => {
           console.log('Error al conectar con el backend');
@@ -78,15 +78,17 @@ export class CambiarContraComponent implements OnInit {
     modelo.id_user = this.GetForm.id_user.value;
     modelo.clave_actual = this.GetForm.clave_actual.value;
     modelo.nueva_clave = this.GetForm.nueva_clave.value;
-    this.securityService.ChangePassword(modelo).subscribe({
-      next: () => {
-        this.router.navigate(['/inicio'])
-      },
-      error: (error: any) => {
-        console.log(error);
-      }
-    })
-  }
+    if (this.sesion) {
+      this.securityService.ChangePassword(modelo).subscribe({
+        next: () => {
+          this.router.navigate(['/inicio'])
+        },
+        error: (error: any) => {
+          console.log(error);
+        }
+      });
+    };
+  };
 
   openDialog() {
     this.dialog.open(InfoComponent);

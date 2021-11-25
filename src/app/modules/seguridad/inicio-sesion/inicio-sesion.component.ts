@@ -23,6 +23,8 @@ export class InicioSesionComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   captcha:string = "";
   clave_incorrecta:string = "";
+  xd:string = "invalid";
+  hide:boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -83,8 +85,8 @@ export class InicioSesionComponent implements OnInit {
         next: (data: any) => {
           if (data.usuario == null) {
             this.clave_incorrecta = "usuario o contra incorrecta";
-            this.GetForm.password.errors;
-            this.GetForm.username.errors;
+            this.GetForm.password.invalid;
+            this.GetForm.username.invalid;
           } else {
             this.localStorage.SaveSessionData(data);
             data.isLoggedIn = true;
