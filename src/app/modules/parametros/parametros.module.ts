@@ -24,8 +24,8 @@ import { ActualizarRecordatorioEvComponent } from './recordatorioEvaluacion/actu
 import { EliminarRecordatorioEvComponent } from './recordatorioEvaluacion/eliminar-recordatorio-ev/eliminar-recordatorio-ev.component';
 import { CorreoRecordatorioEvComponent } from './recordatorioEvaluacion/correo-recordatorio-ev/correo-recordatorio-ev.component';
 import { LlamadaRecordatorioEvComponent } from './recordatorioEvaluacion/llamada-recordatorio-ev/llamada-recordatorio-ev.component';
-//import { CrearComiteComponent } from './comite/crear-comite/crear-comite.component';
-//import { ListarComiteComponent } from './comite/listar-comite/listar-comite.component';
+import { CrearComiteComponent } from './comite/crear-comite/crear-comite.component';
+import { ListarComiteComponent } from './comite/listar-comite/listar-comite.component';
 import { ActualizarComiteComponent } from './comite/actualizar-comite/actualizar-comite.component';
 import { EliminarComiteComponent } from './comite/eliminar-comite/eliminar-comite.component';
 import { CrearResultadoEvComponent } from './ResultadoEvaluacion/crear-resultado-ev/crear-resultado-ev.component';
@@ -82,8 +82,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
        EliminarRecordatorioEvComponent,
        CorreoRecordatorioEvComponent,
        LlamadaRecordatorioEvComponent,
-       //CrearComiteComponent,
-       //ListarComiteComponent,
+       CrearComiteComponent,
+       ListarComiteComponent,
        ActualizarComiteComponent,
        EliminarComiteComponent,
        CrearResultadoEvComponent,

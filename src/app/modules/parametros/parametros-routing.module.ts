@@ -71,11 +71,11 @@ const routes: Routes = [
     component: CrearComiteComponent
   },
   {
-    path: "actualizar-comite",
+    path: "actualizar-comite/:id",
     component: ActualizarComiteComponent
   },
   {
-    path: "eliminar-comite",
+    path: "eliminar-comite/:id",
     component: EliminarComiteComponent
   },
   {
