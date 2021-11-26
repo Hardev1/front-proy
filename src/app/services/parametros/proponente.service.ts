@@ -22,6 +22,7 @@ export class ProponenteService {
   }
 
   GetRecordList(): Observable<ProponenteModel[]> {
+    //cambiar relation a tiene_un creo que se llamaba
     return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"proponente_pertenece_a_tipoVinculacion"}]}`);
   }
 
