@@ -1,1 +1,19 @@
-<p>crear-tipo-sol works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Crear Tipo De Solicitud</h1>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre" class="label">Nombre</mat-label>
+            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="formato" class="label">Formato</mat-label>
+            <input matInput formControlName="formato" name="formato" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+            [disabled]="GetForm['nombre'].errors">Crear</button>
+    </form>
+</div>

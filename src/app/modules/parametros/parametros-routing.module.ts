@@ -239,11 +239,11 @@ const routes: Routes = [
     component: CrearTipoSolComponent
   },
   {
-    path: "actualizar-tipo-solicitud",
+    path: "actualizar-tipo-solicitud/:id",
     component: ActualizarTipoSolComponent
   },
   {
-    path: "eliminar-tipo-solicitud",
+    path: "eliminar-tipo-solicitud/:id",
     component: EliminarTipoSolComponent
   },
   {

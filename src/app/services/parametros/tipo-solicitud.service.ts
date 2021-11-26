@@ -31,6 +31,7 @@ export class TipoSolicitudService {
     
     return this.http.post<TipoSolicitudModel>(`${this.url}/tipo-solicituds`, {
       nombre: data.nombre,
+      formato: data.formato
     },
      {headers:
       new HttpHeaders({
@@ -50,6 +51,7 @@ export class TipoSolicitudService {
       {
         id: data.id,
         nombre: data.nombre,
+        formato: data.formato,
       },
       {
         headers: new HttpHeaders({
