@@ -29,9 +29,9 @@ export class EliminarProponenteComponent implements OnInit {
     let id = parseInt(this.route.snapshot.params["id"]);
     this.service.SearchRecord(id).subscribe({
       next: (data: ProponenteModel) => {
-        if(data.id && data.primer_nombre){
+        if(data.id && data.primerNombre){
         this.id = data.id
-        this.nombre = data.primer_nombre
+        this.nombre = data.primerNombre
       }
     }
     });

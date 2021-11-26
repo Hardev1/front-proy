@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
+import { UploadedFileModel } from 'src/app/models/parametros/file.model';
 import { ProponenteModel } from 'src/app/models/parametros/proponente.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
@@ -21,21 +22,23 @@ export class ProponenteService {
   }
 
   GetRecordList(): Observable<ProponenteModel[]> {
-    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`);
+    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"proponente_pertenece_a_tipoVinculacion"}]}`);
   }
 
+
+  //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   SaveRecord(data: ProponenteModel): Observable<ProponenteModel> {
     return this.http.post<ProponenteModel>(`${this.url}/proponentes`, {
-      primer_nombre: data.primer_nombre,
-      otros_nombres: data.otros_nombres,
-      primer_apellido: data.primer_apellido,
-      segundo_apellido: data.segundo_apellido,
+      primerNombre: data.primerNombre,
+      otrosNombres: data.otrosNombres,
+      primerApellido: data.primerApellido,
+      segundoApellido: data.segundoApellido,
       documento: data.documento,
-      fecha_nacimiento: data.fecha_nacimiento,
-      email: data.email,
+      fechaNacimiento: data.fechaNacimiento,
+      correo: data.correo,
       celular: data.celular,
       fotografia: data.fotografia,
-      id_tipo_vinculacion: data.id_tipo_vinculacion,
+      id_tipoVinculacion: data.id_tipoVinculacion,
     },
       {
         headers:
@@ -50,21 +53,22 @@ export class ProponenteService {
     return this.http.get<ProponenteModel>(`${this.url}/proponentes/${id}`);
   }
 
+    //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   EditRecord(data: ProponenteModel): Observable<ProponenteModel> {
     return this.http.put<ProponenteModel>(
       `${this.url}/proponentes/${data.id}`,
       {
         id: data.id,
-        primer_nombre: data.primer_nombre,
-        otros_nombres: data.otros_nombres,
-        primer_apellido: data.primer_apellido,
-        segundo_apellido: data.segundo_apellido,
+        primerNombre: data.primerNombre,
+        otrosNombres: data.otrosNombres,
+        primerApellido: data.primerApellido,
+        segundoApellido: data.segundoApellido,
         documento: data.documento,
-        fecha_nacimiento: data.fecha_nacimiento,
-        email: data.email,
+        fechaNacimiento: data.fechaNacimiento,
+        correo: data.correo,
         celular: data.celular,
         fotografia: data.fotografia,
-        id_tipo_vinculacion: data.id_tipo_vinculacion,
+        id_tipoVinculacion: data.id_tipoVinculacion,
       },
       {
         headers: new HttpHeaders({
@@ -76,6 +80,28 @@ export class ProponenteService {
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
       `${this.url}/proponentes/${id}`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      });
+  }
+
+  UploadImage(formData: FormData): Observable<UploadedFileModel>{
+    return this.http.post<UploadedFileModel>(
+      `${this.url}/CargarImagenProponente`,
+      formData,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      });
+  }
+
+  UploadFile(formData: FormData): Observable<UploadedFileModel>{
+    return this.http.post<UploadedFileModel>(
+      `${this.url}/CargarImagenProponente`,
+      formData,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

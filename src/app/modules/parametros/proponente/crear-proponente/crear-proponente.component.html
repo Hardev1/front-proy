@@ -1,7 +1,21 @@
 <div class="container">
+
     <form class="login" [formGroup]="form">
 
+        <label hidden>{{uploadedFilename}}</label>
         <h1 class="inicio-s">Crear proponente</h1>
+
+        <!--DAR ESTILOS DESDE LA LINEA 9 A 17-->
+        <div>
+            <img style="height: 150px; width: 150px;" *ngIf="!uploadedFile" src="../../../../../assets/img/descarga.jpg" />
+            <img style="height: 150px; width: 150px;" *ngIf="uploadedFile" src="{{url}}/archivo/1/{{uploadedFilename}}" />
+        </div>
+        
+        <div>
+            <input type="file" name="image" (change)="OnchangeInputFile($event)" />
+            &nbsp;<button (click)="UploadImage()" class="btn">Cargar Imagen</button>
+        </div>
+        
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="primer_nombre" class="label">Primer Nombre</mat-label>
@@ -30,10 +44,11 @@
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="fecha_nacimiento" class="label">Fecha Nacimiento</mat-label>
-            <input matInput formControlName="fecha_nacimiento" name="fecha_nacimiento" [matDatepicker]="picker" placeholder="">
+            <input matInput formControlName="fecha_nacimiento" name="fecha_nacimiento" [matDatepicker]="picker"
+                placeholder="">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="email" class="label">Email</mat-label>
@@ -44,12 +59,12 @@
             <mat-label for="celular" class="label">Celular</mat-label>
             <input matInput formControlName="celular" name="celular" type="text" autocomplete="off">
         </mat-form-field>
-
+<!--
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="fotografia" type="text" class="label">Fotografia</mat-label>
             <input matInput formControlName="fotografia" name="fotografia" autocomplete="off">
         </mat-form-field>
-
+-->
         <mat-form-field class="ancho mb-3" appearance="fill">
             <mat-label>Selecciona el tipo de vinculacion</mat-label>
             <mat-select formControlName="id_tipo_vinculacion" name="tipoVinculacion" required>
@@ -58,9 +73,10 @@
                     {{r.nombre}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="GetForm['id_tipo_vinculacion'].errors">Por favor, selecciona un tipo de vinculación</mat-error>
+            <mat-error *ngIf="GetForm['id_tipo_vinculacion'].errors">Por favor, selecciona un tipo de vinculación
+            </mat-error>
         </mat-form-field>
-   
+
         <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Crear</button>
     </form>
 </div>
