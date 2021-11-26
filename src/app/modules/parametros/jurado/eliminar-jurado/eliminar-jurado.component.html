@@ -1,1 +1,7 @@
-<p>eliminar-jurado works!</p>
+<div mat-dialog-content>
+    <p>¿Seguro que desea eliminar este Elemento?</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-button color="primary" (click)="close()">Cancelar</button>
+    <button mat-button mat-button color="warn" (click) ="RemoveRecord()" cdkFocusInitial>Eliminar</button>
+  </div>

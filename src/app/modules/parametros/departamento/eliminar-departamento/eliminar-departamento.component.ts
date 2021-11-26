@@ -36,21 +36,7 @@ export class EliminarDepartamentoComponent implements OnInit {
     let id = parseInt(this.route.snapshot.params["id"]);
     this.service.SearchRecord(id).subscribe({
       next: (data: DepartamentoModel) => {
-        if (data.id && data.nombre && data.id_facultad) {
-          this.id = data.id
-          this.nombre = data.nombre
-          this.id_facultad = data.id_facultad
 
-          //BUSCO LA FACULTAD POR EL ID QUE TIENE EL REGISTRO DE DEPARTAMENTO Y BUSCO LA FACULTAD PARA ASI
-          // MOSTRAR EN EL ELIMINAR.HTML  
-          let register = this.facultadService.SearchRecord(this.id_facultad).subscribe({
-            next: (f: FacultadModel) => {
-              if (f.nombre) {
-                this.facultad = f.nombre
-              }
-            }
-          })
-        }
       }
     });
   }

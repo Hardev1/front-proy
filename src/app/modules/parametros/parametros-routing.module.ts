@@ -135,11 +135,11 @@ const routes: Routes = [
     component: CrearJuradoComponent
   },
   {
-    path: "actualizar-jurado",
+    path: "actualizar-jurado/:id",
     component: ActualizarJuradoComponent
   },
   {
-    path: "eliminar-jurado",
+    path: "eliminar-jurado/:id",
     component: EliminarJuradoComponent
   },
   {

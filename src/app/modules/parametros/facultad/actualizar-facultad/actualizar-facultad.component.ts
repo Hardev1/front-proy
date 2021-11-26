@@ -14,8 +14,6 @@ import { FacultadService } from 'src/app/services/parametros/facultad.service';
 })
 export class ActualizarFacultadComponent implements OnInit {
 
-//QUEDA FUNCIONAL SOLO FALTA DAR ESTILO A LOS HTML
-
   form: FormGroup = new FormGroup({});
 
   constructor(
