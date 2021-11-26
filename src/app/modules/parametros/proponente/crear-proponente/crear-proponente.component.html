@@ -1,1 +1,66 @@
-<p>crear-proponente works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Crear proponente</h1>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="primer_nombre" class="label">Primer Nombre</mat-label>
+            <input matInput formControlName="primer_nombre" name="primer_nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="otros_nombres" class="label">Otros Nombres</mat-label>
+            <input matInput formControlName="otros_nombres" name="otros_nombres" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="primer_apellido" class="label">Primer Apellido</mat-label>
+            <input matInput formControlName="primer_apellido" name="primer_apellido" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="segundo_apellido" class="label">Segundo Apellido</mat-label>
+            <input matInput formControlName="segundo_apellido" name="segundo_apellido" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="documento" class="label">Documento</mat-label>
+            <input matInput formControlName="documento" name="documento" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="fecha_nacimiento" class="label">Fecha Nacimiento</mat-label>
+            <input matInput formControlName="fecha_nacimiento" name="fecha_nacimiento" [matDatepicker]="picker" placeholder="">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="email" class="label">Email</mat-label>
+            <input matInput formControlName="email" name="email" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="celular" class="label">Celular</mat-label>
+            <input matInput formControlName="celular" name="celular" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="fotografia" type="text" class="label">Fotografia</mat-label>
+            <input matInput formControlName="fotografia" name="fotografia" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona el tipo de vinculacion</mat-label>
+            <mat-select formControlName="id_tipo_vinculacion" name="tipoVinculacion" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of tipoVinList" value="{{r.id}}">
+                    {{r.nombre}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_tipo_vinculacion'].errors">Por favor, selecciona un tipo de vinculación</mat-error>
+        </mat-form-field>
+   
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Crear</button>
+    </form>
+</div>

@@ -183,11 +183,11 @@ const routes: Routes = [
     component: CrearProponenteComponent
   },
   {
-    path: "actualizar-proponente",
+    path: "actualizar-proponente/:id",
     component: ActualizarProponenteComponent
   },
   {
-    path: "eliminar-proponente",
+    path: "eliminar-proponente/:id",
     component: EliminarProponenteComponent
   },
   {
