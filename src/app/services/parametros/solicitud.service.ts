@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
 import { SolicitudModel } from 'src/app/models/parametros/solicitud.model';
+import { UploadedFileModel } from 'src/app/models/parametros/uploaded.file.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
@@ -71,6 +72,17 @@ export class SolicitudService {
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
       `${this.url}/solicituds/${id}`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      });
+  }
+
+  UploadFile(formData: FormData): Observable<UploadedFileModel>{
+    return this.http.post<UploadedFileModel>(
+      `${this.url}/CargarArchivoSolicitud`,
+      formData,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

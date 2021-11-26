@@ -69,3 +69,18 @@ span {
   -o-transition: none !important;
   transition: none !important;
 }
+
+.mat-toolbar-single-row {
+  height: auto !important;
+  background: transparent;
+}
+
+#uploadFile {
+  top: 0px;
+  left: 0px;  
+  z-index: 9;
+  opacity: 0;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+}

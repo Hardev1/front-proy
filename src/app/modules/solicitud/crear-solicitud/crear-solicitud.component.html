@@ -1,4 +1,22 @@
 <div class="container">
+    <form class="login" [formGroup]="formFile">
+
+        <mat-form-field class="ancho">
+            <mat-toolbar class="relative">
+                <!-- Display files names -->
+                <input matInput formControlName="file" class="cursor-pointer" readonly name="name" />
+
+                <!-- Browse Button -->
+                <button class="mr-auto cursor-pointer absolute left-2 transform -translate-y-1">
+                    <span class="text-sm text-primary-500">Archivo</span>
+                </button>
+            </mat-toolbar>
+
+            <!-- Fetch selected filed on change -->
+            <input type="file" class="w-full h-full cursor-pointer" (change)="OnChangeInputFile($event)" id="uploadFile"
+                name="file">
+        </mat-form-field>
+    </form>
     <form class="login" [formGroup]="form">
 
         <h1 class="inicio-s">Crear solicitud</h1>
@@ -8,17 +26,13 @@
             <input matInput formControlName="fecha" name="fecha" [matDatepicker]="picker" placeholder="Ej: 12/31/2012">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+        </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="nombre_solicitud" class="label">Nombre de la solicitud</mat-label>
             <input matInput formControlName="nombre_solicitud" name="nombre_solicitud" type="text" autocomplete="off">
         </mat-form-field>
 
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label for="archivo" type="text" class="label">Archivo</mat-label>
-            <input matInput formControlName="archivo" name="archivo" autocomplete="off">
-        </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="descripcion" class="label">Descripción</mat-label>
@@ -33,7 +47,8 @@
                     {{r.nombre}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="GetForm['id_tipo_solicitud'].errors">Por favor, selecciona un tipo de solicitud</mat-error>
+            <mat-error *ngIf="GetForm['id_tipo_solicitud'].errors">Por favor, selecciona un tipo de solicitud
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field class="ancho mb-3" appearance="fill">
@@ -58,8 +73,7 @@
             <mat-error *ngIf="GetForm['id_linea_investigacion'].errors">Por favor, selecciona el área</mat-error>
         </mat-form-field>
 
-        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
-            [disabled]="GetForm['nombre_solicitud'].errors || 
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()" [disabled]="GetForm['nombre_solicitud'].errors || 
             GetForm['archivo'].errors || GetForm['id_tipo_solicitud'].errors || 
             GetForm['id_modalidad'].errors || GetForm['id_linea_investigacion'].errors">Crear</button>
     </form>

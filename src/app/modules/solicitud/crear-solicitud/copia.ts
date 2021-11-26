@@ -50,21 +50,38 @@ export class CrearSolicitudComponent implements OnInit {
     this.token = this.localStorageService.GetToken();
   }
 
-  ngOnInit(): void {
-    this.CreateForm();
-    this.CreateForm();
-    this.GetRecordList();
-  }
-
   CreateForm() {
     this.form = this.fb.group({
       fecha: ["", [Validators.required]],
       nombre_solicitud: ["", [Validators.required]],
-      file: ["", []],
       descripcion: ["", [Validators.minLength(0)]],
       id_tipo_solicitud: ["", [Validators.required]],
       id_modalidad: ["", [Validators.required]],
       id_linea_investigacion: ["", [Validators.required]],
+      file:["", []]
+    });
+  }
+
+  get GetForm() {
+    return this.form.controls;
+  }
+
+  SaveRecord() {
+    let model = new SolicitudModel();
+    model.fecha = this.form.controls.fecha.value;
+    model.nombre_solicitud = this.form.controls.nombre_solicitud.value;
+    model.archivo = this.file.name;
+    model.descripcion = this.form.controls.descripcion.value;
+    model.id_tipo_solicitud = parseInt(this.form.controls.id_tipo_solicitud.value);
+    model.id_modalidad = parseInt(this.form.controls.id_modalidad.value);
+    model.id_linea_investigacion = parseInt(this.form.controls.id_linea_investigacion.value);
+    
+    this.solicitudService.SaveRecord(model).subscribe({
+      next: (data: SolicitudModel) => {
+        this.router.navigate(["solicitud/listar-solicitud"]);
+      },
+      error: (err: any) => {
+      }
     });
   }
 
@@ -86,51 +103,9 @@ export class CrearSolicitudComponent implements OnInit {
     });
   }
 
-  get GetForm() {
-    return this.form.controls;
-  }
-
-  CreateFormFile() {
-    this.formFile = this.fb.group({
-      file: ["", []],
-    });
-  }
-
-  get GetFormFile() {
-    return this.formFile.controls;
-  }
-  
-  UploadImage(){
-    const formData = new FormData();
-    formData.append("file", this.form.controls["file"].value);
-    this.solicitudService.UploadFile(formData).subscribe({
-      next: (data: UploadedFileModel) =>{
-        this.form.controls["main_image"].setValue(data.filename)
-        console.log(data.filename);
-        
-        this.uploadedFilename = data.filename;
-        this.uploadedFile = true;
-      }
-    });
-  }
-
-  SaveRecord() {
-    let model = new SolicitudModel();
-    model.fecha = this.form.controls.fecha.value;
-    model.nombre_solicitud = this.form.controls.nombre_solicitud.value;
-    model.archivo = this.formFile.controls.file.value;
-    model.descripcion = this.form.controls.descripcion.value;
-    model.id_tipo_solicitud = parseInt(this.form.controls.id_tipo_solicitud.value);
-    model.id_modalidad = parseInt(this.form.controls.id_modalidad.value);
-    model.id_linea_investigacion = parseInt(this.form.controls.id_linea_investigacion.value);
-    
-    this.solicitudService.SaveRecord(model).subscribe({
-      next: (data: SolicitudModel) => {
-        this.router.navigate(["solicitud/listar-solicitud"]);
-      },
-      error: (err: any) => {
-      }
-    });
+  ngOnInit(): void {
+    this.CreateForm();
+    this.GetRecordList();
   }
 
   openDialog() {
@@ -144,6 +119,20 @@ export class CrearSolicitudComponent implements OnInit {
       
       this.form.controls["file"].setValue(this.file.name); //busca en el html a file y se le asigna lo de la ventana emergente
     }
+  }
+
+  UploadImage(){
+    const formData = new FormData();
+    formData.append("file", this.form.controls["file"].value);
+    this.solicitudService.UploadFile(formData).subscribe({
+      next: (data: UploadedFileModel) =>{
+        this.form.controls["main_image"].setValue(data.filename)
+        console.log(data.filename);
+        
+        this.uploadedFilename = data.filename;
+        this.uploadedFile = true;
+      }
+    });
   }
 
 }
