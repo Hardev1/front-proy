@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ProponenteModel } from 'src/app/models/parametros/proponente.model';
 import { ProponenteService } from 'src/app/services/parametros/proponente.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -18,8 +18,8 @@ export class ListarProponenteComponent implements OnInit{
 
   recordList: ProponenteModel[] = [];
   dataSource = new MatTableDataSource<ProponenteModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['id', 'primer_nombre',
-   'tiene_un', 'documento', 'email', 'celular', 'fotografia', 'acciones'];
+  displayedColumns: string[] = ['id', 'primer_nombre', 
+  'documento', 'email', 'celular', 'tiene_un', 'fotografia', 'acciones'];
   columnas = [
     { titulo: "ID", name: "id" },
     { titulo: "Nombre del proponente", name: "primer_nombre"},

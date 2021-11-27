@@ -23,23 +23,23 @@ export class ProponenteService {
 
   GetRecordList(): Observable<ProponenteModel[]> {
     //cambiar relation a tiene_un creo que se llamaba
-    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"proponente_pertenece_a_tipoVinculacion"}]}`);
+    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`);
   }
 
 
   //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   SaveRecord(data: ProponenteModel): Observable<ProponenteModel> {
     return this.http.post<ProponenteModel>(`${this.url}/proponentes`, {
-      primerNombre: data.primerNombre,
-      otrosNombres: data.otrosNombres,
-      primerApellido: data.primerApellido,
-      segundoApellido: data.segundoApellido,
+      primer_nombre: data.primer_nombre,
+      otros_nombres: data.otros_nombres,
+      primer_apellido: data.primer_apellido,
+      segundo_apellido: data.segundo_apellido,
       documento: data.documento,
-      fechaNacimiento: data.fechaNacimiento,
-      correo: data.correo,
+      fecha_nacimiento: data.fecha_nacimiento,
+      email: data.email,
       celular: data.celular,
       fotografia: data.fotografia,
-      id_tipoVinculacion: data.id_tipoVinculacion,
+      id_tipo_vinculacion: data.id_tipo_vinculacion,
     },
       {
         headers:
@@ -60,16 +60,16 @@ export class ProponenteService {
       `${this.url}/proponentes/${data.id}`,
       {
         id: data.id,
-        primerNombre: data.primerNombre,
-        otrosNombres: data.otrosNombres,
-        primerApellido: data.primerApellido,
-        segundoApellido: data.segundoApellido,
+        primer_nombre: data.primer_nombre,
+        otros_nombres: data.otros_nombres,
+        primer_apellido: data.primer_apellido,
+        segundo_apellido: data.segundo_apellido,
         documento: data.documento,
-        fechaNacimiento: data.fechaNacimiento,
-        correo: data.correo,
+        fecha_nacimiento: data.fecha_nacimiento,
+        email: data.email,
         celular: data.celular,
         fotografia: data.fotografia,
-        id_tipoVinculacion: data.id_tipoVinculacion,
+        id_tipo_vinculacion: data.id_tipo_vinculacion,
       },
       {
         headers: new HttpHeaders({

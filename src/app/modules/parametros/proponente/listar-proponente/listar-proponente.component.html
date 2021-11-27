@@ -1,6 +1,10 @@
 <mat-form-field appearance="standard">
-    <mat-label>Buscar por nombre:</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Ascenso Laboral" autocomplete="off" #input>
+        <button routerLink="/parametros/crear-proponente" matTooltip="Agregar"
+                      class="float-right hover:text-danger-600 duration-150">
+                    <mat-icon>add</mat-icon>
+               </button>
+        <mat-label>Buscar por nombre:</mat-label>
+        <input matInput class="box" (keyup)="applyFilter($event)" placeholder="Ejemplo: Ascenso Laboral" autocomplete="off" #input>
 </mat-form-field>
 
 <div class="mat-elevation-z8 shadow-2xl">
@@ -16,7 +20,7 @@
         <!-- Columna fecha -->
         <ng-container matColumnDef="fecha">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha De Nacimiento</th>
-            <td mat-cell class="flex-wrap" *matCellDef="let r"> {{r.f | date:'dd/MM/yyyy'}} </td>
+            <td mat-cell class="flex-wrap" *matCellDef="let r"> {{r.fecha_nacimiento | date:'dd/MM/yyyy'}} </td>
         </ng-container>
 
         <!-- Columna de las propiedades foráneas de solicitud -->

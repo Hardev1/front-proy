@@ -14,3 +14,17 @@ table {
   td.mat-cell {
     @apply pr-4;
   }
+
+  .element {
+    @include float-left;
+  }
+  .another-element {
+    @include float-right;
+  }
+  .one-more {
+    @include float-none;
+  }
+
+  .box{
+    width: 600px;
+  }

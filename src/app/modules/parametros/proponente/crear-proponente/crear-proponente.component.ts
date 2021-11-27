@@ -57,16 +57,16 @@ export class CrearProponenteComponent implements OnInit {
 
   SaveRecord() {
     let model = new ProponenteModel();  
-    model.primerNombre = this.form.controls.primer_nombre.value;
-    model.otrosNombres = this.form.controls.otros_nombres.value;
-    model.primerApellido = this.form.controls.primer_apellido.value;
-    model.segundoApellido = this.form.controls.segundo_apellido.value;
+    model.primer_nombre = this.form.controls.primer_nombre.value;
+    model.otros_nombres = this.form.controls.otros_nombres.value;
+    model.primer_apellido = this.form.controls.primer_apellido.value;
+    model.segundo_apellido = this.form.controls.segundo_apellido.value;
     model.documento = this.form.controls.documento.value;
-    model.fechaNacimiento = this.form.controls.fecha_nacimiento.value;
-    model.correo = this.form.controls.email.value;
+    model.fecha_nacimiento = this.form.controls.fecha_nacimiento.value;
+    model.email = this.form.controls.email.value;
     model.celular = this.form.controls.celular.value;
     model.fotografia = this.uploadedFilename
-    model.id_tipoVinculacion = parseInt(this.form.controls.id_tipo_vinculacion.value);
+    model.id_tipo_vinculacion = parseInt(this.form.controls.id_tipo_vinculacion.value);
     
     this.proponenteService.SaveRecord(model).subscribe({
       next: (data: ProponenteModel) => {
