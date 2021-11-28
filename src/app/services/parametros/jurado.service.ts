@@ -28,7 +28,7 @@ export class JuradoService {
       nombre: data.nombre,
       apellido: data.apellido,
       telefono: data.telefono,
-      correo: data.correo,
+      email: data.email,
       entidad: data.entidad,
       documento: data.documento,
       fechaNacimiento: data.fechaNacimiento
@@ -49,11 +49,10 @@ export class JuradoService {
     return this.http.put<JuradoModel>(
       `${this.url}/jurado/${data.id}`,
       {
-        id: data.id,
         nombre: data.nombre,
         apellido: data.apellido,
         entidad: data.entidad,
-        correo: data.correo,
+        email: data.email,
         fechaNacimiento: data.fechaNacimiento,
         documento: data.documento,
         telefono: data.telefono

@@ -45,7 +45,7 @@ export class CrearJuradoComponent implements OnInit {
     model.nombre = this.form.controls.nombre.value;
     model.apellido = this.form.controls.apellido.value;
     model.telefono = this.form.controls.telefono.value;
-    model.correo = this.form.controls.email.value;
+    model.email = this.form.controls.email.value;
     model.documento = this.form.controls.documento.value;
     model.fechaNacimiento = this.form.controls.fechaNacimiento.value;
     model.entidad = this.form.controls.entidad.value;

@@ -31,7 +31,7 @@ export class FacultadService {
   SaveRecord(data: FacultadModel): Observable<FacultadModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<FacultadModel>(`${this.url}/facultads`, {
+    return this.http.post<FacultadModel>(`${this.url}/facultad`, {
       nombre: data.nombre,
       codigo: data.codigo
     },
@@ -44,12 +44,12 @@ export class FacultadService {
   }
 
   SearchRecord(id: number): Observable<FacultadModel> {
-    return this.http.get<FacultadModel>(`${this.url}/facultads/${id}`);
+    return this.http.get<FacultadModel>(`${this.url}/facultad/${id}`);
   }
 
   EditRecord(data: FacultadModel): Observable<FacultadModel> {
     return this.http.put<FacultadModel>(
-      `${this.url}/facultads/${data.id}`,
+      `${this.url}/facultad/${data.id}`,
       {
         id: data.id,
         nombre: data.nombre,
@@ -64,7 +64,7 @@ export class FacultadService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/facultads/${id}`,
+      `${this.url}/facultad/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

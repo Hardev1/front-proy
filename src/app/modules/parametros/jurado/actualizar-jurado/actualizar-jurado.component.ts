@@ -52,7 +52,7 @@ export class ActualizarJuradoComponent implements OnInit {
         this.form.controls.apellido.setValue(data.apellido);
         this.form.controls.telefono.setValue(data.telefono);
         this.form.controls.documento.setValue(data.documento);
-        this.form.controls.email.setValue(data.correo);
+        this.form.controls.email.setValue(data.email);
         this.form.controls.entidad.setValue(data.entidad);
         this.form.controls.fechaNacimiento.setValue(`${data.fechaNacimiento}`);
       }
@@ -65,7 +65,7 @@ export class ActualizarJuradoComponent implements OnInit {
     model.nombre = this.form.controls.nombre.value;
     model.apellido = this.form.controls.apellido.value;
     model.telefono = this.form.controls.telefono.value;
-    model.correo = this.form.controls.email.value;
+    model.email = this.form.controls.email.value;
     model.documento = this.form.controls.documento.value;
     model.fechaNacimiento = this.form.controls.fechaNacimiento.value;
     model.entidad = this.form.controls.entidad.value;

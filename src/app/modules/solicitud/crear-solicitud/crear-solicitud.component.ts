@@ -62,6 +62,10 @@ export class CrearSolicitudComponent implements OnInit {
     return this.form.controls;
   }
 
+  get GetFormFile() {
+    return this.formFile.controls;
+  }
+
   SaveRecord() {
     let model = new SolicitudModel();
     model.fecha = this.form.controls.fecha.value;

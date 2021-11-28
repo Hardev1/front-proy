@@ -65,7 +65,7 @@
 
         <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
             [disabled]="GetForm['nombre_solicitud'].errors || 
-            GetForm['archivo'].errors || GetForm['id_tipo_solicitud'].errors || 
+            GetFormFile['file'].errors || GetForm['id_tipo_solicitud'].errors || 
             GetForm['id_modalidad'].errors || GetForm['id_linea_investigacion'].errors">Crear</button>
     </form>
 </div>

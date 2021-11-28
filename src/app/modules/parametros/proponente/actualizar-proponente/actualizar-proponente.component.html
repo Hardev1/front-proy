@@ -4,6 +4,16 @@
         <h1 class="inicio-s">Editar proponente</h1>
         <input type="hidden" formControlName="id">
 
+        <div>
+            <img style="height: 150px; width: 150px;" *ngIf="!uploadedFile" src="../../../../../assets/img/descarga.jpg" />
+            <img style="height: 150px; width: 150px;" *ngIf="uploadedFile" src="{{url}}/archivo/1/{{uploadedFilename}}" />
+        </div>
+        
+        <div>
+            <input type="file" name="image" (change)="OnchangeInputFile($event)" (click)="UploadImage()" />
+            &nbsp;<button (click)="UploadImage()" class="btn">Cargar Imagen</button>
+        </div>
+
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="primer_nombre" class="label">Primer Nombre</mat-label>
             <input matInput formControlName="primer_nombre" name="primer_nombre" type="text" autocomplete="off">
@@ -44,11 +54,6 @@
         <mat-form-field class="ancho" appearance="fill">
             <mat-label for="celular" class="label">Celular</mat-label>
             <input matInput formControlName="celular" name="celular" type="text" autocomplete="off">
-        </mat-form-field>
-
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label for="fotografia" type="text" class="label">Fotografia</mat-label>
-            <input matInput formControlName="fotografia" name="fotografia" autocomplete="off">
         </mat-form-field>
 
         <mat-form-field class="ancho mb-3" appearance="fill">

@@ -5,6 +5,6 @@ export class JuradoModel {
       documento?: string;
       telefono?: string;
       fechaNacimiento?: string;
-      correo?: string;
+      email?: string;
       entidad?: string;
 }

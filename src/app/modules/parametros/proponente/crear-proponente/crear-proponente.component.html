@@ -12,8 +12,7 @@
         </div>
         
         <div>
-            <input type="file" name="image" (change)="OnchangeInputFile($event)" />
-            &nbsp;<button (click)="UploadImage()" class="btn">Cargar Imagen</button>
+            <input type="file" name="image" (change)="OnchangeInputFile($event)" (click)="UploadImage()" />
         </div>
         
 

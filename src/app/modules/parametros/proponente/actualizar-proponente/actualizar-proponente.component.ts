@@ -7,6 +7,8 @@ import { TipoVinculacionModel } from 'src/app/models/parametros/tipo-vinculacion
 import { ProponenteService } from 'src/app/services/parametros/proponente.service';
 import { TipoVinculacionService } from 'src/app/services/parametros/tipo-vinculacion.service';
 import { InfoComponent } from '../../../shared/components/modals/info/info.component';
+import { UploadedFileModel } from 'src/app/models/parametros/file.model';
+import { GeneralData } from 'src/app/config/general-data';
 
 @Component({
   selector: 'app-actualizar-proponente',
@@ -18,7 +20,11 @@ export class ActualizarProponenteComponent implements OnInit {
   //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
 
   form: FormGroup = new FormGroup({});
-  tipoVinList: TipoVinculacionModel[] = []
+  tipoVinList: TipoVinculacionModel[] = [];
+  formFile: FormGroup = new FormGroup({});
+  url: string= GeneralData.BUSSINESS_URL;
+  uploadedFilename?: string = "";
+  uploadedFile: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -53,6 +59,12 @@ export class ActualizarProponenteComponent implements OnInit {
 
   get GetForm() {
     return this.form.controls;
+  }
+
+  CreateFormFile(){
+    this.formFile = this.fb.group({
+      file:["", []]
+    });
   }
 
   GetRecordList() {
@@ -108,5 +120,22 @@ export class ActualizarProponenteComponent implements OnInit {
     this.dialog.open(InfoComponent);
   }
 
+  OnchangeInputFile(event: any){
+    if(event.target.files.length > 0){
+      const file = event.target.files[0];
+      this.formFile.controls["file"].setValue(file);
+    }
+  }
+
+  UploadImage(){
+    const formData = new FormData();
+    formData.append("file", this.formFile.controls["file"].value);
+    this.service.UploadFile(formData).subscribe({
+      next: (data: UploadedFileModel) =>{
+        this.uploadedFilename = data.filename;
+        this.uploadedFile = true;
+      }
+    });
+  }
 
 }

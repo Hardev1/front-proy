@@ -16,6 +16,7 @@
       <button mat-button [matMenuTriggerFor]="parametrizar">Parametrizar</button>
       <mat-menu style="color:brown;" #parametrizar="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="jurado">Jurado</button>
+        <button mat-menu-item [matMenuTriggerFor]="proponente">Proponente</button>
         <button mat-menu-item [matMenuTriggerFor]="solicitud">Solicitud</button>
         <button mat-menu-item [matMenuTriggerFor]="tipoSol">Tipo de solicitud</button>
         <button mat-menu-item [matMenuTriggerFor]="invitacionEv">Invitación a evaluar</button>
@@ -33,7 +34,7 @@
         <a (click)="snav.toggle()" routerLink="parametros/listar-comite" mat-menu-item>Listar comites</a>
         <a (click)="snav.toggle()" routerLink="parametros/crear-comite" mat-menu-item>Crear comite</a>
         <a (click)="snav.toggle()" routerLink="parametros/actualizar-comite" mat-menu-item>Actualizar comite</a>
-        <a routerLink="parametros/eliminar" mat-menu-item>Eliminar comite</a>
+        <a routerLink="parametros/eliminar-comite" mat-menu-item>Eliminar comite</a>
       </mat-menu>
       <mat-menu #departamento="matMenu">
         <button (click)="prueba()" mat-menu-item>Listar departamentos</button>
@@ -58,6 +59,12 @@
         <a (click)="snav.toggle()" routerLink="parametros/crear-jurado" mat-menu-item>Crear jurado</a>
         <a (click)="snav.toggle()" routerLink="parametros/actualizar-jurado" mat-menu-item>Actualizar jurado</a>
         <a (click)="snav.toggle()" routerLink="parametros/eliminar-jurado" mat-menu-item>Eliminar jurado</a>
+      </mat-menu>
+      <mat-menu #proponente="matMenu">
+        <a (click)="snav.toggle()" routerLink="parametros/listar-proponente" mat-menu-item>Listar proponentes</a>
+        <a (click)="snav.toggle()" routerLink="parametros/crear-proponente" mat-menu-item>Crear proponente</a>
+        <a (click)="snav.toggle()" routerLink="parametros/actualizar-proponente" mat-menu-item>Actualizar proponente</a>
+        <a routerLink="parametros/eliminar-proponente" mat-menu-item>Eliminar proponente</a>
       </mat-menu>
       <mat-menu #lineaInv="matMenu">
         <a (click)="snav.toggle()" routerLink="parametros/listar-linea-investigacion" mat-menu-item>Listar lineas de investigación</a>

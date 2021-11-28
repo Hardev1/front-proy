@@ -26,7 +26,7 @@ export class LineaInvestigacionService {
   SaveRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
     console.log(this.token, "aqui esta el token");
     
-    return this.http.post<LineaInvestigacionModel>(`${this.url}/linea-investigacion`, {
+    return this.http.post<LineaInvestigacionModel>(`${this.url}/linea-investigacions`, {
       nombre: data.nombre,
     },
      {headers:

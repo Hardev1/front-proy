@@ -18,12 +18,12 @@ export class ListarJuradoComponent implements OnInit {
 
   listaJurado: JuradoModel[] = []
   dataSource = new MatTableDataSource<JuradoModel>(this.listaJurado);
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'correo', 'documento', 'telefono', 'fechaNacimiento', 'entidad', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'email', 'documento', 'telefono', 'fechaNacimiento', 'entidad', 'acciones'];
   columnas = [
     { titulo: "Id", name: "id" },
     { titulo: "Nombre", name: "nombre" },
     { titulo: "Apellido", name: "apellido" },
-    { titulo: "Correo", name: "correo" },
+    { titulo: "Correo electrónico", name: "email" },
     { titulo: "Documento", name: "documento" },
     { titulo: "Celular", name: "telefono" },
     { titulo: "Fecha de nacimiento", name: "fechaNacimiento"},

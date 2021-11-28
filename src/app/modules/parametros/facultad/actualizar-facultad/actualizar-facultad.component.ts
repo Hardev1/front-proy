@@ -50,8 +50,8 @@ export class ActualizarFacultadComponent implements OnInit {
 
   SaveRecord() {
     let model = new FacultadModel();
-    model.nombre = this.form.controls.nombre.value;
     model.id = this.form.controls.id.value;
+    model.nombre = this.form.controls.nombre.value;
     model.codigo = this.form.controls.codigo.value;
     this.service.EditRecord(model).subscribe({
       next: (data: FacultadModel) => {

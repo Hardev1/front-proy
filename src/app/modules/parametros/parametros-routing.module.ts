@@ -151,11 +151,11 @@ const routes: Routes = [
     component: CrearLineaInvComponent
   },
   {
-    path: "actualizar-linea-investigacion",
+    path: "actualizar-linea-investigacion/:id",
     component: ActualizarLineaInvComponent
   },
   {
-    path: "eliminar-linea-investigacion",
+    path: "eliminar-linea-investigacion/:id",
     component: EliminarLineaInvComponent
   },
   {

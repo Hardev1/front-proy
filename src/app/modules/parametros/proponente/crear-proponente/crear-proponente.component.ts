@@ -114,36 +114,3 @@ export class CrearProponenteComponent implements OnInit {
   }
 
 }
-
-/**
- * PONER ESTO EN EL CONTROLADOR DE ARCHIVOS
- * 
- *  @post('/CargarImagenProponente', {
-    responses: {
-      200: {
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-            },
-          },
-        },
-        description: 'Función de carga de la imagen de una facultad.',
-      },
-    },
-  })
-  async cargarImagenPrincipalDelProducto(
-    @inject(RestBindings.Http.RESPONSE) response: Response,
-    @requestBody.file() request: Request
-  ): Promise<object | false> {
-    const rutaImagenProducto = path.join(__dirname, Configuracion.carpetaImagenProponente);
-    let res = await this.StoreFileToPath(rutaImagenProducto, Configuracion.nombreCampoImagenProponente, request, response, Configuracion.extensionesPermitidasIMG);
-    if (res) {
-      const nombre_archivo = response.req?.file?.filename;
-      if (nombre_archivo) {
-        return {filename: nombre_archivo};
-      }
-    }
-    return res;
-  }
- */
