@@ -1,6 +1,10 @@
 <mat-form-field appearance="standard">
+    <button routerLink="/seguridad/crear-usuario" matTooltip="Agregar Usuario"
+                  class="float-right hover:text-danger-600 duration-150">
+                <mat-icon>add</mat-icon>
+           </button>
     <mat-label>Buscar por nombre:</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Humberto Agudelo" autocomplete="off" #input>
+    <input matInput class="box" (keyup)="applyFilter($event)" placeholder="Ejemplo: Humberto" autocomplete="off" #input>
 </mat-form-field>
 
 <div class="mat-elevation-z8 shadow-2xl">
