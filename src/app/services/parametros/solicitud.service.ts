@@ -26,14 +26,17 @@ export class SolicitudService {
   }
 
   SaveRecord(data: SolicitudModel): Observable<SolicitudModel> {
+    console.log(data);
+    
     return this.http.post<SolicitudModel>(`${this.url}/crear-solicitud`, {
       fecha: data.fecha,
       nombre_solicitud: data.nombre_solicitud,
-      archivo: data.archivo,
       descripcion: data.descripcion,
-      id_tipo_solicitud: data.id_tipo_solicitud,
       id_modalidad: data.id_modalidad,
       id_linea_investigacion: data.id_linea_investigacion,
+      id_estado_solicitud: data.id_estado_solicitud,
+      id_tipo_solicitud: data.id_tipo_solicitud,
+      archivo: data.archivo
     },
       {
         headers:
@@ -79,20 +82,9 @@ export class SolicitudService {
       });
   }
 
-  UploadImage(formData: FormData): Observable<UploadedFileModel>{
-    return this.http.post<UploadedFileModel>(
-      `${this.url}/CargarDocumentoSolicitud`,
-      formData,
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
-      });
-  }
-
   UploadFile(formData: FormData): Observable<UploadedFileModel>{
     return this.http.post<UploadedFileModel>(
-      `${this.url}/CargarDocumentoSolicitud`,
+      `${this.url}/CargarDocumentoDeSolicitud`,
       formData,
       {
         headers: new HttpHeaders({

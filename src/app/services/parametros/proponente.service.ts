@@ -56,6 +56,8 @@ export class ProponenteService {
 
     //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   EditRecord(data: ProponenteModel): Observable<ProponenteModel> {
+    console.log(data.fotografia);
+    
     return this.http.put<ProponenteModel>(
       `${this.url}/proponentes/${data.id}`,
       {

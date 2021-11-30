@@ -39,6 +39,7 @@ export class ActualizarProponenteComponent implements OnInit {
     this.CreateForm();
     this.GetRecordList();
     this.SearchRecord();
+    this.CreateFormFile();
   }
 
   CreateForm() {
@@ -52,7 +53,6 @@ export class ActualizarProponenteComponent implements OnInit {
       fecha_nacimiento: ["", [Validators.required]],
       email: ["", [Validators.required]],
       celular: ["", [Validators.required]],
-      fotografia: ["", [Validators.required]],
       id_tipo_vinculacion: ["", [Validators.required]],
     });
   }
@@ -88,7 +88,6 @@ export class ActualizarProponenteComponent implements OnInit {
         this.form.controls.fecha_nacimiento.setValue(`${data.fecha_nacimiento}`);
         this.form.controls.email.setValue(`${data.email}`);
         this.form.controls.celular.setValue(`${data.celular}`);
-        this.form.controls.fotografia.setValue(`${data.fotografia}`);
         this.form.controls.id_tipo_vinculacion.setValue(`${data.id_tipo_vinculacion}`);
       }
     });
@@ -105,7 +104,7 @@ export class ActualizarProponenteComponent implements OnInit {
     model.fecha_nacimiento = this.form.controls.fecha_nacimiento.value;
     model.email = this.form.controls.email.value;
     model.celular = this.form.controls.celular.value;
-    model.fotografia = this.form.controls.fotografia.value;
+    model.fotografia = this.uploadedFilename;
     model.id_tipo_vinculacion = parseInt(this.form.controls.id_tipo_vinculacion.value);
     this.service.EditRecord(model).subscribe({
       next: (data: ProponenteModel) => {

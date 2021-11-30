@@ -28,13 +28,24 @@
       <input matInput formControlName="email" name="email" type="email" autocomplete="off">
     </mat-form-field>
 
-
     <mat-form-field class="ancho" appearance="fill">
       <mat-label class="label">Fecha de nacimiento</mat-label>
       <input matInput formControlName="fechaNacimiento" name="fechaNacimiento" [matDatepicker]="picker"
         placeholder="Ej: 12/31/2012">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="ancho mb-3" appearance="fill">
+      <mat-label>Selecciona tu Rol</mat-label>
+      <mat-select formControlName="rol" name="rol" required multiple>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let r of listRol" value="{{r._id}}">
+          {{r.nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="GetForm['rol'].errors">Por favor, selecciona un rol</mat-error>
+      <mat-hint>Con tu rol tendrás determinados permisos</mat-hint>
     </mat-form-field>
 
     <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"

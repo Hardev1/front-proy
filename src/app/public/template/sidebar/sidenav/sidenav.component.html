@@ -5,7 +5,7 @@
     </button>
     <h1 class="example-app-name text-white">Validaciones <span class="text-indigo-500">U</span>caldas</h1>
     <button *ngIf="!sesion" routerLink="seguridad/inicio-sesion" class="login" mat-menu-item>Iniciar sesion</button>
-    <button *ngIf="sesion" routerLink="seguridad/cerrar-sesion" class="login" mat-menu-item>Cerrar sesion</button>
+    <button *ngIf="sesion" routerLink="seguridad/cerrar-sesion" class="login" (click)="snav.toggle()" mat-menu-item>Cerrar sesion</button>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
@@ -22,8 +22,8 @@
         <button mat-menu-item [matMenuTriggerFor]="invitacionEv">Invitación a evaluar</button>
         <button mat-menu-item [matMenuTriggerFor]="recordatorios">Recordatorios</button>
         <button mat-menu-item [matMenuTriggerFor]="resultadoEv">Resultados de evaluación</button>
-        <button mat-menu-item [matMenuTriggerFor]="comite">Comite</button>
-        <button mat-menu-item [matMenuTriggerFor]="departamento">Departamento</button>
+        <button mat-menu-item [matMenuTriggerFor]="comite" routerLink="parametros/listar-comite">Comite</button>
+        <button mat-menu-item [matMenuTriggerFor]="departamento" routerLink="parametros/listar-departamento">Departamento</button>
         <button mat-menu-item [matMenuTriggerFor]="facultad">Facultad</button>
         <button mat-menu-item [matMenuTriggerFor]="lineaInv">Linea de investigación</button>
         <button mat-menu-item [matMenuTriggerFor]="modalidad">Modalidad</button>

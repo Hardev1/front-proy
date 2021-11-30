@@ -1,5 +1,5 @@
 <mat-form-field appearance="standard">
-    <button routerLink="/parametros/crear-tipo-vinculacion" matTooltip="Agregar Tipo Vinculación"
+    <button routerLink="/parametros/crear-departamento" matTooltip="Agregar Departamento"
                   class="float-right hover:text-danger-600 duration-150">
                 <mat-icon>add</mat-icon>
            </button>
@@ -11,20 +11,25 @@
 
     <table mat-table class="bg-transparent" [dataSource]="dataSource" matSort>
 
-        <!-- Columnas de las propiedades de tipo de vinculacion -->
+        <!-- Columnas de las propiedades de departamento -->
         <ng-container class="" *ngFor="let columna of columnas" matColumnDef="{{ columna.name }}">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ columna.titulo }} </th>
             <td mat-cell *matCellDef="let r"> {{r[columna.name]}}</td>
         </ng-container>
 
+        <ng-container *ngFor="let cf of colForaneas" matColumnDef="{{ cf.name }}">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ cf.titulo }} </th>
+            <td mat-cell *matCellDef="let r"> {{r[cf.name]?.nombre}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef><strong>Acciones</strong></th>
             <td class="pointer" mat-cell *matCellDef="let row">
-                <button routerLink="/parametros/actualizar-tipo-vinculacion/{{row.id}}" matTooltip="Editar"
+                <button routerLink="/parametros/actualizar-departamento/{{row.id}}" matTooltip="Editar"
                     class="fill-current hover:text-warn-500 duration-150">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button routerLink="/parametros/eliminar-tipo-vinculacion/{{row.id}}" matTooltip="Eliminar"
+                <button routerLink="/parametros/eliminar-departamento/{{row.id}}" matTooltip="Eliminar"
                     class="fill-current hover:text-danger-600 duration-150">
                     <mat-icon>delete</mat-icon>
                 </button>
@@ -36,7 +41,7 @@
 
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No se encuentra el siguiente tipo de vinculación: "{{input.value}}"</td>
+            <td class="mat-cell" colspan="4">No se encuentra el departamento: "{{input.value}}"</td>
         </tr>
 
     </table>

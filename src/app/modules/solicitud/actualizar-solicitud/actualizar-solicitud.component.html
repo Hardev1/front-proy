@@ -25,6 +25,11 @@
             <input matInput formControlName="descripcion" name="descripcion" type="textarea" autocomplete="off">
         </mat-form-field>
 
+        <div >
+            <input  type="file" name="image" (change)="OnchangeInputFile($event)" />
+            &nbsp;<button (click)="UploadFile()" style="background-color: grey;">Actualizar Archivo</button>
+        </div>
+
         <mat-form-field class="ancho mb-3" appearance="fill">
             <mat-label>Selecciona el tipo de solicitud</mat-label>
             <mat-select formControlName="id_tipo_solicitud" name="tipoSolicitud" required>

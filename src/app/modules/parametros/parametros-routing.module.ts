@@ -44,6 +44,7 @@ import { ActualizarResultadoEvComponent } from './ResultadoEvaluacion/actualizar
 import { CrearResultadoEvComponent } from './ResultadoEvaluacion/crear-resultado-ev/crear-resultado-ev.component';
 import { EliminarResultadoEvComponent } from './ResultadoEvaluacion/eliminar-resultado-ev/eliminar-resultado-ev.component';
 import { ListarResultadoEvComponent } from './ResultadoEvaluacion/listar-resultado-ev/listar-resultado-ev.component';
+import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-solicitud-proponente/crear-solicitud-proponente.component';
 import { ActualizarTipoSolComponent } from './tipoSolicitud/actualizar-tipo-sol/actualizar-tipo-sol.component';
 import { CrearTipoSolComponent } from './tipoSolicitud/crear-tipo-sol/crear-tipo-sol.component';
 import { EliminarTipoSolComponent } from './tipoSolicitud/eliminar-tipo-sol/eliminar-tipo-sol.component';
@@ -262,6 +263,10 @@ const routes: Routes = [
     path: "eliminar-tipo-vinculacion/:id",
     component: EliminarTipoVincComponent
   },
+  {
+    path: "crear-solicitud-proponente/:id_solicitud",
+    component: CrearSolicitudProponenteComponent
+  }
 ];
 
 @NgModule({

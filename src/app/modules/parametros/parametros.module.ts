@@ -56,6 +56,7 @@ import { CargarArchivoComponent } from './archivos/cargar-archivo/cargar-archivo
 import { DescargarArchivoComponent } from './archivos/descargar-archivo/descargar-archivo.component';
 import { SharedModule } from '../../modules/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-solicitud-proponente/crear-solicitud-proponente.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
        ActualizarEstadoSolComponent,
        EliminarEstadoSolComponent,
        CargarArchivoComponent,
-       DescargarArchivoComponent
+       DescargarArchivoComponent,
+       CrearSolicitudProponenteComponent
   ],
   imports: [
     CommonModule,
