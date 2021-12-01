@@ -65,7 +65,7 @@ export class UploadReadCsvComponent {
             alert("Por favor, importa un archivo que sea formato .csv");
             this.fileReset();
         }
-    }
+    };
 
     getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
         let csvArr = [];
@@ -83,10 +83,10 @@ export class UploadReadCsvComponent {
                 csvRecord.email = curruntRecord[6].trim();
                 csvRecord.entidad = curruntRecord[7].trim();
                 csvArr.push(csvRecord);
-            }
-        }
+            };
+        };
         return csvArr;
-    }
+    };
 
     //Verifica la extensión
     isValidCSVFile(file: any) {
@@ -100,18 +100,18 @@ export class UploadReadCsvComponent {
             headerArray.push(headers[j]);
         }
         return headerArray;
-    }
+    };
 
     fileReset() {
         this.csvReader.nativeElement.value = "";
         this.records = [];
         this.jsondatadisplay = '';
         this.dataSource.data = this.records;
-    }
+    };
 
     getJsonData() {
         this.jsondatadisplay = JSON.stringify(this.records);
-    }
+    };
 
     SaveRecord() {
         if (this.records.length > 0) {
@@ -122,9 +122,8 @@ export class UploadReadCsvComponent {
                 model.telefono = record.telefono;
                 model.email = record.email;
                 model.documento = record.documento;
-                model.fechaNacimiento = record.fechaNacimiento;
+                model.fechaNacimiento = new Date(record.fechaNacimiento).toISOString();
                 model.entidad = record.entidad;
-                console.log(model)
                 this.service.SaveRecord(model).subscribe({
                     next: (data: JuradoModel) => {
                         this.router.navigate(["/parametros/listar-jurado"]);
@@ -133,6 +132,6 @@ export class UploadReadCsvComponent {
                     }
                 });
             });
-        }
-    }
+        };
+    };
 }

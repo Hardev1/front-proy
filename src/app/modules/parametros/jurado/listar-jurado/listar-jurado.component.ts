@@ -26,7 +26,6 @@ export class ListarJuradoComponent implements OnInit {
     { titulo: "Correo electrónico", name: "email" },
     { titulo: "Documento", name: "documento" },
     { titulo: "Celular", name: "telefono" },
-    { titulo: "Fecha de nacimiento", name: "fechaNacimiento"},
     { titulo: "Entidad", name: "entidad" }
   ];
   
