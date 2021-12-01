@@ -10,7 +10,12 @@ import { SecurityService } from 'src/app/services/shared/security.service';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnDestroy, OnInit {
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private securityService: SecurityService) {
+  constructor( 
+    changeDetectorRef: ChangeDetectorRef, 
+    media: MediaMatcher, 
+    private router: Router, 
+    private securityService: SecurityService
+    ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);

@@ -39,6 +39,10 @@ const routes: Routes = [
     loadChildren: () => import("./modules/reportes/reportes.module").then(x => x.ReportesModule)
   },
   {
+    path: "shared",
+    loadChildren: () => import("./modules/shared/modules/shared-modules.module").then(x => x.SharedModulesModule)
+  },
+  {
     path: "**",
     component: NotFoundComponent
   }
