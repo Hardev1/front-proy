@@ -51,7 +51,7 @@ export class InicioSesionComponent implements OnInit {
         ],
       ],
       password: [
-        'programacion',
+        'nbaBqQel',
         [
           Validators.required,
           Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT),

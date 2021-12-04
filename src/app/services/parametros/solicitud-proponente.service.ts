@@ -21,12 +21,10 @@ export class SolicitudProponenteService {
   }
 
   GetRecordList(): Observable<SolicitudProponenteModel[]> {
-    //cambiar relation a tiene_un creo que se llamaba
+    
     return this.http.get<SolicitudProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`);
   }
 
-
-  //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   SaveRecord(data: SolicitudProponenteModel): Observable<SolicitudProponenteModel> {
     console.log(data);
     
@@ -43,18 +41,10 @@ export class SolicitudProponenteService {
     )
   }
 
-
-
-
-
-
-
-
   SearchRecord(id: number): Observable<SolicitudProponenteModel> {
     return this.http.get<SolicitudProponenteModel>(`${this.url}/proponentes/${id}`);
   }
 
-    //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   EditRecord(data: SolicitudProponenteModel): Observable<SolicitudProponenteModel> {
     return this.http.put<SolicitudProponenteModel>(
       `${this.url}/proponentes/${data.id}`,
@@ -79,6 +69,4 @@ export class SolicitudProponenteService {
         })
       });
   }
-
- 
 }

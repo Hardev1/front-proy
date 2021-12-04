@@ -6,10 +6,11 @@ import { CrearInvitacionEvComponent } from './crear-invitacion-ev/crear-invitaci
 import { EliminarInvitacionEvComponent } from './eliminar-invitacion-ev/eliminar-invitacion-ev.component';
 import { ListarInvitacionEvComponent } from './listar-invitacion-ev/listar-invitacion-ev.component';
 import { RechazadaInvitacionEvComponent } from './rechazada-invitacion-ev/rechazada-invitacion-ev.component';
+import { ResponderInvitacionEvComponent } from './responder-invitacion-ev/responder-invitacion-ev.component';
 
 const routes: Routes = [
   {
-    path: "actualizar-invitacion-evaluar",
+    path: "actualizar-invitacion-evaluar/:id",
     component: ActualizarInvitacionEvComponent
   },
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
     component: CrearInvitacionEvComponent
   },
   {
-    path: "eliminar-invitacion-evaluar",
+    path: "eliminar-invitacion-evaluar/:id",
     component: EliminarInvitacionEvComponent
   },
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: "rechazada-invitacion-evaluar",
     component: RechazadaInvitacionEvComponent
+  },
+  {
+    path: "responder-invitacion/:id/:hash",
+    component: ResponderInvitacionEvComponent
   },
 ];
 

@@ -1,20 +1,32 @@
+<div class="container">
+  <form class="login" [formGroup]="form">
 
-<mat-form-field appearance="fill">
-    <mat-label>Comite</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <h1 class="inicio-s">Crear invitación a evaluar</h1>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Jurado</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field class="ancho mb-3" appearance="fill">
+      <mat-label>Solicitud</mat-label>
+      <mat-select formControlName="solicitudes" name="solicitudes" required multiple (openedChange)="solicitudChange($event)">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let r of solicitudList" value="{{r.id}}">
+          {{r.nombre_solicitud}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="GetForm['solicitudes'].errors">Por favor, selecciona una solicitud</mat-error>
+    </mat-form-field>
 
-  <button class="flex-shrink-0 bg-blue-700 hover:bg-blue-700 border-blue-800 hover:border-blue-800 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-    Enviar
-  </button>
+
+    <mat-form-field class="ancho mb-3" appearance="fill">
+      <mat-label>Jurado/s</mat-label>
+      <mat-select formControlName="jurados" name="jurados" required multiple (openedChange)="juradoChange($event)">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let r of juradoList" value="{{r.id}}">
+          {{r.nombre}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="GetForm['jurados'].errors">Por favor, selecciona como mínimo un jurado</mat-error>
+    </mat-form-field>
+
+    <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+      [disabled]="GetForm['solicitudes'].errors || GetForm['jurados'].errors">Crear</button>
+  </form>
+</div>

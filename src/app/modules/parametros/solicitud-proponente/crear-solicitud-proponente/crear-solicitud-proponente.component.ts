@@ -16,8 +16,6 @@ import { SolicitudProponenteService } from 'src/app/services/parametros/solicitu
 })
 export class CrearSolicitudProponenteComponent implements OnInit {
 
-//QUEDA FUNCIONAL SOLO FALTA DAR ESTILO A LOS HTML
-
   recordList: ProponenteModel [] = []
   form: FormGroup = new FormGroup({})
   id: number = 0;

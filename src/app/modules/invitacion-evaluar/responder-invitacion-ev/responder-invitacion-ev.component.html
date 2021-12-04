@@ -1,0 +1,32 @@
+<form *ngIf="!respuesta" class="login" [formGroup]="form">
+    <input type="hidden" formControlName="id">
+    <input type="hidden" formControlName="id_jurado">
+    <input type="hidden" formControlName="id_solicitud">
+    <input type="hidden" formControlName="fecha_invitacion">
+    <input type="hidden" formControlName="fecha_respuesta">
+    <input type="hidden" formControlName="estado_invitacion">
+    <input type="hidden" formControlName="hash">
+
+    <p class="mt-8 text-blue-900 font-bold text-xl w-3/4 mx-auto">Cordial saludo, queremos agradecerte por abrir el
+        vinculo
+        para dar respuesta a esta
+        invitación, ya sea porque decidas aceptarla o rechazarla.</p>
+    <p class="mt-8 text-blue-900 font-bold text-xl w-3/4 mx-auto">Inependientemente de que aceptes o no, en caso de que
+        desees aportar mayor información con respecto a la calificación de esta solicitud, déjanoslo saber. Luego, para
+        confirmar tu decisión, haz click en la opción que hayas decidido:</p>
+
+    <mat-form-field class="flex justify-center" appearance="fill">
+        <mat-label class=" shadow-2xl">Si deseas, ingresa una observación</mat-label>
+        <textarea matInput class="" (keyup)="captureText($event)"></textarea>
+    </mat-form-field>
+
+    <div class="flex justify-center flex-wrap">
+        <button type="submit" class="sign-in h-12 mx-12 text-danger-400 hover:text-danger-800 hover:border-danger-300"
+            (click)="RejectRecord()">Rechazar invitación</button>
+        <button type="submit" class="sign-in mx-12 mb-12 hover:border-primary-700" (click)="AcceptRecord()">Aceptar
+            invitación</button>
+    </div>
+</form>
+<p *ngIf="respuesta" class="mt-8 text-blue-900 font-bold text-xl w-96 mx-auto">Gracias por confirmar tu respuesta.</p>
+<button *ngIf="respuesta" type="submit" class="sign-in mx-12 mb-12 hover:border-primary-700"
+    (click)="cerrar()">Aceptar</button>

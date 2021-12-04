@@ -1,31 +1,3 @@
-.background {
-  @apply w-screen h-screen relative filter brightness-50;
-}
-
-.container {
-  @apply absolute top-1/2 -translate-y-2/4 transform flex justify-center items-center;
-}
-
-.inicio-s {
-  @apply mb-8 text-white font-medium;
-}
-
-.login {
-  max-width: 330px;
-  background: rgba(255, 255, 255, 0.6);
-  border-top: 2px solid rgba(255, 255, 255, 0.5);
-  border-left: 2px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  @apply backdrop-blur-3xl rounded-lg m-auto w-full p-4 text-center;
-}
-.label {
-  @apply text-white;
-}
-
-.forgot {
-  @apply text-blue-600 hover:text-white duration-200 font-medium tracking-wider;
-}
-
 .ancho {
   width: 80%;
 }
@@ -44,6 +16,10 @@
 
 span {
   z-index: 20;  
+}
+
+::ng-deep .mat-form-field-wrapper {
+    @apply mt-12 w-3/4;
 }
 
 .sign-in:after {
