@@ -18,13 +18,13 @@ import { LocalStorageService } from 'src/app/services/shared/local-storage.servi
 })
 
 export class InicioSesionComponent implements OnInit {
- 
+
   recordList: RolModel[] = []
   form: FormGroup = new FormGroup({});
-  captcha:string = "";
-  clave_incorrecta:string = "";
-  xd:string = "invalid";
-  hide:boolean = true;
+  captcha: string = "";
+  clave_incorrecta: string = "";
+  xd: string = "invalid";
+  hide: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -78,7 +78,7 @@ export class InicioSesionComponent implements OnInit {
     } else {
       let modelo = new UserCredentialsModel();
       modelo.username = this.GetForm.username.value;
-      modelo.password = MD5(this.GetForm.password.value).toString();
+      modelo.password = this.securityService.CifrarTexto(this.GetForm.password.value).toString();
       modelo.rol = this.GetForm.rol.value;
       console.log(modelo)
       this.securityService.Login(modelo).subscribe({

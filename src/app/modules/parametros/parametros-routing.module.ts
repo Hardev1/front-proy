@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { CargarArchivoComponent } from './archivos/cargar-archivo/cargar-archivo.component';
 import { DescargarArchivoComponent } from './archivos/descargar-archivo/descargar-archivo.component';
 import { ActualizarComiteComponent } from './comite/actualizar-comite/actualizar-comite.component';
@@ -57,199 +58,248 @@ import { ListarTipoVincComponent } from './tipoVinculacion/listar-tipo-vinc/list
 const routes: Routes = [
   {
     path: "cargar-archivo",
-    component: CargarArchivoComponent
+    component: CargarArchivoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "descargar-archivo",
-    component: DescargarArchivoComponent
+    component: DescargarArchivoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-comite",
-    component: ListarComiteComponent
+    component: ListarComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-comite",
-    component: CrearComiteComponent
+    component: CrearComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-comite/:id",
-    component: ActualizarComiteComponent
+    component: ActualizarComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-comite/:id",
-    component: EliminarComiteComponent
+    component: EliminarComiteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-departamento",
-    component: ListarDepartamentoComponent
+    component: ListarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-departamento",
-    component: CrearDepartamentoComponent
+    component: CrearDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-departamento/:id",
-    component: ActualizarDepartamentoComponent
+    component: ActualizarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-departamento/:id",
-    component: EliminarDepartamentoComponent
+    component: EliminarDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-estado-solicitud",
-    component: ListarEstadoSolComponent
+    component: ListarEstadoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-estado-solicitud",
-    component: CrearEstadoSolComponent
+    component: CrearEstadoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-estado-solicitud",
-    component: ActualizarEstadoSolComponent
+    component: ActualizarEstadoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-estado-solicitud",
-    component: EliminarEstadoSolComponent
+    component: EliminarEstadoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-facultad",
-    component: ListarFacultadComponent
+    component: ListarFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-facultad",
-    component: CrearFacultadComponent
+    component: CrearFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-facultad/:id",
-    component: ActualizarFacultadComponent
+    component: ActualizarFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-facultad/:id",
-    component: EliminarFacultadComponent
+    component: EliminarFacultadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-jurado",
-    component: ListarJuradoComponent
+    component: ListarJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-jurado",
-    component: CrearJuradoComponent
+    component: CrearJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-jurado/:id",
-    component: ActualizarJuradoComponent
+    component: ActualizarJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-jurado/:id",
-    component: EliminarJuradoComponent
+    component: EliminarJuradoComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-linea-investigacion",
-    component: ListarLineaInvComponent
+    component: ListarLineaInvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-linea-investigacion",
-    component: CrearLineaInvComponent
+    component: CrearLineaInvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-linea-investigacion/:id",
-    component: ActualizarLineaInvComponent
+    component: ActualizarLineaInvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-linea-investigacion/:id",
-    component: EliminarLineaInvComponent
+    component: EliminarLineaInvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-modalidad",
-    component: ListarModalidadComponent
+    component: ListarModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-modalidad",
-    component: CrearModalidadComponent
+    component: CrearModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-modalidad/:id",
-    component: ActualizarModalidadComponent
+    component: ActualizarModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-modalidad/:id",
-    component: EliminarModalidadComponent
+    component: EliminarModalidadComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-proponente",
-    component: ListarProponenteComponent
+    component: ListarProponenteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-proponente",
-    component: CrearProponenteComponent
+    component: CrearProponenteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-proponente/:id",
-    component: ActualizarProponenteComponent
+    component: ActualizarProponenteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-proponente/:id",
-    component: EliminarProponenteComponent
+    component: EliminarProponenteComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-recordatorio-evaluacion",
-    component: ListarRecordatorioEvComponent
+    component: ListarRecordatorioEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-recordatorio-evaluacion",
-    component: CrearRecordatorioEvComponent
+    component: CrearRecordatorioEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-recordatorio-evaluacion",
-    component: ActualizarRecordatorioEvComponent
+    component: ActualizarRecordatorioEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-recordatorio-evaluacion",
-    component: EliminarRecordatorioEvComponent
+    component: EliminarRecordatorioEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "llamada-recordatorio-evaluacion",
-    component: LlamadaRecordatorioEvComponent
+    component: LlamadaRecordatorioEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "correo-recordatorio-evaluacion",
-    component: CorreoRecordatorioEvComponent
+    component: CorreoRecordatorioEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-resultado-evaluacion",
-    component: ListarResultadoEvComponent
+    component: ListarResultadoEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-resultado-evaluacion",
-    component: CrearResultadoEvComponent
+    component: CrearResultadoEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-resultado-evaluacion",
-    component: ActualizarResultadoEvComponent
+    component: ActualizarResultadoEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-resultado-evaluacion",
-    component: EliminarResultadoEvComponent
+    component: EliminarResultadoEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-tipo-solicitud",
-    component: ListarTipoSolComponent
+    component: ListarTipoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-tipo-solicitud",
-    component: CrearTipoSolComponent
+    component: CrearTipoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-tipo-solicitud/:id",
-    component: ActualizarTipoSolComponent
+    component: ActualizarTipoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-tipo-solicitud/:id",
-    component: EliminarTipoSolComponent
+    component: EliminarTipoSolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-tipo-vinculacion",
-    component: ListarTipoVincComponent
+    component: ListarTipoVincComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-tipo-vinculacion",
@@ -257,15 +307,18 @@ const routes: Routes = [
   },
   {
     path: "actualizar-tipo-vinculacion/:id",
-    component: ActualizarTipoVincComponent
+    component: ActualizarTipoVincComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-tipo-vinculacion/:id",
-    component: EliminarTipoVincComponent
+    component: EliminarTipoVincComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-solicitud-proponente/:id_solicitud",
-    component: CrearSolicitudProponenteComponent
+    component: CrearSolicitudProponenteComponent,
+    canActivate: [AuthenticatedGuard]
   }
 ];
 

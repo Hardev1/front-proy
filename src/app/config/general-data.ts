@@ -10,4 +10,5 @@ export namespace GeneralData{
     export const SAVED_MESSAGE = "Registro almacenado";
     export const ERROR_MESSAGE = "Error en el backend";
     export const GENERAL_ERROR_MESSAGE = "Error al conectarse con el backend";
+    export const key_encript_decrypt = "2e35f242a46d67eeb74aabc37d5e5d05";
 }

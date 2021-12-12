@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { AceptadaInvitacionEvComponent } from './aceptada-invitacion-ev/aceptada-invitacion-ev.component';
 import { ActualizarInvitacionEvComponent } from './actualizar-invitacion-ev/actualizar-invitacion-ev.component';
 import { CrearInvitacionEvComponent } from './crear-invitacion-ev/crear-invitacion-ev.component';
@@ -11,31 +12,38 @@ import { ResponderInvitacionEvComponent } from './responder-invitacion-ev/respon
 const routes: Routes = [
   {
     path: "actualizar-invitacion-evaluar/:id",
-    component: ActualizarInvitacionEvComponent
+    component: ActualizarInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-invitacion-evaluar",
-    component: CrearInvitacionEvComponent
+    component: CrearInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-invitacion-evaluar/:id",
-    component: EliminarInvitacionEvComponent
+    component: EliminarInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-invitacion-evaluar",
-    component: ListarInvitacionEvComponent
+    component: ListarInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "aceptada-invitacion-evaluar",
-    component: AceptadaInvitacionEvComponent
+    component: AceptadaInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "rechazada-invitacion-evaluar",
-    component: RechazadaInvitacionEvComponent
+    component: RechazadaInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "responder-invitacion/:id/:hash",
-    component: ResponderInvitacionEvComponent
+    component: ResponderInvitacionEvComponent,
+    canActivate: [AuthenticatedGuard]
   },
 ];
 

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UnauthenticatedGuard } from 'src/app/guards/aunauthenticated.guard';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { CambiarContraComponent } from '../seguridad/cambiar-contra/cambiar-contra.component';
 import { CerrarSesionComponent } from '../seguridad/cerrar-sesion/cerrar-sesion.component';
 import { InicioSesionComponent } from '../seguridad/inicio-sesion/inicio-sesion.component';
@@ -16,51 +18,63 @@ import { ListarRolComponent } from './rol/listar-rol/listar-rol.component';
 const routes: Routes = [
   {
     path: "listar-usuario",
-    component: ListarUsuarioComponent
+    component: ListarUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-usuario",
-    component: CrearUsuarioComponent
+    component: CrearUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-usuario/:id",
-    component: EditarUsuarioComponent
+    component: EditarUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-usuario/:id",
-    component: EliminarUsuarioComponent
+    component: EliminarUsuarioComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "listar-rol",
-    component: ListarRolComponent
+    component: ListarRolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "crear-rol",
-    component: CrearRolComponent
+    component: CrearRolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "actualizar-rol/:_id",
-    component: ActualizarRolComponent
+    component: ActualizarRolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "eliminar-rol/:_id",
-    component: EliminarRolComponent
+    component: EliminarRolComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "inicio-sesion",
-    component: InicioSesionComponent
+    component: InicioSesionComponent,
+    canActivate: [UnauthenticatedGuard]
   },
   {
     path: "cerrar-sesion",
-    component: CerrarSesionComponent
+    component: CerrarSesionComponent,
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "cambiar-contraseña",
-    component: CambiarContraComponent
+    component: CambiarContraComponent,
+    canActivate: [UnauthenticatedGuard]
   },
   {
     path: "recuperar-contraseña",
-    component: RecuperarContraComponent
+    component: RecuperarContraComponent,
+    canActivate: [UnauthenticatedGuard]
   },
 ];
 

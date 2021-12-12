@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { GeneralData } from 'src/app/config/general-data';
 import { SessionData } from 'src/app/models/sesion/session-data.model';
 import { UserCredentialsModel } from 'src/app/models/sesion/user-credentials.models';
 import { CambioClaveModel } from 'src/app/models/cambio-clave.model';
+import { LocalStorageService } from './local-storage.service';
+import { AES } from 'crypto-js';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ import { CambioClaveModel } from 'src/app/models/cambio-clave.model';
 export class SecurityService {
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    private localStorageService: LocalStorageService
   ) {
     this.IsThereActiveSession();
    }
@@ -59,5 +62,20 @@ export class SecurityService {
       nueva_clave: modelo.nueva_clave
     });
   };
+
+  VerificarToken(): Observable<boolean> {
+    let tk = this.localStorageService.GetToken();
+    if(tk == ""){
+      return of(false);
+    }
+    return this.http.post<boolean>(`${this.url}/token-validator`, {
+      token: tk
+    });
+  }
+
+  CifrarTexto(texto: string) {
+    let data = AES.encrypt(texto, GeneralData.key_encript_decrypt);
+    return data;
+  }
 
 }

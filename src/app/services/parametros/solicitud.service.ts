@@ -22,7 +22,13 @@ export class SolicitudService {
   }
 
   GetRecordList(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`);
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
+    {
+      headers:
+        new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+    });
   }
 
   SaveRecord(data: SolicitudModel): Observable<SolicitudModel> {
