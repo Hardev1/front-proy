@@ -15,6 +15,7 @@ import { TipoSolicitudService } from 'src/app/services/parametros/tipo-solicitud
 import { InfoComponent } from '../../shared/components/modals/info/info.component';
 import { GeneralData } from 'src/app/config/general-data';
 import { UploadedFileModel } from 'src/app/models/parametros/file.model';
+import { ArchivosService } from 'src/app/services/parametros/archivos.service';
 
 @Component({
   selector: 'app-actualizar-solicitud',
@@ -43,6 +44,7 @@ export class ActualizarSolicitudComponent implements OnInit {
     private lineaInvService: LineaInvestigacionService,
     private modalidadService: ModalidadService,
     private estadoSolService: EstadoSolicitudService,
+    private archivosService: ArchivosService,
     public dialog: MatDialog
   ) { }
 
@@ -149,7 +151,7 @@ export class ActualizarSolicitudComponent implements OnInit {
   UploadFile(){
     const formData = new FormData();
     formData.append("file", this.formFile.controls["file"].value);
-    this.service.UploadFile(formData).subscribe({
+    this.archivosService.UploadFile(formData).subscribe({
       next: (data: UploadedFileModel) =>{
         this.uploadedFilename = data.filename;
         this.uploadedFile = true;

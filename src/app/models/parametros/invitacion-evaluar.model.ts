@@ -11,6 +11,6 @@ export class InvitacionEvaluarModel {
     observaciones?: string;
     hash?: string;
     
-    jurados?: JuradoModel;
-    solicitudes?: SolicitudModel;
+    pertenece_a?: JuradoModel;
+    tiene_una?: SolicitudModel;
 }

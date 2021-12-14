@@ -52,8 +52,6 @@ import { CrearEstadoSolComponent } from './estadoSolicitud/crear-estado-sol/crea
 import { ListarEstadoSolComponent } from './estadoSolicitud/listar-estado-sol/listar-estado-sol.component';
 import { ActualizarEstadoSolComponent } from './estadoSolicitud/actualizar-estado-sol/actualizar-estado-sol.component';
 import { EliminarEstadoSolComponent } from './estadoSolicitud/eliminar-estado-sol/eliminar-estado-sol.component';
-import { CargarArchivoComponent } from './archivos/cargar-archivo/cargar-archivo.component';
-import { DescargarArchivoComponent } from './archivos/descargar-archivo/descargar-archivo.component';
 import { SharedModule } from '../../modules/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-solicitud-proponente/crear-solicitud-proponente.component';
@@ -111,8 +109,6 @@ import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-
        ListarEstadoSolComponent,
        ActualizarEstadoSolComponent,
        EliminarEstadoSolComponent,
-       CargarArchivoComponent,
-       DescargarArchivoComponent,
        CrearSolicitudProponenteComponent
   ],
   imports: [

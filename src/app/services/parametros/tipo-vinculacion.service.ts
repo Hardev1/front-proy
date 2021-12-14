@@ -20,7 +20,12 @@ export class TipoVinculacionService {
   }
 
   GetRecordList(): Observable<TipoVinculacionModel[]> {
-    return this.http.get<TipoVinculacionModel[]>(`${this.url}/tipo-vinculacions`)
+    return this.http.get<TipoVinculacionModel[]>(`${this.url}/tipo-vinculacions`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    })
   }
 
   SaveRecord(data: TipoVinculacionModel): Observable<TipoVinculacionModel> {
@@ -38,7 +43,12 @@ export class TipoVinculacionService {
   }
 
   SearchRecord(id: number): Observable<TipoVinculacionModel> {
-    return this.http.get<TipoVinculacionModel>(`${this.url}/tipo-vinculacions/${id}`);
+    return this.http.get<TipoVinculacionModel>(`${this.url}/tipo-vinculacions/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   EditRecord(data: TipoVinculacionModel): Observable<TipoVinculacionModel> {
@@ -64,4 +74,5 @@ export class TipoVinculacionService {
         })
       });
   }
+
 }

@@ -5,6 +5,9 @@ import { ActualizarSolicitudComponent } from './actualizar-solicitud/actualizar-
 import { CrearSolicitudComponent } from './crear-solicitud/crear-solicitud.component';
 import { EliminarSolicitudComponent } from './eliminar-solicitud/eliminar-solicitud.component';
 import { ListarSolicitudComponent } from './listar-solicitud/listar-solicitud.component';
+import { ListarSolicitudEvaluadasComponent } from './listar-solicitud-evaluadas/listar-solicitud-evaluadas.component';
+import { ListarSolicitudSinEvaluarComponent } from './listar-solicitud-sin-evaluar/listar-solicitud-sin-evaluar.component';
+import { AsignarSolicitudComponent } from './asignar-solicitud/asignar-solicitud.component';
 
 const routes: Routes = [
   {
@@ -25,6 +28,21 @@ const routes: Routes = [
   {
     path: "listar-solicitud",
     component: ListarSolicitudComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "listar-solicitud-evaluadas",
+    component: ListarSolicitudEvaluadasComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "listar-solicitud-sin-evaluar",
+    component: ListarSolicitudSinEvaluarComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "asignar-solicitud/:id",
+    component: AsignarSolicitudComponent,
     canActivate: [AuthenticatedGuard]
   },
 ];

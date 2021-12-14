@@ -23,6 +23,17 @@
             <td mat-cell class="flex-wrap" *matCellDef="let r"> {{r.fecha | date:'dd/MM/yyyy'}} </td>
         </ng-container>
 
+
+        <ng-container matColumnDef="tipoSol">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo Solicitud</th>
+
+            <td class="pointer" mat-cell *matCellDef="let r">
+                <button  (click)="DescargarFormato(r.tiene_un.formato)">
+                    <mat-icon>download</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
         <!-- Columna de las propiedades foráneas de solicitud -->
         <ng-container *ngFor="let cf of colForaneas" matColumnDef="{{ cf.name }}">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ cf.titulo }} </th>

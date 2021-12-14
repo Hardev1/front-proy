@@ -22,12 +22,15 @@ export class ProponenteService {
   }
 
   GetRecordList(): Observable<ProponenteModel[]> {
-    //cambiar relation a tiene_un creo que se llamaba
-    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`);
+    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      }
+    );
   }
 
-
-  //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   SaveRecord(data: ProponenteModel): Observable<ProponenteModel> {
     return this.http.post<ProponenteModel>(`${this.url}/proponentes`, {
       primer_nombre: data.primer_nombre,
@@ -51,13 +54,19 @@ export class ProponenteService {
   }
 
   SearchRecord(id: number): Observable<ProponenteModel> {
-    return this.http.get<ProponenteModel>(`${this.url}/proponentes/${id}`);
+    return this.http.get<ProponenteModel>(`${this.url}/proponentes/${id}`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      }
+    );
   }
 
-    //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
+  //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
   EditRecord(data: ProponenteModel): Observable<ProponenteModel> {
     console.log(data.fotografia);
-    
+
     return this.http.put<ProponenteModel>(
       `${this.url}/proponentes/${data.id}`,
       {
@@ -80,7 +89,7 @@ export class ProponenteService {
       });
   }
 
-  RemoveRecord(id: number):Observable<any>{
+  RemoveRecord(id: number): Observable<any> {
     return this.http.delete(
       `${this.url}/proponentes/${id}`,
       {
@@ -90,7 +99,7 @@ export class ProponenteService {
       });
   }
 
-  UploadImage(formData: FormData): Observable<UploadedFileModel>{
+  UploadImage(formData: FormData): Observable<UploadedFileModel> {
     return this.http.post<UploadedFileModel>(
       `${this.url}/CargarImagenProponente`,
       formData,
@@ -101,7 +110,7 @@ export class ProponenteService {
       });
   }
 
-  UploadFile(formData: FormData): Observable<UploadedFileModel>{
+  UploadFile(formData: FormData): Observable<UploadedFileModel> {
     return this.http.post<UploadedFileModel>(
       `${this.url}/CargarImagenProponente`,
       formData,

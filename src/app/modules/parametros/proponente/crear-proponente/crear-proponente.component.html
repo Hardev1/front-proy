@@ -7,8 +7,8 @@
 
         <!--DAR ESTILOS DESDE LA LINEA 9 A 17-->
         <div>
-            <img style="height: 150px; width: 150px;" *ngIf="!uploadedFile" src="../../../../../assets/img/descarga.jpg" />
-            <img style="height: 150px; width: 150px;" *ngIf="uploadedFile" src="{{url}}/archivo/1/{{uploadedFilename}}" />
+            <img style="height: 150px; width: 150px;" class="mx-auto" *ngIf="!uploadedFile" src="../../../../../assets/img/profile-photo.jpg" />
+            <img style="height: 150px; width: 150px;"  *ngIf="uploadedFile" src="{{url}}/archivo/1/{{uploadedFilename}}" />
         </div>
         
         <div>

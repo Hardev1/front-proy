@@ -15,14 +15,14 @@ export class ListarInvitacionEvComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  listaDepartamento: InvitacionEvaluarModel[] = []
-  dataSource = new MatTableDataSource<InvitacionEvaluarModel>(this.listaDepartamento);
-  displayedColumns: string[] = ['id', 'tiene_una', 'pertenece_a', 'acciones'];
+  listaInvEvaluar: InvitacionEvaluarModel[] = []
+  dataSource = new MatTableDataSource<InvitacionEvaluarModel>(this.listaInvEvaluar);
+  displayedColumns: string[] = ['id', 'tiene_una', 'pertenece_a', 'fecha_invitacion', 'fecha_respuesta', 'estado_invitacion', 'acciones'];
   columnas = [
-    { titulo: "Id", name: "id" },
-    
+    { titulo: "Fecha de invitacion", name: "fecha_invitacion" },
+    { titulo: "Fecha de respuesta", name: "fecha_respuesta" },
   ];
-  
+
   constructor(
     private invitacionEvaluarService: InvitacionEvaluarService
   ) { }

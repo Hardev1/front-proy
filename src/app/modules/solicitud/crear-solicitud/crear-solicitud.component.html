@@ -1,7 +1,4 @@
 
-
-
-
 <div class="container">
     <form class="login" [formGroup]="form">
 
@@ -25,9 +22,17 @@
             <input matInput formControlName="descripcion" name="descripcion" type="textarea" autocomplete="off">
         </mat-form-field>
 
-        <div >
-            <input  type="file" name="image" (change)="OnchangeInputFile($event)" />
-            &nbsp;<button (click)="UploadFile()" style="background-color: grey;">Cargar Archivo</button>
+        <div class="card ">
+            <h2 class="card-header mt-8 text-blue-900">Subir los resultados</h2>
+            <div class="card-body flex justify-center">
+                <input type="file" name="image "class="file-select" (change)="OnchangeInputFile($event)" />
+            </div>
+        </div>
+
+        <div class="w-full flex justify-around">
+            <button (click)="UploadFile()"
+            class="text-primary-600 hover:text-primary-900 font-bold hover:scale-110 duration-200 transform">Cargar
+        </button>
         </div>
 
         <mat-form-field class="ancho mb-3" appearance="fill">

@@ -11,6 +11,8 @@ import { SecurityService } from 'src/app/services/shared/security.service';
 })
 export class CerrarSesionComponent implements OnInit {
 
+  data = new SessionData()
+
   constructor(
     private localStorageService: LocalStorageService,
     private securityService: SecurityService,
@@ -21,8 +23,9 @@ export class CerrarSesionComponent implements OnInit {
 
   ngOnInit(): void {
     this.localStorageService.RemoveSessionData();
-    this.securityService.RefreshSessionData(new SessionData());
+    this.securityService.RefreshSessionData(this.data);
     this.router.navigate(["/inicio"]);
+    console.log(this.data)
   }
 
 }

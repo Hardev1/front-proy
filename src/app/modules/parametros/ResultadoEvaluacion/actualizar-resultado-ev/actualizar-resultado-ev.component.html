@@ -1,1 +1,46 @@
-<p>actualizar-resultado-ev works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar proponente</h1>
+        <input type="hidden" formControlName="id">
+
+        <div class="card ">
+            <h2 class="card-header mt-8 text-blue-900">Cargar los resultados</h2>
+            <div class="card-body flex justify-center">
+                <input type="file" class="file-select" (change)="OnchangeInputFile($event)" />
+            </div>
+        </div>
+
+        <div class="w-full flex justify-around">
+            <button (click)="UploadFile()"
+            class="text-primary-600 hover:text-primary-900 font-bold hover:scale-110 duration-200 transform">Cargar
+        </button>
+    </div>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="fecha" class="label">Fecha</mat-label>
+            <input matInput formControlName="fecha" name="fecha" [matDatepicker]="picker" placeholder="Ej: 12/31/2012">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="descripcion" class="label">Descripcion</mat-label>
+            <input matInput formControlName="descripcion" name="descripcion" type="text" autocomplete="off">
+        </mat-form-field>
+
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona la solicitud a evaluar</mat-label>
+            <mat-select formControlName="id_invitacion_evaluar" name="invitacionEvaluar" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of tipoVinList" value="{{r.id}}">
+                    {{r.id}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_invitacion_evaluar'].errors">Por favor, selecciona la solicitud</mat-error>
+        </mat-form-field>
+   
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Editar</button>
+    </form>
+</div>

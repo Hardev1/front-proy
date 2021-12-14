@@ -22,7 +22,12 @@ export class SolicitudProponenteService {
 
   GetRecordList(): Observable<SolicitudProponenteModel[]> {
     
-    return this.http.get<SolicitudProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`);
+    return this.http.get<SolicitudProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   SaveRecord(data: SolicitudProponenteModel): Observable<SolicitudProponenteModel> {
@@ -42,7 +47,12 @@ export class SolicitudProponenteService {
   }
 
   SearchRecord(id: number): Observable<SolicitudProponenteModel> {
-    return this.http.get<SolicitudProponenteModel>(`${this.url}/proponentes/${id}`);
+    return this.http.get<SolicitudProponenteModel>(`${this.url}/proponentes/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   EditRecord(data: SolicitudProponenteModel): Observable<SolicitudProponenteModel> {
@@ -69,4 +79,5 @@ export class SolicitudProponenteService {
         })
       });
   }
+
 }

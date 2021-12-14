@@ -17,8 +17,6 @@ import { GeneralData } from 'src/app/config/general-data';
 })
 export class ActualizarProponenteComponent implements OnInit {
 
-  //CAMBIAR NOMBRES DE LAS VARIABLES A LOS METODOS TAL Y COMO ES EN EL MODELO DE PROPONENTE
-
   form: FormGroup = new FormGroup({});
   tipoVinList: TipoVinculacionModel[] = [];
   formFile: FormGroup = new FormGroup({});

@@ -31,6 +31,26 @@ export class SolicitudService {
     });
   }
 
+  SinEvaluar(): Observable<SolicitudModel[]> {
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"1"}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
+    {
+      headers:
+        new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+    });
+  }
+
+  Evaluadas(): Observable<SolicitudModel[]> {
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"2"}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
+    {
+      headers:
+        new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+    });
+  }
+
   SaveRecord(data: SolicitudModel): Observable<SolicitudModel> {
     console.log(data);
     
@@ -54,7 +74,13 @@ export class SolicitudService {
   }
 
   SearchRecord(id: number): Observable<SolicitudModel> {
-    return this.http.get<SolicitudModel>(`${this.url}/solicituds/${id}`);
+    return this.http.get<SolicitudModel>(`${this.url}/solicituds/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    }
+    );
   }
 
   EditRecord(data: SolicitudModel): Observable<SolicitudModel> {
@@ -81,17 +107,6 @@ export class SolicitudService {
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
       `${this.url}/solicituds/${id}`,
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
-      });
-  }
-
-  UploadFile(formData: FormData): Observable<UploadedFileModel>{
-    return this.http.post<UploadedFileModel>(
-      `${this.url}/CargarDocumentoDeSolicitud`,
-      formData,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

@@ -15,8 +15,6 @@ import { FacultadService } from 'src/app/services/parametros/facultad.service';
 })
 export class CrearDepartamentoComponent implements OnInit {
 
-//QUEDA FUNCIONAL SOLO FALTA DAR ESTILO A LOS HTML
-
   recordList: FacultadModel[] = []
   form: FormGroup = new FormGroup({})
 

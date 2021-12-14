@@ -4,6 +4,7 @@ import { SolicitudService } from 'src/app/services/parametros/solicitud.service'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ArchivosService } from 'src/app/services/parametros/archivos.service';
 
 @Component({
   selector: 'app-listar-solicitud',
@@ -17,7 +18,7 @@ export class ListarSolicitudComponent implements OnInit, AfterViewInit {
 
   recordList: SolicitudModel[] = [];
   dataSource = new MatTableDataSource<SolicitudModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['id', 'fecha', 'nombre_solicitud', 'archivo', 'descripcion', 'tiene_un', 'posee_un', 'pertenece_a', 'tiene_una', 'acciones'];
+  displayedColumns: string[] = ['id', 'fecha', 'nombre_solicitud', 'archivo', 'descripcion', 'posee_un', 'pertenece_a', 'tiene_una', 'acciones'];
   columnas = [
     { titulo: "ID", name: "id" },
     { titulo: "Nombre de la solicitud", name: "nombre_solicitud" },
@@ -25,7 +26,6 @@ export class ListarSolicitudComponent implements OnInit, AfterViewInit {
     { titulo: "Descripción", name: "descripcion" }
   ];
   colForaneas = [
-    { titulo: "Tipo de Solicitud", name: "tiene_un" },
     { titulo: "Estado de Solicitud", name: "posee_un" },
     { titulo: "Modalidad", name: "pertenece_a" },
     { titulo: "Linea de investigación", name: "tiene_una" }
@@ -33,6 +33,7 @@ export class ListarSolicitudComponent implements OnInit, AfterViewInit {
 
   constructor(
     private service: SolicitudService,
+    private archivosService: ArchivosService
   ) { }
 
   ngAfterViewInit() { // Para definir por fuera del componente
@@ -47,6 +48,7 @@ export class ListarSolicitudComponent implements OnInit, AfterViewInit {
   GetRecordList() {
     this.service.GetRecordList().subscribe({
       next: (data: SolicitudModel[]) => {
+        console.log(data)
         this.dataSource.data = data; //Ejecuta el llenado de la tabla de Angular Material
       }
     });
@@ -60,5 +62,21 @@ export class ListarSolicitudComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  DescargarFormato(data:string){   
+    console.log(data);
+    
+      this.archivosService.DownloadFile(data).subscribe({
+        next: (data: any) =>{
+          console.log(data);
+          
+        },
+        error: (err: any) => {
+          console.log(err);
+          
+        }
+      });
+      
+      }
 
 }

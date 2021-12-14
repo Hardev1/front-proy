@@ -1,1 +1,15 @@
-<p>llamada-recordatorio-ev works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Recordatorio por llamada</h1>
+        <input type="hidden" formControlName="id">
+        <input type="hidden" formControlName="id_invitacion_evaluar">
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="descripcion" class="label">Descripcion</mat-label>
+            <input matInput formControlName="descripcion" name="descripcion" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+            [disabled]="GetForm['descripcion'].errors">Crear</button>
+    </form>
+</div>

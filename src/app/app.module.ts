@@ -13,8 +13,9 @@ import { InicioComponent } from './public/general/inicio/inicio.component';
 import { InvitacionEvaluarModule } from './modules/invitacion-evaluar/invitacion-evaluar.module';
 import { SidenavComponent } from './public/template/sidebar/sidenav/sidenav.component';
 import { CardsComponent } from './public/template/cards/cards.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthTokenInterceptor } from './interceptors/auth-token.interceptors';
 
 
 @NgModule({
@@ -39,7 +40,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    /* {
+      provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true
+    } */
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

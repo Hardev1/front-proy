@@ -20,7 +20,14 @@ export class JuradoService {
   }
 
   GetRecordList(): Observable<JuradoModel[]> {
-    return this.http.get<JuradoModel[]>(`${this.url}/jurado`)
+    return this.http.get<JuradoModel[]>(`${this.url}/jurado`,
+      {
+        headers:
+          new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+      }
+    )
   }
 
   SaveRecord(data: JuradoModel): Observable<JuradoModel> {
@@ -42,7 +49,12 @@ export class JuradoService {
   }
 
   SearchRecord(id: number): Observable<JuradoModel> {
-    return this.http.get<JuradoModel>(`${this.url}/jurado/${id}`);
+    return this.http.get<JuradoModel>(`${this.url}/jurado/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   EditRecord(data: JuradoModel): Observable<JuradoModel> {

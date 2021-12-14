@@ -15,35 +15,41 @@ export class EstadoSolicitudService {
   constructor(
     private http: HttpClient,
     private localStorage: LocalStorageService
-  ) { 
+  ) {
     this.token = this.localStorage.GetToken();
   }
 
-
-
-  //CAMBIAR DESPUES DE THIS.URL POR LAS DEL BACKEND Y LOS NOMBRES DE VARIABLES A COMO SE RECIBAN EN LOS 
-  //MODELOS DEL BACKEND
-
   GetRecordList(): Observable<EstadoSolicitudModel[]> {
-    return this.http.get<EstadoSolicitudModel[]>(`${this.url}/estado-solicituds`)
+    return this.http.get<EstadoSolicitudModel[]>(`${this.url}/estado-solicituds`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      }
+    )
   }
 
   SaveRecord(data: EstadoSolicitudModel): Observable<EstadoSolicitudModel> {
     console.log(this.token, "aqui esta el token");
-    
+
     return this.http.post<EstadoSolicitudModel>(`${this.url}/estado-solicituds`, {
       nombre: data.nombre,
     },
-     {headers:
-      new HttpHeaders({
-        Authorization: `Bearer ${this.token}`
-      })
-    } 
-     )
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      }
+    )
   }
 
   SearchRecord(id: number): Observable<EstadoSolicitudModel> {
-    return this.http.get<EstadoSolicitudModel>(`${this.url}/estado-solicituds/${id}`);
+    return this.http.get<EstadoSolicitudModel>(`${this.url}/estado-solicituds/${id}`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      });
   }
 
   EditRecord(data: EstadoSolicitudModel): Observable<EstadoSolicitudModel> {
@@ -60,13 +66,14 @@ export class EstadoSolicitudService {
       });
   }
 
-  RemoveRecord(id: number):Observable<any>{
+  RemoveRecord(id: number): Observable<any> {
     return this.http.delete(
       `${this.url}/estado-solicituds/${id}`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
         })
-      });
+      }
+    );
   }
 }

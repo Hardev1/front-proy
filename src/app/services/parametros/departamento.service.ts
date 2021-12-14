@@ -27,20 +27,29 @@ export class DepartamentoService {
       nombre: data.nombre,
       id_facultad: data.id_facultad
     },
-     {headers:
-      new HttpHeaders({
+    {
+      headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })
-    }
-     )
+    })
   }
 
   GetRecordList(): Observable<DepartamentoModel[]> {
-    return this.http.get<DepartamentoModel[]>(`${this.url}/departamentos?filter={"include":[{"relation":"pertenece_a"}]}`)
+    return this.http.get<DepartamentoModel[]>(`${this.url}/departamentos?filter={"include":[{"relation":"pertenece_a"}]}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    })
   }
 
   SearchRecord(id: number): Observable<DepartamentoModel> {
-    return this.http.get<DepartamentoModel>(`${this.url}/departamentos/${id}`);
+    return this.http.get<DepartamentoModel>(`${this.url}/departamentos/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   EditRecord(data: DepartamentoModel): Observable<DepartamentoModel> {
@@ -50,13 +59,12 @@ export class DepartamentoService {
         id: data.id,
         nombre: data.nombre,
         id_facultad: data.id_facultad
-      }
-      /** ,
+      },
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
         })
-      } */);
+      });
   }
 
   RemoveRecord(id: number):Observable<any>{
@@ -66,7 +74,6 @@ export class DepartamentoService {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`
         })
-      }
-       );
+      });
   }
 }

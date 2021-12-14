@@ -18,13 +18,13 @@ export class ListarDepartamentoComponent implements OnInit {
 
   listaDepartamento: DepartamentoModel[] = []
   dataSource = new MatTableDataSource<DepartamentoModel>(this.listaDepartamento);
-  displayedColumns: string[] = ['id', 'nombre', 'facultad', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'pertenece_a', 'acciones'];
   columnas = [
     { titulo: "Id", name: "id" },
     { titulo: "Nombre", name: "nombre" },
   ];
   colForaneas = [
-    { titulo: "Facultad", name: "facultad" }
+    { titulo: "Facultad", name: "pertenece_a" }
   ]
   
   constructor(

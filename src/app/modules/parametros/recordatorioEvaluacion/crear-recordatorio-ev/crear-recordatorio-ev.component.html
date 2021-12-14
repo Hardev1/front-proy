@@ -1,1 +1,12 @@
-<p>crear-recordatorio-ev works!</p>
+<p class="mt-8 text-blue-900 font-bold text-xl w-3/4 mx-auto">Cordial saludo, si algún jurado no ha dado respuesta a la
+    solicitud que se le asignó calificar, puedes hacerle un recordatorio.</p>
+<p class="mt-8 text-blue-900 font-bold text-xl w-3/4 mx-auto">¿Qué tipo de recordatorio deseas
+    realizar?.</p>
+
+<div class="flex justify-center flex-wrap">
+    <button type="submit" class="sign-in h-12 mx-12 text-danger-400 hover:text-danger-800 hover:border-danger-300"
+        routerLink="/parametros/llamada-recordatorio-evaluacion/{{id}}">Recordatorio por llamada</button>
+    <button type="submit" class="sign-in mx-12 mb-12 hover:border-primary-700"
+        routerLink="/parametros/correo-recordatorio-evaluacion/{{id}}">
+        Recordatorio por correo</button>
+</div>

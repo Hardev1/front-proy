@@ -1,1 +1,16 @@
-<p>actualizar-estado-sol works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar Estado de Solicitud</h1>
+        <input type="hidden" formControlName="id">
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="nombre" class="label">Nombre</mat-label>
+            <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" routerLink="/parametros/listar-estado-solicitud">Cancelar</button>
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Editar</button>
+    </form>
+</div>
+

@@ -22,7 +22,24 @@ export class InvitacionEvaluarService {
   }
 
   GetRecordList(): Observable<InvitacionEvaluarModel[]> {
-    return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/invitacion-evaluar?filter={"include":[{"relation":"pertenece_a"}, {"relation":"tiene_una"}]}`);
+    return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/invitacion-evaluar?filter={"include":[{"relation":"pertenece_a"}, {"relation":"tiene_una"}, {"relation":"estado_invitacion"}]}`,
+      {
+        headers:
+          new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+      });
+  }
+
+  Aceptadas(): Observable<InvitacionEvaluarModel[]> {
+    return this.http.get<InvitacionEvaluarModel[]>(`${this.url}/invitacion-evaluar?filter={"where":{"id_estado_invitacion":"2"}, "include":[{"relation":"pertenece_a"}, {"relation":"tiene_una"}, {"relation":"estado_invitacion"}]}`,
+      {
+        headers:
+          new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+      }
+    );
   }
 
   SaveRecord(data: InvitacionEvaluarConceptualModel): Observable<InvitacionEvaluarConceptualModel> {
@@ -55,8 +72,8 @@ export class InvitacionEvaluarService {
       `${this.url}/invitacion-evaluar/${data.id}`,
       {
         id: data.id,
-        jurados: data.jurados,
-        solicitudes: data.solicitudes,
+        jurados: data.pertenece_a,
+        solicitudes: data.pertenece_a,
         fecha_invitacion: data.fecha_invitacion,
         fecha_respuesta: data.fecha_respuesta,
         estado_invitacion: data.estado_invitacion,

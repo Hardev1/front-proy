@@ -20,7 +20,14 @@ export class LineaInvestigacionService {
   }
 
   GetRecordList(): Observable<LineaInvestigacionModel[]> {
-    return this.http.get<LineaInvestigacionModel[]>(`${this.url}/linea-investigacion`)
+    return this.http.get<LineaInvestigacionModel[]>(`${this.url}/linea-investigacion`,
+    {
+      headers:
+        new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+    }
+    )
   }
 
   SaveRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
@@ -38,8 +45,14 @@ export class LineaInvestigacionService {
   }
 
   SearchRecord(id: number): Observable<LineaInvestigacionModel> {
-    return this.http.get<LineaInvestigacionModel>(`${this.url}/linea-investigacion/${id}`);
+    return this.http.get<LineaInvestigacionModel>(`${this.url}/linea-investigacion/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
+
 
   EditRecord(data: LineaInvestigacionModel): Observable<LineaInvestigacionModel> {
     return this.http.put<LineaInvestigacionModel>(

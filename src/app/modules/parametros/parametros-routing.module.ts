@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
-import { CargarArchivoComponent } from './archivos/cargar-archivo/cargar-archivo.component';
-import { DescargarArchivoComponent } from './archivos/descargar-archivo/descargar-archivo.component';
 import { ActualizarComiteComponent } from './comite/actualizar-comite/actualizar-comite.component';
 import { CrearComiteComponent } from './comite/crear-comite/crear-comite.component';
 import { EliminarComiteComponent } from './comite/eliminar-comite/eliminar-comite.component';
@@ -57,16 +55,6 @@ import { ListarTipoVincComponent } from './tipoVinculacion/listar-tipo-vinc/list
 
 const routes: Routes = [
   {
-    path: "cargar-archivo",
-    component: CargarArchivoComponent,
-    canActivate: [AuthenticatedGuard]
-  },
-  {
-    path: "descargar-archivo",
-    component: DescargarArchivoComponent,
-    canActivate: [AuthenticatedGuard]
-  },
-  {
     path: "listar-comite",
     component: ListarComiteComponent,
     canActivate: [AuthenticatedGuard]
@@ -117,12 +105,12 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "actualizar-estado-solicitud",
+    path: "actualizar-estado-solicitud/:id",
     component: ActualizarEstadoSolComponent,
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "eliminar-estado-solicitud",
+    path: "eliminar-estado-solicitud/:id",
     component: EliminarEstadoSolComponent,
     canActivate: [AuthenticatedGuard]
   },
@@ -232,27 +220,27 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "crear-recordatorio-evaluacion",
+    path: "crear-recordatorio-evaluacion/:id",
     component: CrearRecordatorioEvComponent,
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "actualizar-recordatorio-evaluacion",
+    path: "actualizar-recordatorio-evaluacion/:id",
     component: ActualizarRecordatorioEvComponent,
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "eliminar-recordatorio-evaluacion",
+    path: "eliminar-recordatorio-evaluacion/:id",
     component: EliminarRecordatorioEvComponent,
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "llamada-recordatorio-evaluacion",
+    path: "llamada-recordatorio-evaluacion/:id",
     component: LlamadaRecordatorioEvComponent,
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "correo-recordatorio-evaluacion",
+    path: "correo-recordatorio-evaluacion/:id",
     component: CorreoRecordatorioEvComponent,
     canActivate: [AuthenticatedGuard]
   },

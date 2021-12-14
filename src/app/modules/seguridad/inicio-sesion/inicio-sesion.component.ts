@@ -25,6 +25,7 @@ export class InicioSesionComponent implements OnInit {
   clave_incorrecta: string = "";
   xd: string = "invalid";
   hide: boolean = true;
+  checkToken: any;
 
   constructor(
     private fb: FormBuilder,
@@ -88,14 +89,18 @@ export class InicioSesionComponent implements OnInit {
             this.GetForm.password.invalid;
             this.GetForm.username.invalid;
           } else {
-            this.localStorage.SaveSessionData(data);
-            data.isLoggedIn = true;
-            this.securityService.RefreshSessionData(data);
-            this.openDialog()
-            this.router.navigate(['/inicio'])
+            this.checkToken = this.securityService.VerificarToken()
+            if (this.checkToken) {
+              data.isLoggedIn = true;
+              this.localStorage.SaveSessionData(data);
+              this.securityService.RefreshSessionData(data);
+              this.openDialog()
+              this.router.navigate(['/inicio'])
+            }
           }
         },
         error: (error: any) => {
+          this.dialog.open(InfoComponent)
           console.log('Error al conectar con el backend');
         }
       });

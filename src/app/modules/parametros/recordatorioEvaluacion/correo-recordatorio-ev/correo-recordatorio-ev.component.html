@@ -1,1 +1,19 @@
-<p>correo-recordatorio-ev works!</p>
+<form class="login" [formGroup]="form">
+    <h1 class="inicio-s">Recordatorio por correo</h1>
+    <input type="hidden" formControlName="id">
+    <p class="mt-8 text-blue-900 font-bold text-xl w-auto mx-auto">¿Qué solicitud deseas hacerle recordar calificar?.</p>
+
+    <mat-form-field class="ancho mb-3" appearance="fill">
+        <mat-label>Selecciona la solicitud a recordar</mat-label>
+        <mat-select formControlName="id_invitacion_evaluar" name="id_invitacion_evaluar" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let r of recordList" value="{{r.id}}">
+                {{r.tiene_una?.nombre_solicitud}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="GetForm['id_invitacion_evaluar'].errors">Por favor, selecciona la solicitud a recordar</mat-error>
+    </mat-form-field>
+
+    <button type="submit" class="sign-in mx-auto flex justify-center mb-12 hover:border-primary-700"
+        (click)="SaveRecord()">Aceptar</button>
+</form>

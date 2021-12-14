@@ -4,6 +4,7 @@ import { TipoSolicitudService } from 'src/app/services/parametros/tipo-solicitud
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { GeneralData } from 'src/app/config/general-data';
 
 @Component({
   selector: 'app-listar-tipo-sol',
@@ -14,15 +15,12 @@ export class ListarTipoSolComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+  
+  url: string = GeneralData.BUSSINESS_URL
   recordList: TipoSolicitudModel[] = [];
   dataSource = new MatTableDataSource<TipoSolicitudModel>(this.recordList); //Para llenar tabla de Angular Material
   displayedColumns: string[] = ['id', 'nombre', 'formato', 'acciones'];
-  columnas = [
-    { titulo: "ID", name: "id" },
-    { titulo: "Nombre del tipo de solicitud", name: "nombre" },
-    { titulo: "Formato", name: "formato"}
-  ];
+ 
 
   constructor(
     private service: TipoSolicitudService,
@@ -40,6 +38,7 @@ export class ListarTipoSolComponent implements OnInit {
   GetRecordList() {
     this.service.GetRecordList().subscribe({
       next: (data: TipoSolicitudModel[]) => {
+        console.log(data)
         this.dataSource.data = data; //Ejecuta el llenado de la tabla de Angular Material
       }
     });

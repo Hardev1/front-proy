@@ -15,30 +15,42 @@ export class ModalidadService {
   constructor(
     private http: HttpClient,
     private localStorage: LocalStorageService
-  ) { 
+  ) {
     this.token = this.localStorage.GetToken();
   }
 
   GetRecordList(): Observable<ModalidadModel[]> {
-    return this.http.get<ModalidadModel[]>(`${this.url}/modalidads`)
+    return this.http.get<ModalidadModel[]>(`${this.url}/modalidads`,
+      {
+        headers:
+          new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+      })
   }
 
   SaveRecord(data: ModalidadModel): Observable<ModalidadModel> {
     console.log(this.token, "aqui esta el token");
-    
+
     return this.http.post<ModalidadModel>(`${this.url}/modalidads`, {
       nombre: data.nombre,
     },
-     {headers:
-      new HttpHeaders({
-        Authorization: `Bearer ${this.token}`
-      })
-    } 
-     )
+      {
+        headers:
+          new HttpHeaders({
+            Authorization: `Bearer ${this.token}`
+          })
+      }
+    )
   }
 
   SearchRecord(id: number): Observable<ModalidadModel> {
-    return this.http.get<ModalidadModel>(`${this.url}/modalidads/${id}`);
+    return this.http.get<ModalidadModel>(`${this.url}/modalidads/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   EditRecord(data: ModalidadModel): Observable<ModalidadModel> {
@@ -55,7 +67,7 @@ export class ModalidadService {
       });
   }
 
-  RemoveRecord(id: number):Observable<any>{
+  RemoveRecord(id: number): Observable<any> {
     return this.http.delete(
       `${this.url}/modalidads/${id}`,
       {

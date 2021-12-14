@@ -25,7 +25,12 @@ export class ComiteService {
   //MODELOS DEL BACKEND
 
   GetRecordList(): Observable<ComiteModel[]> {
-    return this.http.get<ComiteModel[]>(`${this.url}/comites`)
+    return this.http.get<ComiteModel[]>(`${this.url}/comites`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    })
   }
 
   SaveRecord(data: ComiteModel): Observable<ComiteModel> {
@@ -33,17 +38,21 @@ export class ComiteService {
     
     return this.http.post<ComiteModel>(`${this.url}/comites`, {
       nombre: data.nombre,
-    },
-     {headers:
-      new HttpHeaders({
+    }, 
+    {
+      headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
       })
-    } 
-     )
+    })
   }
 
   SearchRecord(id: number): Observable<ComiteModel> {
-    return this.http.get<ComiteModel>(`${this.url}/comites/${id}`);
+    return this.http.get<ComiteModel>(`${this.url}/comites/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    })  
   }
 
   EditRecord(data: ComiteModel): Observable<ComiteModel> {

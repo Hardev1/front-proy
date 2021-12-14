@@ -20,12 +20,13 @@ export class FacultadService {
   }
 
 
-
-  //CAMBIAR DESPUES DE THIS.URL POR LAS DEL BACKEND Y LOS NOMBRES DE VARIABLES A COMO SE RECIBAN EN LOS 
-  //MODELOS DEL BACKEND
-
   GetRecordList(): Observable<FacultadModel[]> {
-    return this.http.get<FacultadModel[]>(`${this.url}/facultad`)
+    return this.http.get<FacultadModel[]>(`${this.url}/facultad`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    })
   }
 
   SaveRecord(data: FacultadModel): Observable<FacultadModel> {
@@ -44,7 +45,12 @@ export class FacultadService {
   }
 
   SearchRecord(id: number): Observable<FacultadModel> {
-    return this.http.get<FacultadModel>(`${this.url}/facultad/${id}`);
+    return this.http.get<FacultadModel>(`${this.url}/facultad/${id}`,
+    {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.token}`
+      })
+    });
   }
 
   EditRecord(data: FacultadModel): Observable<FacultadModel> {

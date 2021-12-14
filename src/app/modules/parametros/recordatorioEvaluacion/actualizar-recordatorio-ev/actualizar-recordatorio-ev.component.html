@@ -1,1 +1,41 @@
-<p>actualizar-recordatorio-ev works!</p>
+<div class="container">
+    <form class="login" [formGroup]="form">
+
+        <h1 class="inicio-s">Editar recordatorio</h1>
+        <input type="hidden" formControlName="id">
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="fecha" class="label">Fecha de solicitud</mat-label>
+            <input matInput formControlName="fecha" name="fecha" [matDatepicker]="picker" placeholder="Ej: 12/31/2012">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="hora" class="label">hora</mat-label>
+            <input matInput formControlName="hora" name="hora" type="text" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="descripcion" class="label">Descripción</mat-label>
+            <input matInput formControlName="descripcion" name="descripcion" type="textarea" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label for="tipo_recordatorio" class="label">Tipo Recordatorio</mat-label>
+            <input matInput formControlName="tipo_recordatorio" name="tipo_recordatorio" type="textarea" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona la invitación a Evaluar</mat-label>
+            <mat-select formControlName="id_invitacion_evaluar" name="invitacionEvaluar" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of estadoSolList" value="{{r.id}}">
+                    {{r.id}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_invitacion_evaluar'].errors">Por favor, selecciona una invitación a Evaluar</mat-error>
+        </mat-form-field>
+
+        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Editar</button>
+    </form>
+</div>
