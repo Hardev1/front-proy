@@ -12,7 +12,7 @@ import { LineaInvestigacionService } from 'src/app/services/parametros/linea-inv
 import { ModalidadService } from 'src/app/services/parametros/modalidad.service';
 import { SolicitudService } from 'src/app/services/parametros/solicitud.service';
 import { TipoSolicitudService } from 'src/app/services/parametros/tipo-solicitud.service';
-import { InfoComponent } from '../../shared/components/modals/info/info.component';
+import { AsignarComponent } from '../../shared/components/modals/asignar/asignar.component';
 import { GeneralData } from 'src/app/config/general-data';
 import { UploadedFileModel } from 'src/app/models/parametros/file.model';
 import { ArchivosService } from 'src/app/services/parametros/archivos.service';
@@ -105,6 +105,7 @@ export class AsignarSolicitudComponent implements OnInit {
     let id = parseInt(this.route.snapshot.params["id"]);
     this.service.SearchRecord(id).subscribe({
       next: (data: SolicitudModel) => {
+        console.log(data)
         this.form.controls.id.setValue(data.id);
         this.form.controls.fecha.setValue(data.fecha);
         this.form.controls.nombre_solicitud.setValue(data.nombre_solicitud);
@@ -113,6 +114,7 @@ export class AsignarSolicitudComponent implements OnInit {
         this.form.controls.id_estado_solicitud.setValue(`${data.id_estado_solicitud}`);
         this.form.controls.id_modalidad.setValue(`${data.id_modalidad}`);
         this.form.controls.id_linea_investigacion.setValue(`${data.id_linea_investigacion}`);
+        this.uploadedFilename = data.archivo;
       }
     });
   }
@@ -125,12 +127,13 @@ export class AsignarSolicitudComponent implements OnInit {
     model.archivo = this.uploadedFilename;
     model.descripcion = this.form.controls.descripcion.value;
     model.id_tipo_solicitud = parseInt(this.form.controls.id_tipo_solicitud.value);
-    model.id_estado_solicitud = 3;
+    model.id_estado_solicitud = 4;
     model.id_modalidad = parseInt(this.form.controls.id_modalidad.value);
     model.id_linea_investigacion = parseInt(this.form.controls.id_linea_investigacion.value);
+    console.log(model)
     this.service.EditRecord(model).subscribe({
       next: (data: SolicitudModel) => {
-        this.router.navigate(["/solicitud/listar-solicitud-evaluadas"]);
+        this.router.navigate(["/solicitud/listar-solicitud-asignadas"]);
       },
       error: (err: any) => {
       }
@@ -138,7 +141,7 @@ export class AsignarSolicitudComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(InfoComponent);
+    this.dialog.open(AsignarComponent);
   }
 
   OnchangeInputFile(event: any){

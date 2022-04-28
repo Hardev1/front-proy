@@ -17,6 +17,8 @@ import { ActualizarFacultadComponent } from './facultad/actualizar-facultad/actu
 import { CrearFacultadComponent } from './facultad/crear-facultad/crear-facultad.component';
 import { EliminarFacultadComponent } from './facultad/eliminar-facultad/eliminar-facultad.component';
 import { ListarFacultadComponent } from './facultad/listar-facultad/listar-facultad.component';
+import { CrearJuradoLineaInvestigacionComponent } from './jurado-lineaInvestigacion/crear-jurado-lineaInvestigacion/crear-jurado-lineaInvestigacion.component';
+import { ListarJuradoLineaInvestigacionComponent } from './jurado-lineaInvestigacion/listar-jurado-lineaInvestigacion/listar-jurado-lineaInvestigacion.component';
 import { ActualizarJuradoComponent } from './jurado/actualizar-jurado/actualizar-jurado.component';
 import { CrearJuradoComponent } from './jurado/crear-jurado/crear-jurado.component';
 import { EliminarJuradoComponent } from './jurado/eliminar-jurado/eliminar-jurado.component';
@@ -29,6 +31,10 @@ import { ActualizarModalidadComponent } from './modalidad/actualizar-modalidad/a
 import { CrearModalidadComponent } from './modalidad/crear-modalidad/crear-modalidad.component';
 import { EliminarModalidadComponent } from './modalidad/eliminar-modalidad/eliminar-modalidad.component';
 import { ListarModalidadComponent } from './modalidad/listar-modalidad/listar-modalidad.component';
+import { ActualizarProponenteDepartamentoComponent } from './proponente-departamento/actualizar-proponente-departamento/actualizar-proponente-departamento.component';
+import { CrearProponenteDepartamentoComponent } from './proponente-departamento/crear-proponente-departamento/crear-proponente-departamento.component';
+import { EliminarProponenteDepartamentoComponent } from './proponente-departamento/eliminar-proponente-departamentos/eliminar-proponente-departamento.component';
+import { ListarProponenteDepartamentoComponent } from './proponente-departamento/listar-proponente-departamento/listar-proponente-departamento.component';
 import { ActualizarProponenteComponent } from './proponente/actualizar-proponente/actualizar-proponente.component';
 import { CrearProponenteComponent } from './proponente/crear-proponente/crear-proponente.component';
 import { EliminarProponenteComponent } from './proponente/eliminar-proponente/eliminar-proponente.component';
@@ -43,7 +49,10 @@ import { ActualizarResultadoEvComponent } from './ResultadoEvaluacion/actualizar
 import { CrearResultadoEvComponent } from './ResultadoEvaluacion/crear-resultado-ev/crear-resultado-ev.component';
 import { EliminarResultadoEvComponent } from './ResultadoEvaluacion/eliminar-resultado-ev/eliminar-resultado-ev.component';
 import { ListarResultadoEvComponent } from './ResultadoEvaluacion/listar-resultado-ev/listar-resultado-ev.component';
+import { CrearSolicitudComiteComponent } from './solicitud-comite/crear-solicitud-comite/crear-solicitud-comite.component';
+import { ListarSolicitudComiteComponent } from './solicitud-comite/listar-solicitud-comite/listar-solicitud-comite.component';
 import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-solicitud-proponente/crear-solicitud-proponente.component';
+import { ListarSolicitudProponenteComponent } from './solicitud-proponente/listar-solicitud-proponente/listar-solicitud-proponente.component';
 import { ActualizarTipoSolComponent } from './tipoSolicitud/actualizar-tipo-sol/actualizar-tipo-sol.component';
 import { CrearTipoSolComponent } from './tipoSolicitud/crear-tipo-sol/crear-tipo-sol.component';
 import { EliminarTipoSolComponent } from './tipoSolicitud/eliminar-tipo-sol/eliminar-tipo-sol.component';
@@ -140,10 +149,40 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
+    path: "crear-solicitud-comite",
+    component: CrearSolicitudComiteComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
     path: "crear-jurado",
     component: CrearJuradoComponent,
     canActivate: [AuthenticatedGuard]
   },
+  {
+    path: "crear-jurado-lineaInvestigacion",
+    component: CrearJuradoLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "listar-jurado-lineaInvestigacion",
+    component: ListarJuradoLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  /* {
+    path: "actualizar-jurado-lineaInvestigacion/:id",
+    component: ActualizarJuradoLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "eliminar-jurado-lineaInvestigacion/:id",
+    component: EliminarJuradoLineaInvestigacionComponent,
+    canActivate: [AuthenticatedGuard]
+  {
+    path: "eliminar-solicitud-comite/:id",
+    component: EliminarSolicitudComiteComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  }, */
   {
     path: "actualizar-jurado/:id",
     component: ActualizarJuradoComponent,
@@ -255,12 +294,12 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "actualizar-resultado-evaluacion",
+    path: "actualizar-resultado-evaluacion/:id",
     component: ActualizarResultadoEvComponent,
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "eliminar-resultado-evaluacion",
+    path: "eliminar-resultado-evaluacion/:id",
     component: EliminarResultadoEvComponent,
     canActivate: [AuthenticatedGuard]
   },
@@ -304,10 +343,40 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard]
   },
   {
-    path: "crear-solicitud-proponente/:id_solicitud",
+    path: "crear-solicitud-proponente/:id",
     component: CrearSolicitudProponenteComponent,
     canActivate: [AuthenticatedGuard]
-  }
+  },
+  {
+    path: "listar-solicitud-proponente",
+    component: ListarSolicitudProponenteComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "listar-proponente-departamento",
+    component: ListarProponenteDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "crear-proponente-departamento",
+    component: CrearProponenteDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "actualizar-proponente-departamento/:id",
+    component: ActualizarProponenteDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "eliminar-proponente-departamento/:id",
+    component: EliminarProponenteDepartamentoComponent,
+    canActivate: [AuthenticatedGuard]
+  },
+  {
+    path: "listar-solicitud-comite",
+    component: ListarSolicitudComiteComponent,
+    canActivate: [AuthenticatedGuard]
+  },
 ];
 
 @NgModule({

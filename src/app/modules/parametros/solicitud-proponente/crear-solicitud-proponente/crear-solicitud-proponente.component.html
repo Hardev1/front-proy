@@ -1,21 +1,20 @@
 <div class="container">
   <form class="login" [formGroup]="form">
 
-    <h1 class="inicio-s">Asignar proponentes</h1>
-    <input type="hidden" formControlName="id_solicitud">
+    <h1 class="inicio-s">Asignar solicitudes al docente</h1>
 
     <mat-form-field class="ancho mb-3" appearance="fill">
-      <mat-label>Proponente</mat-label>
-      <mat-select formControlName="id_proponente" name="proponente" required multiple>
+      <mat-label>Solicitud</mat-label>
+      <mat-select formControlName="id_solicitud" name="solicitud" required multiple>
         <mat-option>--</mat-option>
-        <mat-option *ngFor="let r of recordList" value="{{r.id}}">
-          {{r.primer_nombre}} {{r.primer_apellido}}
+        <mat-option *ngFor="let r of solicitud" value="{{r.id}}">
+          {{r.nombre_solicitud}}
         </mat-option>
       </mat-select>
-      <mat-error *ngIf="GetForm['id_proponente'].errors">Por favor, selecciona mínimo un proponente</mat-error>
+      <mat-error *ngIf="GetForm['id_solicitud'].errors">Por favor, selecciona mínimo un docente</mat-error>
     </mat-form-field>
 
     <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
-      [disabled]="GetForm['id_proponente'].errors">Crear</button>
+      [disabled]="GetForm['id_solicitud'].errors">Crear</button>
   </form>
 </div>

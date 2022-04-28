@@ -33,13 +33,14 @@ export class UsuarioService {
   SaveRecord(data: UsuarioModel): Observable<UsuarioModel> {
     console.log(this.token, "aqui esta el token");
 
-    return this.http.post<UsuarioModel>(`${this.url}/users`, {
+    return this.http.post<UsuarioModel>(`${this.url}/crear-usuario`, {
       nombre: data.nombre,
       apellido: data.apellido,
       documento: data.documento,
       email: data.email,
       fechaNacimiento: data.fechaNacimiento,
-      telefono: data.telefono
+      telefono: data.telefono,
+      clave: data.clave
     },
        {
         headers:
@@ -67,7 +68,8 @@ export class UsuarioService {
         email: data.email,
         fechaNacimiento: data.fechaNacimiento,
         telefono: data.telefono,
-        estado: data.estado
+        estado: data.estado,
+        clave: data.clave
       },
       {
         headers: new HttpHeaders({

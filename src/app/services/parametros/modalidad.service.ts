@@ -34,6 +34,7 @@ export class ModalidadService {
 
     return this.http.post<ModalidadModel>(`${this.url}/modalidads`, {
       nombre: data.nombre,
+      formato: data.formato
     },
       {
         headers:
@@ -59,6 +60,7 @@ export class ModalidadService {
       {
         id: data.id,
         nombre: data.nombre,
+        formato: data.formato
       },
       {
         headers: new HttpHeaders({

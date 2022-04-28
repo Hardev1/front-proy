@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GeneralData } from 'src/app/config/general-data';
 import { JuradoModel } from 'src/app/models/parametros/jurado.model';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 import { JuradoService } from 'src/app/services/parametros/jurado.service';
 
 @Component({
@@ -34,7 +34,7 @@ export class CrearJuradoComponent implements OnInit {
       documento: ["", [Validators.required, Validators.minLength(GeneralData.DOCUMENT_MIN_LENGHT)]],
       email: ["", [Validators.required, Validators.email]],
       telefono: ["", [Validators.required, Validators.minLength(GeneralData.CELLPHONE_MIN_LENGHT)]],
-      fechaNacimiento: ["", [Validators.required]],
+      fechaNacimiento: ["", []],
       entidad: ["", [Validators.required]]
   
     });

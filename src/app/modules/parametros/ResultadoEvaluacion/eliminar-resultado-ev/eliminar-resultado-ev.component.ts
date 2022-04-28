@@ -11,7 +11,6 @@ import { ResultadoEvaluacionService } from 'src/app/services/parametros/resultad
 })
 export class EliminarResultadoEvComponent implements OnInit {
 
-  id:any
   nombre: string | undefined = ""
 
   constructor(
@@ -24,19 +23,9 @@ export class EliminarResultadoEvComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  SearchRecord(){
-    let id = parseInt(this.route.snapshot.params["id"]);
-    this.service.SearchRecord(id).subscribe({
-      next: (data: ResultadoEvaluacionModel) => {
-        if(data.id){
-        this.id = data.id
-      }
-    }
-    });
-  }
-
   RemoveRecord() {
-    this.service.RemoveRecord(this.id).subscribe({
+    let id = parseInt(this.route.snapshot.params["id"]);
+    this.service.RemoveRecord(id).subscribe({
       next: (data: ResultadoEvaluacionModel) => {
         this.router.navigate(["/parametros/listar-resultado-evaluacion"]);
       },

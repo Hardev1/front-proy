@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ResponderComponent } from '../../shared/components/modals/responder/responder.component';
 
 @Component({
   selector: 'app-aceptada-invitacion-ev',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AceptadaInvitacionEvComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(ResponderComponent);
   }
 
 }

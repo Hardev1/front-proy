@@ -55,6 +55,15 @@ import { EliminarEstadoSolComponent } from './estadoSolicitud/eliminar-estado-so
 import { SharedModule } from '../../modules/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-solicitud-proponente/crear-solicitud-proponente.component';
+import { CrearJuradoLineaInvestigacionComponent } from './jurado-lineaInvestigacion/crear-jurado-lineaInvestigacion/crear-jurado-lineaInvestigacion.component';
+import { ActualizarSolicitudProponenteComponent } from './solicitud-proponente/actualizar-solicitud-proponente/actualizar-solicitud-proponente.component';
+import { ListarSolicitudProponenteComponent } from './solicitud-proponente/listar-solicitud-proponente/listar-solicitud-proponente.component';
+import { ListarJuradoLineaInvestigacionComponent } from './jurado-lineaInvestigacion/listar-jurado-lineaInvestigacion/listar-jurado-lineaInvestigacion.component';
+import { CrearSolicitudComiteComponent } from './solicitud-comite/crear-solicitud-comite/crear-solicitud-comite.component';
+import { ListarSolicitudComiteComponent } from './solicitud-comite/listar-solicitud-comite/listar-solicitud-comite.component';
+import { CrearProponenteDepartamentoComponent } from './proponente-departamento/crear-proponente-departamento/crear-proponente-departamento.component';
+import { ListarProponenteDepartamentoComponent } from './proponente-departamento/listar-proponente-departamento/listar-proponente-departamento.component';
+import { ActualizarProponenteDepartamentoComponent } from './proponente-departamento/actualizar-proponente-departamento/actualizar-proponente-departamento.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +118,16 @@ import { CrearSolicitudProponenteComponent } from './solicitud-proponente/crear-
        ListarEstadoSolComponent,
        ActualizarEstadoSolComponent,
        EliminarEstadoSolComponent,
-       CrearSolicitudProponenteComponent
+       CrearSolicitudProponenteComponent,
+       ActualizarSolicitudProponenteComponent,
+       CrearJuradoLineaInvestigacionComponent,
+       ListarSolicitudProponenteComponent,
+       ListarJuradoLineaInvestigacionComponent,
+       CrearSolicitudComiteComponent,
+       ListarSolicitudComiteComponent,
+       CrearProponenteDepartamentoComponent,
+       ListarProponenteDepartamentoComponent,
+       ActualizarProponenteDepartamentoComponent
   ],
   imports: [
     CommonModule,

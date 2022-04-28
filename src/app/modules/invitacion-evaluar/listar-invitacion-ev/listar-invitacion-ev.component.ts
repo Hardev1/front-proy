@@ -17,7 +17,7 @@ export class ListarInvitacionEvComponent implements OnInit, AfterViewInit {
 
   listaInvEvaluar: InvitacionEvaluarModel[] = []
   dataSource = new MatTableDataSource<InvitacionEvaluarModel>(this.listaInvEvaluar);
-  displayedColumns: string[] = ['id', 'tiene_una', 'pertenece_a', 'fecha_invitacion', 'fecha_respuesta', 'estado_invitacion', 'acciones'];
+  displayedColumns: string[] = ['id', 'tiene_una', 'pertenece_a', 'fecha_invitacion', 'fecha_respuesta', 'observaciones','estado_invitacion', 'acciones'];
   columnas = [
     { titulo: "Fecha de invitacion", name: "fecha_invitacion" },
     { titulo: "Fecha de respuesta", name: "fecha_respuesta" },

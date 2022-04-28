@@ -3,17 +3,23 @@
     <form class="login" [formGroup]="form">
 
         <label hidden>{{uploadedFilename}}</label>
-        <h1 class="inicio-s">Crear proponente</h1>
+        <h1 class="inicio-s">Crear docente</h1>
 
         <!--DAR ESTILOS DESDE LA LINEA 9 A 17-->
         <div>
             <img style="height: 150px; width: 150px;" class="mx-auto" *ngIf="!uploadedFile" src="../../../../../assets/img/profile-photo.jpg" />
             <img style="height: 150px; width: 150px;"  *ngIf="uploadedFile" src="{{url}}/archivo/1/{{uploadedFilename}}" />
         </div>
-        
+        <!--
         <div>
             <input type="file" name="image" (change)="OnchangeInputFile($event)"/>
             &nbsp;<button (click)="UploadImage()" style="background-color: grey;">Cargar Archivo</button>
+        </div>
+-->
+        <div >
+            <input  type="file" name="image" class="file-select" (change)="OnchangeInputFile($event)" />
+            <br>
+            &nbsp;<button (click)="UploadImage()" class="text-primary-600 hover:text-primary-900 font-bold hover:scale-110 duration-200 transform">Cargar Imagen</button>
         </div>
         
 

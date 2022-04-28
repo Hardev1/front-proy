@@ -8,6 +8,14 @@
             <input matInput formControlName="nombre" name="nombre" type="text" autocomplete="off">
         </mat-form-field>
 
+        <div>
+            <input type="file" name="image" class="file-select" (change)="OnchangeInputFile($event)" />
+            <br>
+            &nbsp;<button (click)="UploadFile()"
+                class="text-primary-600 hover:text-primary-900 font-bold hover:scale-110 duration-200 transform mb-8">Cargar
+                Formato</button>
+        </div>
+
         <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
             [disabled]="GetForm['nombre'].errors">Crear</button>
     </form>

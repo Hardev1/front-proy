@@ -36,7 +36,19 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
-        <button type="submit" class="ancho sign-in" routerLink="/seguridad/listar-usuario">Cancelar</button>
+          <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Rol/Roles del usuario</mat-label>
+            <mat-select formControlName="rol" name="rol" required multiple>
+              <mat-option>--</mat-option>
+              <mat-option *ngFor="let r of rolList" value="{{r._id}}">
+                {{r.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['rol'].errors">Por favor, selecciona al menos un rol</mat-error>
+            <mat-hint>Con tu rol tendrás determinados permisos</mat-hint>
+          </mat-form-field>
+
+          <button type="submit" class="ancho sign-in" routerLink="/seguridad/listar-usuario">Cancelar</button>
         <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()" >Editar</button>
     </form>
 </div>

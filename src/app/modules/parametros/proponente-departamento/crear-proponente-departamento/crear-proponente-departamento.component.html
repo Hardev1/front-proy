@@ -1,0 +1,31 @@
+<div class="container">
+    <form class="login" [formGroup]="form">
+  
+      <h1 class="inicio-s">Asignar docente a una departamento</h1>
+  
+      <mat-form-field class="ancho mb-3" appearance="fill">
+        <mat-label>docente</mat-label>
+        <mat-select formControlName="id_proponente" name="proponente" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let r of proponente" value="{{r.id}}">
+            {{r.primer_nombre}} {{r.primer_apellido}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="GetForm['id_proponente'].errors">Por favor, selecciona mínimo un docente</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="ancho mb-3" appearance="fill">
+        <mat-label>Departamento</mat-label>
+        <mat-select formControlName="id_departamento" name="departamento" required multiple>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let r of departamento" value="{{r.id}}">
+            {{r.nombre}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="GetForm['id_departamento'].errors">Por favor, selecciona mínimo un departamento</mat-error>
+      </mat-form-field>
+  
+      <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
+        [disabled]="GetForm['id_proponente'].errors">Crear</button>
+    </form>
+  </div>

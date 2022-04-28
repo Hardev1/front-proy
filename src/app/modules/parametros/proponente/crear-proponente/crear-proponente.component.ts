@@ -6,7 +6,7 @@ import { ProponenteModel } from 'src/app/models/parametros/proponente.model';
 import { ProponenteService } from 'src/app/services/parametros/proponente.service';
 import { TipoVinculacionModel } from 'src/app/models/parametros/tipo-vinculacion.model';
 import { TipoVinculacionService } from 'src/app/services/parametros/tipo-vinculacion.service';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 import { UploadedFileModel } from 'src/app/models/parametros/file.model';
 import { GeneralData } from 'src/app/config/general-data';
 

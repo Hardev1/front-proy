@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LineaInvestigacionModel } from 'src/app/models/parametros/linea-investigacion.model';
 import { LineaInvestigacionService } from 'src/app/services/parametros/linea-investigacion.service';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 
 @Component({
   selector: 'app-crear-linea-inv',

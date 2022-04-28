@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TipoVinculacionModel } from 'src/app/models/parametros/tipo-vinculacion.model';
 import { TipoVinculacionService } from 'src/app/services/parametros/tipo-vinculacion.service';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 
 @Component({
   selector: 'app-crear-tipo-vinc',

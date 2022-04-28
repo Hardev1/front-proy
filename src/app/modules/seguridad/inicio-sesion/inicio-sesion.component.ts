@@ -52,7 +52,7 @@ export class InicioSesionComponent implements OnInit {
         ],
       ],
       password: [
-        'nbaBqQel',
+        'VUSRgPCQ',
         [
           Validators.required,
           Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT),
@@ -70,9 +70,9 @@ export class InicioSesionComponent implements OnInit {
     return this.form.controls;
   }
 
-  openDialog() {
+  /* openDialog() {
     this.dialog.open(InfoComponent);
-  }
+  } */
 
   Login() {
     if (this.form.invalid) {
@@ -94,13 +94,11 @@ export class InicioSesionComponent implements OnInit {
               data.isLoggedIn = true;
               this.localStorage.SaveSessionData(data);
               this.securityService.RefreshSessionData(data);
-              this.openDialog()
               this.router.navigate(['/inicio'])
             }
           }
         },
         error: (error: any) => {
-          this.dialog.open(InfoComponent)
           console.log('Error al conectar con el backend');
         }
       });

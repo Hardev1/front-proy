@@ -34,6 +34,11 @@
             <td mat-cell *matCellDef="let r"> {{r.pertenece_a.nombre}} {{r.pertenece_a.apellido}}</td>
         </ng-container>
 
+        <ng-container matColumnDef="observaciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Observaciones: </th>
+            <td mat-cell *matCellDef="let r"> {{r.observaciones}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="estado_invitacion">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado de invitación </th>
             <td mat-cell *matCellDef="let r"> {{r.estado_invitacion.nombre}} {{r.estado_invitacion.apellido}}</td>

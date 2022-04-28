@@ -42,7 +42,17 @@ export class SolicitudService {
   }
 
   Evaluadas(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"2"}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"3"}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
+    {
+      headers:
+        new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+    });
+  }
+
+  Asignadas(): Observable<SolicitudModel[]> {
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"4"}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
     {
       headers:
         new HttpHeaders({

@@ -10,6 +10,7 @@ import { SharedModule } from '../../modules/shared/shared.module';
 import { ListarSolicitudEvaluadasComponent } from './listar-solicitud-evaluadas/listar-solicitud-evaluadas.component';
 import { AsignarSolicitudComponent } from './asignar-solicitud/asignar-solicitud.component';
 import { ListarSolicitudSinEvaluarComponent } from './listar-solicitud-sin-evaluar/listar-solicitud-sin-evaluar.component';
+import { ListarSolicitudAsignadaComponent } from './listar-solicitud-asignada/listar-solicitud-asignada.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,11 @@ import { ListarSolicitudSinEvaluarComponent } from './listar-solicitud-sin-evalu
     EliminarSolicitudComponent,
     ListarSolicitudEvaluadasComponent,
     AsignarSolicitudComponent,
-    ListarSolicitudSinEvaluarComponent
+    ListarSolicitudSinEvaluarComponent,
+    ListarSolicitudAsignadaComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, 
     SolicitudRoutingModule,
     SharedModule,
     FormsModule,

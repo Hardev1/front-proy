@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { GeneralData } from 'src/app/config/general-data';
 
 @Component({
   selector: 'app-listar-solicitud-evaluadas',
@@ -17,13 +17,13 @@ export class ListarSolicitudEvaluadasComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  url: string = GeneralData.BUSSINESS_URL
   recordList: SolicitudModel[] = [];
   dataSource = new MatTableDataSource<SolicitudModel>(this.recordList); //Para llenar tabla de Angular Material
   displayedColumns: string[] = ['id', 'fecha', 'nombre_solicitud', 'archivo', 'descripcion', 'tiene_un', 'posee_un', 'pertenece_a', 'tiene_una', 'acciones'];
   columnas = [
     { titulo: "ID", name: "id" },
     { titulo: "Nombre de la solicitud", name: "nombre_solicitud" },
-    { titulo: "Archivo", name: "archivo" },
     { titulo: "Descripción", name: "descripcion" }
   ];
   colForaneas = [

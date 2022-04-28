@@ -64,12 +64,12 @@ const routes: Routes = [
   {
     path: "cerrar-sesion",
     component: CerrarSesionComponent,
-    canActivate: [AuthenticatedGuard]
+    //canActivate: [AuthenticatedGuard]
   },
   {
     path: "cambiar-contraseña",
     component: CambiarContraComponent,
-    canActivate: [UnauthenticatedGuard]
+    canActivate: [AuthenticatedGuard]
   },
   {
     path: "recuperar-contraseña",

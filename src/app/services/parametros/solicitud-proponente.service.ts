@@ -22,7 +22,7 @@ export class SolicitudProponenteService {
 
   GetRecordList(): Observable<SolicitudProponenteModel[]> {
     
-    return this.http.get<SolicitudProponenteModel[]>(`${this.url}/proponentes?filter={"include":[{"relation":"tiene_un"}]}`,
+    return this.http.get<SolicitudProponenteModel[]>(`${this.url}/solicitud-proponente`,
     {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`

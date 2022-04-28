@@ -37,15 +37,14 @@
     </mat-form-field>
 
     <mat-form-field class="ancho mb-3" appearance="fill">
-      <mat-label>Selecciona tu Rol</mat-label>
+      <mat-label>Rol/Roles del usuario</mat-label>
       <mat-select formControlName="rol" name="rol" required multiple>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let r of listRol" value="{{r._id}}">
           {{r.nombre}}
         </mat-option>
       </mat-select>
-      <mat-error *ngIf="GetForm['rol'].errors">Por favor, selecciona un rol</mat-error>
-      <mat-hint>Con tu rol tendrás determinados permisos</mat-hint>
+      <mat-error *ngIf="GetForm['rol'].errors">Por favor, selecciona mínimo un rol</mat-error>
     </mat-form-field>
 
     <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"

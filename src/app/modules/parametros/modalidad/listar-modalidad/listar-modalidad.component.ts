@@ -4,6 +4,7 @@ import { ModalidadService } from 'src/app/services/parametros/modalidad.service'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { GeneralData } from 'src/app/config/general-data';
 
 @Component({
   selector: 'app-listar-modalidad',
@@ -15,13 +16,10 @@ export class ListarModalidadComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  url: string = GeneralData.BUSSINESS_URL
   recordList: ModalidadModel[] = [];
   dataSource = new MatTableDataSource<ModalidadModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['id', 'nombre', 'acciones'];
-  columnas = [
-    { titulo: "ID", name: "id" },
-    { titulo: "Nombre de la modalidad", name: "nombre" }
-  ];
+  displayedColumns: string[] = ['id', 'nombre', 'formato', 'acciones'];
 
   constructor(
     private service: ModalidadService,

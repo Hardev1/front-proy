@@ -21,6 +21,7 @@ export class RecordatorioService {
   }
 
   GetRecordList(): Observable<RecordatorioModel[]> {
+    ///http://localhost:3000/recordatorio?filter={"include":[{"relation":"tiene_una"}]}
     return this.http.get<RecordatorioModel[]>(`${this.url}/recordatorio?filter={"include":[{"relation":"tiene_una"}]}`,
       {
         headers:
@@ -97,8 +98,7 @@ export class RecordatorioService {
 
   CallReminder(data: RecordatorioModel): Observable<RecordatorioModel> {
     console.log(data);
-
-    return this.http.post<RecordatorioModel>(`${this.url}/recordatorio-llamada/${data.id}`, {
+    return this.http.post<RecordatorioModel>(`${this.url}/recordatorio-llamada/`, {
       descripcion: data.descripcion,
       id_invitacion_evaluar: data.id_invitacion_evaluar
     },

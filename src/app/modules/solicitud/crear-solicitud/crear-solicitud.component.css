@@ -77,7 +77,7 @@ span {
 }
 
 .file-select::before {
-  content: "Importar jurados";
+  content: "Importar documento";
   border: 2px solid white;
   text-transform: uppercase;
   color: white;

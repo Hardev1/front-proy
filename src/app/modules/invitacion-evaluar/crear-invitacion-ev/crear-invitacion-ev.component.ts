@@ -8,7 +8,7 @@ import { SolicitudModel } from 'src/app/models/parametros/solicitud.model';
 import { InvitacionEvaluarService } from 'src/app/services/parametros/invitacion-evaluar.service';
 import { JuradoService } from 'src/app/services/parametros/jurado.service';
 import { SolicitudService } from 'src/app/services/parametros/solicitud.service';
-import { InfoComponent } from '../../shared/components/modals/info/info.component';
+import { InfoComponent } from '../../shared/components/modals/create/create.component';
 
 @Component({
   selector: 'app-crear-invitacion-ev',

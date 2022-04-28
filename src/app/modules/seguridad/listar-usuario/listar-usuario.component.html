@@ -1,8 +1,8 @@
 <mat-form-field appearance="standard">
     <button routerLink="/seguridad/crear-usuario" matTooltip="Agregar Usuario"
-                  class="float-right hover:text-danger-600 duration-150">
-                <mat-icon>add</mat-icon>
-           </button>
+        class="float-right hover:text-danger-600 duration-150">
+        <mat-icon>add</mat-icon>
+    </button>
     <mat-label>Buscar por nombre:</mat-label>
     <input matInput class="box" (keyup)="applyFilter($event)" placeholder="Ejemplo: Humberto" autocomplete="off" #input>
 </mat-form-field>
@@ -25,7 +25,7 @@
         <!-- Columna fecha de nacimiento-->
         <ng-container matColumnDef="rols">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Roles</th>
-            <td mat-cell class="flex-wrap" *matCellDef="let r"> 
+            <td mat-cell class="flex-wrap" *matCellDef="let r">
                 <div>
                     <ul>
                         <li *ngFor="let rol of r.rols">

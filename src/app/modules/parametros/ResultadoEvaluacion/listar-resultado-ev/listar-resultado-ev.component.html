@@ -26,7 +26,7 @@
         <!-- Columna de las propiedades foráneas de solicitud -->
         <ng-container *ngFor="let cf of colForaneas" matColumnDef="{{ cf.name }}">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ cf.titulo }} </th>
-            <td mat-cell *matCellDef="let r"> {{r[cf.name]?.nombre}} </td>
+            <td mat-cell *matCellDef="let r"> {{r[cf.name]}} </td>
         </ng-container>
 
         <ng-container matColumnDef="acciones">

@@ -19,6 +19,18 @@
             <td mat-cell *matCellDef="let r"> {{r[columna.name]}}</td>
         </ng-container>
 
+        <ng-container matColumnDef="archivo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Archivo</th>
+
+            <td class="pointer justify-center" mat-cell *matCellDef="let r">
+                
+                <a href="{{url}}/archivo/2/{{r.archivo}}" target="_blank" matTooltip="Descargar {{r.archivo}}"
+                    class="flex justify-center mx-auto fill-current hover:text-warn-500 duration-150">
+                    <mat-icon>download</mat-icon>
+            </a>
+            </td>
+        </ng-container>
+
         <!-- Columna fecha -->
         <ng-container matColumnDef="fecha">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
@@ -34,7 +46,7 @@
         <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef><strong>Acciones</strong></th>
             <td class="pointer" mat-cell *matCellDef="let row">
-                <button routerLink="/solicitud/asignar-solicitud/{{row.id}}" matTooltip="Agregar a Revisados"
+                <button routerLink="/solicitud/asignar-solicitud/{{row.id}}" matTooltip="Agregar a Asignados"
                     class="fill-current hover:text-green-600 duration-150">
                     <mat-icon>done_outline</mat-icon>
                 </button>
@@ -43,10 +55,10 @@
                     <mat-icon>clear</mat-icon>
                 </button>
                 
-                <button routerLink="/parametros/listar-invitacion-aceptada" matTooltip="Revisar Respuestas"
+                <!-- <button routerLink="/parametros/listar-invitacion-aceptada" matTooltip="Revisar Respuestas"
                     class="fill-current hover:text-danger-600 duration-150">
                     <mat-icon>search</mat-icon>
-                </button>
+                </button> -->
                 <!--?filter={"where":{"id_solicitud":{{row.id}}}}
                 <button routerLink="/parametros/listar-invitacion-evaluar-aceptada-solicitud" matTooltip="Revisar"
                     class="fill-current hover:text-danger-600 duration-150">

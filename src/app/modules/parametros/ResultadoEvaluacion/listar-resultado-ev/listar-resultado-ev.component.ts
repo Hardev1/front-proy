@@ -17,14 +17,14 @@ export class ListarResultadoEvComponent implements OnInit {
 
   recordList: ResultadoEvaluacionModel[] = [];
   dataSource = new MatTableDataSource<ResultadoEvaluacionModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['id', 'fecha', 'formato_diligenciado', 'descripcion', 'tiene_una'];
+  displayedColumns: string[] = ['id', 'fecha', 'formato_diligenciado', 'descripcion', 'id_invitacion_evaluar', 'acciones'];
   columnas = [
     { titulo: "ID", name: "id" },
     { titulo: "Formato Diligenciado", name: "formato_diligenciado" },
     { titulo: "Descripción", name: "descripcion" }
   ];
   colForaneas = [
-    { titulo: "Invitación a Evaluar", name: "tiene_una" }
+    { titulo: "ID Invitación a Evaluar", name: "id_invitacion_evaluar" }
   ]
 
   constructor(

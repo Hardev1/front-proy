@@ -4,8 +4,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { GeneralData } from 'src/app/config/general-data';
 import { UsuarioModel } from 'src/app/models/usuario.model';
+import { UsuarioRolModel } from 'src/app/models/parametros/usuario-rol.model';
 import { RolService } from 'src/app/services/shared/rol.service';
 import { UsuarioService } from 'src/app/services/shared/usuario.service';
+import { UsuarioRolService } from 'src/app/services/parametros/usuario-rol.service';
 import { InfoComponent } from '../../shared/components/modals/info/info.component';
 import { RolModel } from '../../shared/modelos/rol.model';
 
@@ -18,12 +20,14 @@ export class CrearUsuarioComponent implements OnInit {
 
   form: FormGroup = new FormGroup({});
   listRol: RolModel[] = [];
-  
+  lista: string[] = []  
+
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private service: UsuarioService,
+    private usuarioRolservice: UsuarioRolService,
     private rolService: RolService,
     private dialog: MatDialog
   ) { }
@@ -40,12 +44,13 @@ export class CrearUsuarioComponent implements OnInit {
       documento: ["", [Validators.required, Validators.minLength(GeneralData.DOCUMENT_MIN_LENGHT)]],
       email: ["", [Validators.required, Validators.email]],
       telefono: ["", [Validators.required, Validators.minLength(GeneralData.CELLPHONE_MIN_LENGHT)]],
-      fechaNacimiento: ["", [Validators.required]]
-  
+      fechaNacimiento: ["", [Validators.required]],
+      rol: ["", [Validators.required]] 
     });
   }
-
+  
   SaveRecord() {
+    this.lista = this.form.controls.rol.value
     let model = new UsuarioModel();
     model.nombre = this.form.controls.nombre.value;
     model.apellido = this.form.controls.apellido.value;
@@ -53,8 +58,21 @@ export class CrearUsuarioComponent implements OnInit {
     model.email = this.form.controls.email.value;
     model.documento = this.form.controls.documento.value;
     model.fechaNacimiento = this.form.controls.fechaNacimiento.value;
+    model.clave = "string";
     this.service.SaveRecord(model).subscribe({
       next: (data: UsuarioModel) => {
+        this.lista.forEach(element => {
+          console.log(element)
+          let modelo = new UsuarioRolModel();
+          modelo.id_user = data._id
+          modelo.id_rol = element
+          this.usuarioRolservice.SaveRecord(modelo).subscribe({
+            next: (d: UsuarioRolModel) => {
+              
+            }
+          })
+        })
+         
         this.router.navigate(["/seguridad/listar-usuario"]);
       },
       error: (err: any) => {

@@ -1,3 +1,58 @@
+.file-select {
+  position: relative;
+  display: inline-block;
+  @apply px-14 py-3 my-5 h-14 overflow-hidden;
+}
+
+.file-select::before {
+  content: "Importar formato";
+  border: 2px solid white;
+  text-transform: uppercase;
+  color: white;
+  padding: 10px 50px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
+  @apply inset-0 bg-gray-200 mb-3 hover:border-primary-400 text-primary-600 hover:text-primary-800 font-black tracking-wider shadow-lg;
+}
+
+.file-select:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: white;
+  top: -46px;
+  left: -100px;
+  width: 50px;
+  height: 85px;
+  opacity: 20%;
+  transform: rotate(-30deg);
+}
+
+.file-select:hover:after {
+  left: 120%;
+  transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+  -webkit-transition: all 600ms cubic-bezier(0.3, 1, 0.2, 1);
+}
+
+.file-select::before:hover {
+  background: linear-gradient(to bottom, #8aafe6 5%, #5d5dfc 100%);
+  background-color: #8aafe6;
+}
+
+.file-select input[type="file"] {
+  opacity: 0;
+  width: 200px;
+  height: 32px;
+  display: inline-block;
+}
+
+
 .container {
     @apply w-screen transform flex justify-center items-center;
   }

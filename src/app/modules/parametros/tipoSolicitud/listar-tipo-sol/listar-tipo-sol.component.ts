@@ -19,8 +19,11 @@ export class ListarTipoSolComponent implements OnInit {
   url: string = GeneralData.BUSSINESS_URL
   recordList: TipoSolicitudModel[] = [];
   dataSource = new MatTableDataSource<TipoSolicitudModel>(this.recordList); //Para llenar tabla de Angular Material
-  displayedColumns: string[] = ['id', 'nombre', 'formato', 'acciones'];
- 
+  displayedColumns: string[] = ['id', 'nombre', 'acciones'];
+  columnas = [
+    { titulo: "ID", name: "id" },
+    { titulo: "Tipo de solicitud", name: "nombre" }
+  ];
 
   constructor(
     private service: TipoSolicitudService,

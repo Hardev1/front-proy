@@ -5,11 +5,11 @@
         <input type="hidden" formControlName="id">
 
         <div mat-dialog-content>
-            <p>¿Desea marcar a esta soliciitud como asignada?</p>
+            <p>¿Desea marcar a esta solicitud como asignada?</p>
           </div>
           <div mat-dialog-actions>
-            <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()">Asignar</button>
-            <button type="submit" class="ancho sign-in" color="primary" (click)="close()">Cancelar</button>
+            <button type="submit" class="ancho sign-in" (click)="SaveRecord()">Asignar</button>
+            <button type="submit" class="ancho sign-in" color="primary" routerLink="/solicitud/listar-solicitud-evaluadas" (click)="close()">Cancelar</button>
         </div>
     </form>
 </div>

@@ -1,15 +1,14 @@
-<div class="container">
+<div class="flex justify-center">
     <form class="login" [formGroup]="form">
 
-        <h1 class="inicio-s">Recordatorio por llamada</h1>
+        <h1 class="mt-8 text-blue-900 font-bold text-xl mx-auto">Recordatorio por llamada, ingresa una breve descripción de la llamada realizada</h1>
         <input type="hidden" formControlName="id">
-        <input type="hidden" formControlName="id_invitacion_evaluar">
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label for="descripcion" class="label">Descripcion</mat-label>
+        <mat-form-field class="ancho w-full flex justify-center" appearance="fill">
+            <mat-label for="descripcion" class="label ">Descripcion</mat-label>
             <input matInput formControlName="descripcion" name="descripcion" type="text" autocomplete="off">
         </mat-form-field>
 
-        <button type="submit" class="ancho sign-in" (click)="SaveRecord()" (click)="openDialog()"
-            [disabled]="GetForm['descripcion'].errors">Crear</button>
+        <button type="submit" class="flex justify-center sign-in mx-auto" (click)="SaveRecord()" (click)="openDialog()"
+            [disabled]="GetForm['descripcion'].errors">Crear recordatorio</button>
     </form>
 </div>

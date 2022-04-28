@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecordatorioModel } from 'src/app/models/parametros/recordatorio.model';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 import { InvitacionEvaluarService } from 'src/app/services/parametros/invitacion-evaluar.service';
 import { RecordatorioService } from 'src/app/services/parametros/recordatorio.service';
 import { InvitacionEvaluarModel } from 'src/app/models/parametros/invitacion-evaluar.model';
@@ -31,33 +31,22 @@ export class LlamadaRecordatorioEvComponent implements OnInit {
   ngOnInit(): void {
     this.GetRecordList();
     this.CrearFormulario();
-    this.SearchRecord();
   }
 
   CrearFormulario() {
     this.form = this.fb.group({
-      descripcion: ["", []],
+      descripcion: ["", [Validators.required]],
       id: ["", [Validators.required]],
       id_invitacion_evaluar: ["", [Validators.required]],
     })
   }
 
-  SearchRecord() {
-    this.id = parseInt(this.route.snapshot.params["id"]);
-    this.recordatorioService.SearchRecord(this.id).subscribe({
-      next: (data: RecordatorioModel) => {
-        this.form.controls.id.setValue(data.id);
-        this.form.controls.descripcion.setValue(data.descripcion); 
-        this.form.controls.id_invitacion_evaluar.setValue(`${data.id_invitacion_evaluar}`); 
-      }
-    });
-  }
-
   SaveRecord() {
+    let id = parseInt(this.route.snapshot.params["id"]);
     let model = new RecordatorioModel();
-    model.id = this.id;
     model.descripcion = this.form.controls.descripcion.value;
-    model.id_invitacion_evaluar = parseInt(this.form.controls.invitacionId.value);
+    model.id_invitacion_evaluar = id;
+    //model.id_invitacion_evaluar = parseInt(this.form.controls.id_invitacion_evaluar.value);
     this.recordatorioService.CallReminder(model).subscribe({
       next: (data: RecordatorioModel) => {
         console.log(data)

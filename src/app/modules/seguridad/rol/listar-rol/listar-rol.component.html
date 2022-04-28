@@ -1,5 +1,9 @@
 <mat-form-field appearance="standard">
     <mat-label>Buscar por nombre:</mat-label>
+    <button routerLink="/seguridad/crear-rol" matTooltip="Agregar rol"
+        class="float-right hover:text-danger-600 duration-150">
+        <mat-icon>add</mat-icon>
+    </button>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Académico" autocomplete="off" #input>
 </mat-form-field>
 

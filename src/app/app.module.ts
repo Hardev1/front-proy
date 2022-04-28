@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './public/template/header/header.component';
 import { FooterComponent } from './public/template/footer/footer.component';
 import { NotFoundComponent } from './public/error/not-found/not-found.component';
 import { InternalServerErrorComponent } from './public/error/internal-server-error/internal-server-error.component';
@@ -21,7 +20,6 @@ import { AuthTokenInterceptor } from './interceptors/auth-token.interceptors';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     NotFoundComponent,
     InternalServerErrorComponent,

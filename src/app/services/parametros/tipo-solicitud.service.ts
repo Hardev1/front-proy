@@ -34,8 +34,7 @@ export class TipoSolicitudService {
     console.log(this.token, "aqui esta el token");
 
     return this.http.post<TipoSolicitudModel>(`${this.url}/tipo-solicituds`, {
-      nombre: data.nombre,
-      formato: data.formato
+      nombre: data.nombre
     },
       {
         headers:
@@ -60,8 +59,7 @@ export class TipoSolicitudService {
       `${this.url}/tipo-solicituds/${data.id}`,
       {
         id: data.id,
-        nombre: data.nombre,
-        formato: data.formato,
+        nombre: data.nombre
       },
       {
         headers: new HttpHeaders({

@@ -62,7 +62,7 @@ export class CrearResultadoEvComponent implements OnInit {
     model.descripcion = this.form.controls.descripcion.value;
     model.id_invitacion_evaluar = parseInt(this.form.controls.id_invitacion_evaluar.value);
     model.formato_diligenciado = this.uploadedFilename;
-    this.resultadoEvaluacionService.EditRecord(model).subscribe({
+    this.resultadoEvaluacionService.SaveRecord(model).subscribe({
       next: (data: ResultadoEvaluacionModel) => {
         this.router.navigate(["/parametros/listar-resultado-evaluacion"]);
       },

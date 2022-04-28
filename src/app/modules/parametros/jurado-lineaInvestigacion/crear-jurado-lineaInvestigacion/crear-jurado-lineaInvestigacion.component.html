@@ -1,0 +1,31 @@
+<div class="container">
+    <form class="login" [formGroup]="form">
+  
+      <h1 class="inicio-s">Jurado y línea</h1>
+  
+      <mat-form-field class="ancho mb-3" appearance="fill">
+        <mat-label>Jurado</mat-label>
+        <mat-select formControlName="id_jurado" name="jurado" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let j of jurado" value="{{j.id}}">
+            {{j.nombre}} 
+          </mat-option>
+        </mat-select>
+        <mat-error >Por favor, selecciona mínimo un jurado</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="ancho mb-3" appearance="fill">
+        <mat-label>Linea de investigación</mat-label>
+        <mat-select formControlName="id_linea" name="linea" required multiple>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let l of linea" value="{{l.id}}">
+            {{l.nombre}} 
+          </mat-option>
+        </mat-select>
+        <mat-error >Por favor, selecciona mínimo una línea de investigación</mat-error>
+      </mat-form-field>
+  
+      <button type="submit" class="ancho sign-in" (click)="SaveRecord()"
+      >Crear</button>
+    </form>
+  </div>

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InvitacionEvaluarModel } from 'src/app/models/parametros/invitacion-evaluar.model';
 import { RecordatorioModel } from 'src/app/models/parametros/recordatorio.model';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 import { InvitacionEvaluarService } from 'src/app/services/parametros/invitacion-evaluar.service';
 import { RecordatorioService } from 'src/app/services/parametros/recordatorio.service';
 
@@ -29,52 +29,21 @@ export class CorreoRecordatorioEvComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //this.SearchRecord();
-    this.GetRecordList();
-    this.CrearFormulario();
+    this.SaveRecord();
+    this.openDialog();
   }
-
-  CrearFormulario() {
-    this.form = this.fb.group({
-      id: ["", [Validators.required]],
-      id_invitacion_evaluar: ["", [Validators.required]],
-    })
-  }
-
-  /* SearchRecord() {
-    this.id = parseInt(this.route.snapshot.params["id"]);
-    this.recordatorioService.SearchRecord(this.id).subscribe({
-      next: (data: RecordatorioModel) => {
-        console.log(data)
-        this.form.controls.id_invitacion_evaluar.setValue(data.id_invitacion_evaluar);
-      }
-    });
-  } */
 
   SaveRecord() {
+    let id = parseInt(this.route.snapshot.params["id"]);
     let recModel = new RecordatorioModel();
-    recModel.id_invitacion_evaluar = parseInt(this.form.controls.id_invitacion_evaluar.value);
+    recModel.id_invitacion_evaluar = id;
+    //recModel.id_invitacion_evaluar = parseInt(this.form.controls.id_invitacion_evaluar.value);
     this.recordatorioService.TextReminder(recModel).subscribe({
       next: (data: RecordatorioModel) => {
         console.log(data)
         this.router.navigate(["/parametros/listar-recordatorio-evaluacion"])
       },
       error: (err: any) => {
-      }
-    });
-  }
-
-
-  get GetForm() {
-    return this.form.controls;
-  }
-
-  GetRecordList() {
-    this.id = parseInt(this.route.snapshot.params["id"]);
-    this.invitacionService.Aceptadas().subscribe({
-      next: (data: InvitacionEvaluarModel[]) => {
-        this.recordList = data;
-        console.log(data)
       }
     });
   }

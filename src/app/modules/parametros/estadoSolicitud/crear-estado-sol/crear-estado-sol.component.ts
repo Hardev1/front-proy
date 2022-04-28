@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EstadoSolicitudModel } from 'src/app/models/parametros/estado-solicitud.model';
 import { EstadoSolicitudService } from 'src/app/services/parametros/estado-solicitud.service';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 
 @Component({
   selector: 'app-crear-estado-sol',

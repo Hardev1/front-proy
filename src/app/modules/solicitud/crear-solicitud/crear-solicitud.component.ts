@@ -10,7 +10,7 @@ import { ModalidadModel } from 'src/app/models/parametros/modalidad.model';
 import { TipoSolicitudService } from 'src/app/services/parametros/tipo-solicitud.service';
 import { LineaInvestigacionService } from 'src/app/services/parametros/linea-investigacion.service';
 import { ModalidadService } from 'src/app/services/parametros/modalidad.service';
-import { InfoComponent } from 'src/app/modules/shared/components/modals/info/info.component';
+import { InfoComponent } from 'src/app/modules/shared/components/modals/create/create.component';
 import { GeneralData } from 'src/app/config/general-data';
 import { UploadedFileModel } from 'src/app/models/parametros/file.model';
 import { ArchivosService } from 'src/app/services/parametros/archivos.service';

@@ -113,6 +113,7 @@ export class ActualizarSolicitudComponent implements OnInit {
         this.form.controls.id_estado_solicitud.setValue(`${data.id_estado_solicitud}`);
         this.form.controls.id_modalidad.setValue(`${data.id_modalidad}`);
         this.form.controls.id_linea_investigacion.setValue(`${data.id_linea_investigacion}`);
+        this.uploadedFilename = data.archivo
       }
     });
   }
