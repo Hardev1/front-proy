@@ -16,6 +16,9 @@ import { InfoComponent } from '../../shared/components/modals/info/info.componen
 import { GeneralData } from 'src/app/config/general-data';
 import { UploadedFileModel } from 'src/app/models/parametros/file.model';
 import { ArchivosService } from 'src/app/services/parametros/archivos.service';
+import { SolicitudProponenteService } from 'src/app/services/parametros/solicitud-proponente.service';
+import { ProponenteService } from 'src/app/services/parametros/proponente.service';
+import { ProponenteModel } from 'src/app/models/parametros/proponente.model';
 
 @Component({
   selector: 'app-actualizar-solicitud',
@@ -29,6 +32,7 @@ export class ActualizarSolicitudComponent implements OnInit {
   lineaInvList: LineaInvestigacionModel[] = []
   modalidadList: ModalidadModel[] = []
   estadoSolList: EstadoSolicitudModel[] = []
+  proponenteList: ProponenteModel[] = []
 
   formFile: FormGroup = new FormGroup({});
   url: string= GeneralData.BUSSINESS_URL;
@@ -39,6 +43,8 @@ export class ActualizarSolicitudComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private service: SolicitudService,
+    private solicitudProponenteService: SolicitudProponenteService,
+    private proponenteService: ProponenteService,
     private route: ActivatedRoute,
     private tipoSolService: TipoSolicitudService,
     private lineaInvService: LineaInvestigacionService,
@@ -97,6 +103,11 @@ export class ActualizarSolicitudComponent implements OnInit {
     this.estadoSolService.GetRecordList().subscribe({
       next: (data: EstadoSolicitudModel[]) => {
         this.estadoSolList = data;
+      }
+    });
+    this.proponenteService.GetRecordList().subscribe({
+      next: (data: ProponenteModel[]) => {
+        this.proponenteList = data;
       }
     });
   }

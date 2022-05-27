@@ -22,6 +22,17 @@
             <input matInput formControlName="descripcion" name="descripcion" type="textarea" autocomplete="off">
         </mat-form-field>
 
+        <mat-form-field class="ancho mb-3" appearance="fill">
+            <mat-label>Selecciona el docente</mat-label>
+            <mat-select formControlName="id_proponente" name="id_proponente" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let r of proponenteList" value="{{r.id}}">
+                    {{r.primer_nombre }} {{r.primer_apellido}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="GetForm['id_linea_investigacion'].errors">Por favor, selecciona el área</mat-error>
+        </mat-form-field>
+
         <div class="card ">
             <h2 class="card-header mt-8 text-blue-900">Subir los resultados</h2>
             <div class="card-body flex justify-center">

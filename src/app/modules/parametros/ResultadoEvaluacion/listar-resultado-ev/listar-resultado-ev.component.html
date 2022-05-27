@@ -17,6 +17,18 @@
             <td mat-cell *matCellDef="let r"> {{r[columna.name]}}</td>
         </ng-container>
 
+        <ng-container matColumnDef="formato_diligenciado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Formato diligenciado</th>
+
+            <td class="pointer justify-center" mat-cell *matCellDef="let r">
+                
+                <a href="{{url}}/archivo/2/{{r.formato_diligenciado}}" target="_blank" matTooltip="Descargar {{r.formato_diligenciado}}"
+                    class="flex justify-center mx-auto fill-current hover:text-warn-500 duration-150">
+                    <mat-icon>download</mat-icon>
+            </a>
+            </td>
+        </ng-container>
+
         <!-- Columna fecha -->
         <ng-container matColumnDef="fecha">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>

@@ -3,7 +3,7 @@
 }
 
 .container {
-  @apply absolute top-1/2 -translate-y-2/4 transform flex justify-center items-center;
+  @apply absolute top-1/2 -translate-y-2/4 translate-x-24 transform flex justify-center items-center;
 }
 
 .inicio-s {

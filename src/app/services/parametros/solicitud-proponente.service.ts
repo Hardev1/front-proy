@@ -47,7 +47,7 @@ export class SolicitudProponenteService {
   }
 
   SearchRecord(id: number): Observable<SolicitudProponenteModel> {
-    return this.http.get<SolicitudProponenteModel>(`${this.url}/proponentes/${id}`,
+    return this.http.get<SolicitudProponenteModel>(`${this.url}/solicitud-proponente/${id}`,
     {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`
@@ -57,7 +57,7 @@ export class SolicitudProponenteService {
 
   EditRecord(data: SolicitudProponenteModel): Observable<SolicitudProponenteModel> {
     return this.http.put<SolicitudProponenteModel>(
-      `${this.url}/proponentes/${data.id}`,
+      `${this.url}/solicitud-proponente/${data.id}`,
       {
         id: data.id,
         id_proponente: data.id_proponente,
@@ -72,7 +72,7 @@ export class SolicitudProponenteService {
 
   RemoveRecord(id: number):Observable<any>{
     return this.http.delete(
-      `${this.url}/proponentes/${id}`,
+      `${this.url}/proponentes/${id}/solicituds`,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`

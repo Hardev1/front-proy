@@ -52,7 +52,7 @@ export class InicioSesionComponent implements OnInit {
         ],
       ],
       password: [
-        'VUSRgPCQ',
+        'kkDsmnix',
         [
           Validators.required,
           Validators.minLength(GeneralData.PASSWORD_MIN_LENGHT),

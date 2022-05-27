@@ -14,6 +14,10 @@ import { InfoComponent } from 'src/app/modules/shared/components/modals/create/c
 import { GeneralData } from 'src/app/config/general-data';
 import { UploadedFileModel } from 'src/app/models/parametros/file.model';
 import { ArchivosService } from 'src/app/services/parametros/archivos.service';
+import { ProponenteService } from 'src/app/services/parametros/proponente.service';
+import { ProponenteModel } from 'src/app/models/parametros/proponente.model';
+import { SolicitudProponenteModel } from 'src/app/models/parametros/solicitud-proponente.model';
+import { SolicitudProponenteService } from 'src/app/services/parametros/solicitud-proponente.service';
 
 @Component({
   selector: 'app-crear-solicitud',
@@ -26,6 +30,7 @@ export class CrearSolicitudComponent implements OnInit {
   tipoSolList: TipoSolicitudModel[] = []
   lineaInvList: LineaInvestigacionModel[] = []
   modalidadList: ModalidadModel[] = []
+  proponenteList: ProponenteModel[] = []
   
   formFile: FormGroup = new FormGroup({});
   url: string= GeneralData.BUSSINESS_URL;
@@ -36,10 +41,12 @@ export class CrearSolicitudComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private solicitudService: SolicitudService,
+    private solicitudProponenteService: SolicitudProponenteService,
     private archivosService: ArchivosService,
     private tipoSolService: TipoSolicitudService,
     private lineaInvService: LineaInvestigacionService,
     private modalidadService: ModalidadService,
+    private proponenteService: ProponenteService,
     public dialog: MatDialog
   ) { }
 
@@ -50,7 +57,8 @@ export class CrearSolicitudComponent implements OnInit {
       descripcion: ["",[]],
       id_tipo_solicitud: ["",[Validators.required]],
       id_modalidad: ["",[Validators.required]],
-      id_linea_investigacion: ["",[Validators.required]]
+      id_linea_investigacion: ["",[Validators.required]],
+      id_proponente: ["",[Validators.required]]
     });
   }
 
@@ -70,6 +78,7 @@ export class CrearSolicitudComponent implements OnInit {
 
   SaveRecord() {
     let model = new SolicitudModel();
+    let union = new SolicitudProponenteModel();
     model.fecha = this.form.controls.fecha.value;
     model.nombre_solicitud = this.form.controls.nombre_solicitud.value;
     model.descripcion = this.form.controls.descripcion.value;
@@ -77,11 +86,21 @@ export class CrearSolicitudComponent implements OnInit {
     model.id_linea_investigacion = parseInt(this.form.controls.id_linea_investigacion.value);
     model.id_tipo_solicitud = parseInt(this.form.controls.id_tipo_solicitud.value);
     model.archivo = this.uploadedFilename;
+    union.id_proponente = parseInt(this.form.controls.id_proponente.value);
     console.log(model);
     
     this.solicitudService.SaveRecord(model).subscribe({
       next: (data: SolicitudModel) => {
-        this.router.navigate(["solicitud/listar-solicitud"]);
+        union.id_solicitud = data.id,
+        console.log(union);
+        
+        this.solicitudProponenteService.SaveRecord(union).subscribe({
+          next: (data: SolicitudProponenteModel) => {
+            this.router.navigate(["solicitud/listar-solicitud"]);
+          },
+          error: (err: any) => {
+          }
+        });
       },
       error: (err: any) => {
       }
@@ -102,6 +121,11 @@ export class CrearSolicitudComponent implements OnInit {
     this.lineaInvService.GetRecordList().subscribe({
       next: (data: LineaInvestigacionModel[]) => {
         this.lineaInvList = data;
+      }
+    });
+    this.proponenteService.GetRecordList().subscribe({
+      next: (data: ProponenteModel[]) => {
+        this.proponenteList = data;
       }
     });
   }

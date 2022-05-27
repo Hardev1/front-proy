@@ -16,6 +16,9 @@ module.exports = {
   important: true,
   theme: {
     extend: {
+      /* backgroundImage: theme => ({
+        'portada':'url(./../../../../assets//img/login-background.png)',
+      }), */
       colors: {
           primary: colors.blue,
           secondary: colors.gray,
