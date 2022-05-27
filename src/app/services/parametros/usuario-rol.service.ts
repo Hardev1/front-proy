@@ -87,4 +87,8 @@ export class UsuarioRolService {
         })
       });
   }
+
+  GetJuradoId():number{
+    return this.localStorage.GetIdJurado();
+  }
 }

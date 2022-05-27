@@ -25,6 +25,7 @@ export class SidenavComponent implements OnDestroy, OnInit {
   sesion: boolean = false;
   nombre: any = "";
   rol: any = "";
+  rolId:string = "";
 
   panelOpenState = false;
   mobileQuery: MediaQueryList;
@@ -46,6 +47,7 @@ export class SidenavComponent implements OnDestroy, OnInit {
           this.sesion = data.isLoggedIn;
           this.nombre = data.usuario?.nombre;
           this.rol = data.rol?.nombre;
+          this.rolId = data.rol?._id as string;
           console.log(data)
         },
         error: (err) => {
@@ -53,5 +55,6 @@ export class SidenavComponent implements OnDestroy, OnInit {
         }
       }
     );
+    //alert(this.rolId);
   }
 }

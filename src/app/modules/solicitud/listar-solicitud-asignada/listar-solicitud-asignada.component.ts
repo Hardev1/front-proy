@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GeneralData } from 'src/app/config/general-data';
+import { UsuarioRolService } from 'src/app/services/parametros/usuario-rol.service';
 
 @Component({
   selector: 'app-listar-solicitud-asignada',
@@ -38,6 +39,7 @@ export class ListarSolicitudAsignadaComponent implements OnInit {
     private service: SolicitudService,
     private route: ActivatedRoute,
     private router: Router,
+    private usuarioRolService: UsuarioRolService
   ) { }
 
   ngAfterViewInit() { // Para no definir por fuera del componente
@@ -51,7 +53,8 @@ export class ListarSolicitudAsignadaComponent implements OnInit {
 
 
   GetRecordList() {
-    this.service.Asignadas().subscribe({
+    let idJurado = this.usuarioRolService.GetJuradoId();
+    this.service.Asignadas(idJurado).subscribe({
       next: (data: SolicitudModel[]) => {
         this.dataSource.data = data; //Execute el llenado de la tabla de Angular Material
       }

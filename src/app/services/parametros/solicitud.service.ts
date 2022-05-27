@@ -51,8 +51,8 @@ export class SolicitudService {
     });
   }
 
-  Asignadas(): Observable<SolicitudModel[]> {
-    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"4"}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
+  Asignadas(idJurado:number): Observable<SolicitudModel[]> {
+    return this.http.get<SolicitudModel[]>(`${this.url}/solicitud?filter={"where":{"id_estado_solicitud":"4", "id_jurado"${idJurado}}, "include":[{"relation":"tiene_una"},{"relation":"posee_un"},{"relation":"pertenece_a"},{"relation":"tiene_un"}]}`,
     {
       headers:
         new HttpHeaders({

@@ -33,4 +33,13 @@ export class LocalStorageService {
     return "";
   }
 
+  GetIdJurado(): number{
+    let saved = localStorage.getItem("session-data");
+    if(saved){
+      let data = JSON.parse(saved);
+      return data.usuario.idJurado;
+    }
+    return -1;
+  }
+
 }
